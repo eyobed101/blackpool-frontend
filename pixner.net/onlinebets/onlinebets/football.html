@@ -2447,25 +2447,43 @@
         // Group games by their commence_time
         const groupedGames = groupGamesByCommenceTime(backendData);
 
-        console.log("joined",groupedGames)
+        console.log("joined", groupedGames);
 
         Object.entries(groupedGames).forEach(([commenceTime, games]) => {
-          if (commenceTime === "live") {
-            const liveHeader = document.createElement("div");
-            liveHeader.classList.add("match-table-head", "pt-20", "pb-20");
-            liveHeader.innerHTML = "<h2>Live</h2>";
-            container.appendChild(liveHeader);
-          } else {
-            console.log("what is happing")
-            const currentDate = new Date();
-            const matchHeader = document.createElement("div");
-            matchHeader.classList.add("match-table-head", "pt-20", "pb-20");
-            
-            matchHeader.innerHTML = `<h2>Prematch ${new Date(
+          const headerText = {
+            live: "Live",
+            today: "Today",
+            tomorrow: "Tomorrow",
+          };
+          if (headerText[commenceTime] && games.length > 0) {
+            const header = document.createElement("div");
+            header.classList.add("match-table-head", "pt-20", "pb-20");
+            header.innerHTML = `<h2>${headerText[commenceTime]}</h2>`;
+            container.appendChild(header);
+          } else if (!headerText[commenceTime] && games.length > 0) {
+            const matchDiv = document.createElement("div");
+            matchDiv.classList.add("match-table-head", "pt-20", "pb-20");
+            matchDiv.innerHTML = `<h2>Prematch ${new Date(
               commenceTime
             ).toLocaleDateString()}</h2>`;
-            container.appendChild(matchHeader);
+            container.appendChild(matchDiv);
           }
+          // if (commenceTime === "live") {
+          //   const liveHeader = document.createElement("div");
+          //   liveHeader.classList.add("match-table-head", "pt-20", "pb-20");
+          //   liveHeader.innerHTML = "<h2>Live</h2>";
+          //   container.appendChild(liveHeader);
+          // } else {
+          //   console.log("what is happing")
+          //   const currentDate = new Date();
+          //   const matchHeader = document.createElement("div");
+          //   matchHeader.classList.add("match-table-head", "pt-20", "pb-20");
+          //   console.log(new Date.now().toLocaleDateString)
+          //   matchHeader.innerHTML = `<h2>Prematch ${new Date(
+          //     commenceTime
+          //   ).toLocaleDateString()}</h2>`;
+          //   container.appendChild(matchHeader);
+          // }
 
           games.forEach((item) => {
             const matchDiv = document.createElement("div");
@@ -2475,15 +2493,52 @@
             const awayTeam = item.away_team;
 
             // Finding the outcomes and their prices
-            const homeTeamOutcome = item.bookmakers[0].markets[0].outcomes.find(
-              (outcome) => outcome.name === homeTeam
-            );
-            const drawOutcome = item.bookmakers[0].markets[0].outcomes.find(
-              (outcome) => outcome.name === "Draw"
-            );
-            const awayTeamOutcome = item.bookmakers[0].markets[0].outcomes.find(
-              (outcome) => outcome.name === awayTeam
-            );
+            // const homeTeamOutcome = item.bookmakers[0].markets[0].outcomes.find(
+            //   (outcome) => outcome.name === homeTeam
+            // );
+            // const drawOutcome = item.bookmakers[0].markets[0].outcomes.find(
+            //   (outcome) => outcome.name === "Draw"
+            // );
+            // const awayTeamOutcome = item.bookmakers[0].markets[0].outcomes.find(
+            //   (outcome) => outcome.name === awayTeam
+            // );
+            const homeTeamOutcome =
+              item.bookmakers &&
+              item.bookmakers[0] &&
+              item.bookmakers[0].markets &&
+              item.bookmakers[0].markets[0]
+                ? item.bookmakers[0].markets[0].outcomes.find(
+                    (outcome) => outcome.name === homeTeam
+                  )
+                : null;
+
+            const drawOutcome =
+              item.bookmakers &&
+              item.bookmakers[0] &&
+              item.bookmakers[0].markets &&
+              item.bookmakers[0].markets[0]
+                ? item.bookmakers[0].markets[0].outcomes.find(
+                    (outcome) => outcome.name === "Draw"
+                  )
+                : null;
+
+            const awayTeamOutcome =
+              item.bookmakers &&
+              item.bookmakers[0] &&
+              item.bookmakers[0].markets &&
+              item.bookmakers[0].markets[0]
+                ? item.bookmakers[0].markets[0].outcomes.find(
+                    (outcome) => outcome.name === awayTeam
+                  )
+                : null;
+
+            const homeTeamPrice = homeTeamOutcome
+              ? homeTeamOutcome.price
+              : "N/A";
+            const drawPrice = drawOutcome ? drawOutcome.price : "N/A";
+            const awayTeamPrice = awayTeamOutcome
+              ? awayTeamOutcome.price
+              : "N/A";
 
             // Create your HTML structure dynamically using the backend data
             matchDiv.innerHTML = `
@@ -2521,15 +2576,15 @@
             <div class="table-body-right">
               <a href="#0" class="table-pointing-box">
                 <span class="list">1</span>
-                <span>${homeTeamOutcome.price}</span>
+                <span>${homeTeamPrice}</span>
               </a>
               <a href="#0" class="table-pointing-box">
                 <span class="list">X</span>
-                <span>${drawOutcome.price}</span>
+                <span>${drawPrice}</span>
               </a>
               <a href="#0" class="table-pointing-box">
                 <span class="list">2</span>
-                <span>${awayTeamOutcome.price}</span>
+                <span>${awayTeamPrice}</span>
               </a>
               <a href="#0" class="table-pointing-box">
                 <span class="list">O 2.5</span>
@@ -2555,23 +2610,38 @@
 
       function groupGamesByCommenceTime(games) {
         const currentTime = new Date();
+        const today = new Date(currentTime);
+        today.setHours(0, 0, 0, 0); // Set today's date to midnight
+
+        const tomorrow = new Date(currentTime);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        tomorrow.setHours(0, 0, 0, 0); // Set tomorrow's date to midnight
+
         const liveGames = [];
+        const todayGames = [];
+        const tomorrowGames = [];
         const prematchGames = [];
 
         games.forEach((game) => {
           const commenceTime = new Date(game.commence_time);
-          if (commenceTime <= currentTime) {
+          commenceTime.setHours(0, 0, 0, 0);
+
+          if (commenceTime.getTime() < today.getTime()) {
             liveGames.push(game);
+          } else if (commenceTime.getTime() === today.getTime()) {
+            todayGames.push(game);
+          } else if (commenceTime.getTime() === tomorrow.getTime()) {
+            tomorrowGames.push(game);
           } else {
             prematchGames.push(game);
           }
         });
 
-        const groupedGames = {};
-        liveGames.sort(
-          (a, b) => new Date(a.commence_time) - new Date(b.commence_time)
-        );
-        groupedGames["live"] = liveGames;
+        const groupedGames = {
+          live: liveGames,
+          today: todayGames,
+          tomorrow: tomorrowGames,
+        };
 
         prematchGames.forEach((game) => {
           const key = game.commence_time.split("T")[0];
@@ -2580,10 +2650,51 @@
           }
           groupedGames[key].push(game);
         });
-        return groupedGames;
-      }
 
-      
+        return groupedGames;
+        // const currentTime = new Date();
+        // const liveGames = [];
+        // const prematchGames = [];
+
+        // games.forEach((game) => {
+        //   const commenceTime = new Date(game.commence_time);
+        //   if (commenceTime <= currentTime) {
+        //     liveGames.push(game);
+        //   } else {
+        //     prematchGames.push(game);
+        //   }
+        // });
+
+        // const groupedGames = {};
+        // liveGames.sort(
+        //   (a, b) => new Date(a.commence_time) - new Date(b.commence_time)
+        // );
+        // groupedGames["live"] = liveGames;
+
+        // prematchGames.forEach((game) => {
+        //   const key = game.commence_time.split("T")[0];
+        //   if (!groupedGames[key]) {
+        //     groupedGames[key] = [];
+        //   }
+        //   groupedGames[key].push(game);
+        // });
+        // return groupedGames;
+      }
+      document.addEventListener("DOMContentLoaded", () => {
+  const oneButton = document.querySelector('.table-pointing-box .list');
+
+  oneButton.addEventListener('click', function(event) {
+    event.preventDefault();
+
+    this.parentElement.classList.toggle('selected');
+
+    const odds = this.textContent;
+    const team = this.closest('.match-table').querySelector('span').textContent;
+
+    console.log('Odds:', odds);
+    console.log('Team:', team);
+  });
+});
 
       window.onload = () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -2592,6 +2703,9 @@
         renderData(sportType);
       };
     </script>
+    
+      
+   
   </body>
 
   <!-- Mirrored from pixner.net/onlinebets/onlinebets/football.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:00:54 GMT -->
