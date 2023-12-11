@@ -2491,6 +2491,7 @@
 
             const homeTeam = item.home_team;
             const awayTeam = item.away_team;
+            const itemId = item.id;
 
             // Finding the outcomes and their prices
             // const homeTeamOutcome = item.bookmakers[0].markets[0].outcomes.find(
@@ -2540,6 +2541,14 @@
               ? awayTeamOutcome.price
               : "N/A";
 
+            const Home = { price: homeTeamPrice, type: "home", team: homeTeam };
+            const Away = { price: awayTeamPrice, type: "away", team: awayTeam };
+            const Draw = { price: drawPrice, type: "draw", team: "X" };
+
+            const homeStringified = JSON.stringify(Home);
+            const drawStringified = JSON.stringify(Draw);
+            const awayStringified = JSON.stringify(Away);
+
             // Create your HTML structure dynamically using the backend data
             matchDiv.innerHTML = `
       <div class="table-wrap mb-5">
@@ -2561,30 +2570,30 @@
             <ul class="table-body-left">
               <li>
                 <a href="#0">
-                  <span>${homeTeam}</span>
+                  <span>${Home.team}</span>
                 </a>
               </li>
               <li>
                 <a href="#0" class="vs"> VS </a>
               </li>
               <li>
-                <a href="#0">
-                  <span>${awayTeam}</span>
+                <a  href="#0">
+                  <span>${Away.team}</span>
                 </a>
               </li>
             </ul>
             <div class="table-body-right">
-              <a href="#0" class="table-pointing-box">
+              <a href="#0" data-value='${homeStringified}' class="table-pointing-box">
                 <span class="list">1</span>
-                <span>${homeTeamPrice}</span>
+                <span>${Home.price}</span>
               </a>
-              <a href="#0" class="table-pointing-box">
+              <a href="#0" data-value='${drawStringified}' class="table-pointing-box">
                 <span class="list">X</span>
-                <span>${drawPrice}</span>
+                <span>${Draw.price}</span>
               </a>
-              <a href="#0" class="table-pointing-box">
+              <a href="#0" data-value='${awayStringified}' class="table-pointing-box">
                 <span class="list">2</span>
-                <span>${awayTeamPrice}</span>
+                <span>${Away.price}</span>
               </a>
               <a href="#0" class="table-pointing-box">
                 <span class="list">O 2.5</span>
@@ -2602,7 +2611,42 @@
         </div>
       </div>
     `;
+            // const homeTeamLink = matchDiv.querySelector('.table-body-left li:nth-child(1) a');
+            // const awayTeamLink = matchDiv.querySelector('.table-body-left li:nth-child(3) a');
 
+            // // Add click event listeners to the <a> tags
+            // homeTeamLink.addEventListener('click', (event) => {
+            //     event.preventDefault(); // Prevent the default behavior of the link
+            //     const homeTeamValue = homeTeamLink.querySelector('span').innerText;
+            //     console.log('Home Team Value:', homeTeamValue);
+            //     // Do something with the home team value
+            // });
+
+            // awayTeamLink.addEventListener('click', (event) => {
+            //     event.preventDefault(); // Prevent the default behavior of the link
+            //     const awayTeamValue = awayTeamLink.querySelector('span').innerText;
+            //     console.log('Away Team Value:', awayTeamValue);
+            //     // Do something with the away team value
+            // });
+            //
+            matchDiv.addEventListener("click", (event) => {
+              event.preventDefault();
+
+              const clickedElement = event.target.closest(
+                ".table-pointing-box"
+              );
+              if (clickedElement) {
+                const valueSpan = clickedElement.querySelector('span:last-child');
+    const value = valueSpan.innerText;
+
+    // Change the color of the clicked element to red
+    clickedElement.style.backgroundColor = 'red';
+                const valueString = clickedElement.getAttribute("data-value");
+                const valueObject = JSON.parse(valueString);
+
+                console.log(valueObject);
+              }
+            });
             container.appendChild(matchDiv);
           });
         });
@@ -2680,21 +2724,22 @@
         // });
         // return groupedGames;
       }
-      document.addEventListener("DOMContentLoaded", () => {
-  const oneButton = document.querySelector('.table-pointing-box .list');
+      // document.addEventListener("DOMContentLoaded", () => {
+      //   const oneButton = document.querySelector(".table-pointing-box .list");
 
-  oneButton.addEventListener('click', function(event) {
-    event.preventDefault();
+      //   oneButton.addEventListener("click", function (event) {
+      //     event.preventDefault();
 
-    this.parentElement.classList.toggle('selected');
+      //     this.parentElement.classList.toggle("selected");
 
-    const odds = this.textContent;
-    const team = this.closest('.match-table').querySelector('span').textContent;
+      //     const odds = this.textContent;
+      //     const team =
+      //       this.closest(".match-table").querySelector("span").textContent;
 
-    console.log('Odds:', odds);
-    console.log('Team:', team);
-  });
-});
+      //     console.log("Odds:", odds);
+      //     console.log("Team:", team);
+      //   });
+      // });
 
       window.onload = () => {
         const urlParams = new URLSearchParams(window.location.search);
@@ -2703,9 +2748,6 @@
         renderData(sportType);
       };
     </script>
-    
-      
-   
   </body>
 
   <!-- Mirrored from pixner.net/onlinebets/onlinebets/football.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:00:54 GMT -->
