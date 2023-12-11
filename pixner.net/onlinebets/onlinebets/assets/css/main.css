@@ -4301,6 +4301,10 @@ p {
   transition: all 0.3s;
   border: 1px solid var(--left-menu);
 }
+.main-tabbing .match-table .table-wrap .table-inner .table-body .table-body-right .table-pointing-box:not(:last-child).pressed {
+  /* Your styles for the pressed state */
+  background: linear-gradient(80.92deg, #00A182 -7.62%, #81CD34 105.55%); /* Example color change */
+}
 .main-tabbing .match-table .table-wrap .table-inner .table-body .table-body-right .table-pointing-box:not(:last-child) .list {
   font-size: 18px;
   line-height: 30px;

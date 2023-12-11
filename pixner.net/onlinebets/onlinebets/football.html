@@ -2541,9 +2541,24 @@
               ? awayTeamOutcome.price
               : "N/A";
 
-            const Home = { price: homeTeamPrice, type: "home", team: homeTeam };
-            const Away = { price: awayTeamPrice, type: "away", team: awayTeam };
-            const Draw = { price: drawPrice, type: "draw", team: "X" };
+            const Home = {
+              price: homeTeamPrice,
+              type: "home",
+              team: homeTeam,
+              pressed: false,
+            };
+            const Away = {
+              price: awayTeamPrice,
+              type: "away",
+              team: awayTeam,
+              pressed: false,
+            };
+            const Draw = {
+              price: drawPrice,
+              type: "draw",
+              team: "X",
+              pressed: false,
+            };
 
             const homeStringified = JSON.stringify(Home);
             const drawStringified = JSON.stringify(Draw);
@@ -2636,13 +2651,40 @@
                 ".table-pointing-box"
               );
               if (clickedElement) {
-                const valueSpan = clickedElement.querySelector('span:last-child');
-    const value = valueSpan.innerText;
+                const valueSpan =
+                  clickedElement.querySelector("span:last-child");
+                const value = valueSpan.innerText;
 
-    // Change the color of the clicked element to red
-    clickedElement.style.backgroundColor = 'red';
+                // Change the color of the clicked element to red
+
                 const valueString = clickedElement.getAttribute("data-value");
                 const valueObject = JSON.parse(valueString);
+                // const bgColor = clickedElement.style.background;
+
+                if (!valueObject.pressed) {
+                  console.log("true")
+                  // clickedElement.style.background =
+                  //   "linear-gradient(80.92deg, #00A182 -7.62%, #81CD34 105.55%)";
+                  clickedElement.classList.add('pressed');
+
+                  clickedElement.setAttribute(
+                    "data-value",
+                    JSON.stringify({
+                      ...valueObject,
+                      pressed: true,
+                    })
+                  );
+                } else {
+                  console.log("flase")
+                  clickedElement.classList.remove('pressed');
+                  clickedElement.setAttribute(
+                    "data-value",
+                    JSON.stringify({
+                      ...valueObject,
+                      pressed: false,
+                    })
+                  );
+                }
 
                 console.log(valueObject);
               }
