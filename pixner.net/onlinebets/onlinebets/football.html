@@ -2440,6 +2440,7 @@
     <script src="assets/js/main.js"></script>
 
     <script>
+      const eventsArray = [];
       async function renderData(sportType) {
         const backendData = await fetchDataBySportType(sportType);
         const container = document.getElementById("betsall");
@@ -2545,19 +2546,26 @@
               price: homeTeamPrice,
               type: "home",
               team: homeTeam,
+              id: item.id,
               pressed: false,
+              vs: awayTeam,
             };
             const Away = {
               price: awayTeamPrice,
               type: "away",
               team: awayTeam,
+              id: item.id,
               pressed: false,
+              vs: homeTeam,
             };
             const Draw = {
               price: drawPrice,
               type: "draw",
               team: "X",
+              id: item.id,
               pressed: false,
+              home: homeTeam,
+              away: awayTeam,
             };
 
             const homeStringified = JSON.stringify(Home);
@@ -2659,13 +2667,9 @@
 
                 const valueString = clickedElement.getAttribute("data-value");
                 const valueObject = JSON.parse(valueString);
-                // const bgColor = clickedElement.style.background;
 
                 if (!valueObject.pressed) {
-                  console.log("true")
-                  // clickedElement.style.background =
-                  //   "linear-gradient(80.92deg, #00A182 -7.62%, #81CD34 105.55%)";
-                  clickedElement.classList.add('pressed');
+                  clickedElement.classList.add("pressed");
 
                   clickedElement.setAttribute(
                     "data-value",
@@ -2674,9 +2678,12 @@
                       pressed: true,
                     })
                   );
+                  eventsArray.push(valueObject);
+                  populateComboBets(eventsArray);
+
+                  console.log(eventsArray);
                 } else {
-                  console.log("flase")
-                  clickedElement.classList.remove('pressed');
+                  clickedElement.classList.remove("pressed");
                   clickedElement.setAttribute(
                     "data-value",
                     JSON.stringify({
@@ -2685,13 +2692,187 @@
                     })
                   );
                 }
-
-                console.log(valueObject);
               }
             });
+
             container.appendChild(matchDiv);
           });
         });
+      }
+
+      //       function populateComboBets(dataArray) {
+      //         const bbetsDiv = document.getElementById("bbets");
+      //         bbetsDiv.classList.add('tab-pane', 'fade', 'show', 'active');
+      //         bbetsDiv.id = 'bbets';
+      //         bbetsDiv.setAttribute('role', 'tabpanel');
+
+      //         const comboWrapper = document.createElement("div");
+
+      //         comboWrapper.classList.add("combo-wrapper");
+
+      //         dataArray.forEach((data) => {
+      //           const matchItems = document.createElement("div");
+      //           matchItems.classList.add("match-items");
+      //           const closeHead = document.createElement('div');
+      // closeHead.classList.add('close-head');
+      // closeHead.innerHTML = `
+      // <div class="combo-wrapper">
+      //                     <div class="close-box">
+      //                       <div class="close-items">
+      //   <span>${data.team} vs ${data.vs}</span>
+      //   <span class="close">
+      //     <i class="fas fa-xmark"></i>
+      //   </span>
+      //   </div>
+      //                     </div>
+      //                       </div>
+      // `;
+
+      // bbetsDiv.appendChild(closeHead);
+
+      //           matchItems.innerHTML = `
+      //       <div class="match-items-left">
+      //         <div class="icon">
+      //           <img src="assets/img/header/right-icon/footaball.svg" alt="icon" />
+      //         </div>
+      //         <div class="cont">
+      //           <span>${data.team}</span>
+      //           <span class="winner">Match Winner</span>
+      //         </div>
+      //       </div>
+      //       <div class="match-items-right">
+      //         <div class="icon">
+      //           <img src="assets/img/header/right-icon/uptodwon.svg" alt="icon" />
+      //         </div>
+      //         <span>${data.price}</span>
+      //       </div>
+      //     `;
+
+      //     comboWrapper.appendChild(matchItems);
+      //   });
+      //         bbetsDiv.appendChild(comboWrapper);
+      //       }
+
+      const bbetsDiv = document.querySelector("#bbets .combo-wrapper");
+      function createMatchItems(team, winner, price) {
+        return `
+    <div class="match-items">
+      <div class="match-items-left">
+        <div class="icon">
+          <img src="assets/img/header/right-icon/footaball.svg" alt="icon" />
+        </div>
+        <div class="cont">
+          <span>${team}</span>
+          <span class="winner">${winner}</span>
+        </div>
+      </div>
+      <div class="match-items-right">
+        <div class="icon">
+          <img src="assets/img/header/right-icon/uptodwon.svg" alt="icon" />
+        </div>
+        <span>${price}</span>
+      </div>
+    </div>
+  `;
+      }
+
+      function populateComboBets(dataArray) {
+        const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
+        const newData = document.createElement("div");
+
+        dataArray.forEach((data) => {
+          let home_team = "";
+          let away_team = "";
+          let matchItemsHTML = "";
+          if (data.type === "draw") {
+            matchItemsHTML += createMatchItems(data.team, "Draw", data.price);
+            home_team = data.home;
+            away_team = data.away;
+          } else {
+            matchItemsHTML += createMatchItems(
+              data.team,
+              "Match Winner",
+              data.price
+            );
+            home_team = data.team;
+            away_team = data.vs;
+          }
+
+          newData.innerHTML += `
+  
+      <div class="close-head">
+        <span>${home_team} vs ${away_team}</span>
+        <span class="close">
+          <i class="fas fa-xmark"></i>
+        </span>
+      </div>
+    
+  <div class="match-fixing">
+    ${matchItemsHTML}
+  </div>
+
+  <hr>
+  
+
+`;
+        });
+
+        const htmlContent = newData.outerHTML;
+
+        
+
+        bbetsDiv.innerHTML = `
+  <div class="close-box">
+    <!-- Close box content -->
+    <div class="close-items">
+  ${htmlContent}
+  <div class="match-items match-progress">
+  <div class="match-items match-odds">
+    <div class="match-items-left">
+      <div class="cont">
+        <span>Total odds</span>
+      </div>
+    </div>
+    <div class="match-items-right">
+      <div class="icon">
+        <img
+          src="assets/img/header/right-icon/uptodwon.svg"
+          alt="icon"
+        />
+      </div>
+      <span>${priceSum}</span>
+    </div>
+  </div>
+  </div>
+</div>
+
+  </div>
+  <div class="combo-switch">
+    <span> Accept all odds changes </span>
+    <label class="switch-com">
+      <input type="checkbox" class="checkbox" hidden />
+      <span class="checkbox-label">
+        <span class="ball"></span>
+      </span>
+    </label>
+  </div>
+  <div class="ammount-items">
+    <form action="#">
+      <input type="number" placeholder="Bet Amount" />
+      <button type="submit">Max</button>
+    </form>
+  </div>
+  <div class="possible-win">
+    <span>Possible win</span>
+    <span class="amount">$300</span>
+  </div>
+  <div class="combo-footer">
+    <a href="#0" class="cmn--btn">
+      <span> Place Bet $300</span>
+    </a>
+  </div>
+
+  `;
       }
 
       function groupGamesByCommenceTime(games) {
