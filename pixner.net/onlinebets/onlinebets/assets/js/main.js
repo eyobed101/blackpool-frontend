@@ -375,21 +375,43 @@ const API_BASE_URL = "http://localhost:8000/api/";
 const AuthAPI = {
   register: async function (userData) {
     try {
-      const response = await fetch(`${API_BASE_URL}register`, {
+      await fetch(`${API_BASE_URL}register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(userData),
-      });
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            // Show verification modal after successful registration
+            $("#exampleModal2").modal("hide"); // Hide registration modal
+            $("#verificationModal").modal("show"); // Show verification modal
+          } else {
+            console.error("Registration failed:", data.error);
+            // Show an error message to the user
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Show an error message to the user
+        });
+      // const response = await fetch(`${API_BASE_URL}register`, {
+      //   method: "POST",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify(userData),
+      // });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to register user");
-      }
+      // if (!response.ok) {
+      //   const errorData = await response.json();
+      //   throw new Error(errorData.error || "Failed to register user");
+      // }
 
-      const result = await response.json();
-      return result.success;
+      // const result = await response.json();
+      // return result.success;
     } catch (error) {
       console.error("Error registering user:", error);
       throw error;
@@ -456,7 +478,7 @@ const UserAPI = {
       const response = await fetch(`${API_BASE_URL}details`, {
         method: "GET",
         headers: {
-          Authorization: `Bearer ${authToken}`, 
+          Authorization: `Bearer ${authToken}`,
         },
       });
 
@@ -466,7 +488,7 @@ const UserAPI = {
       }
 
       const result = await response.json();
-      return result.success; 
+      return result.success;
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
@@ -475,6 +497,86 @@ const UserAPI = {
   uploadVerification: async function (verificationData) {
     // Implementation
   },
+  betHistory: async function (authToken) {
+    try {
+      const response = await fetch(`${API_BASE_URL}bet-history`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch user details");
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (e) {
+      console.error("Error fetching user details:", error);
+    }
+    // Implementation
+  },
+  placeBet: async function (data, betAmount, authToken) {
+    try {
+      let combo_condition = true;
+
+      if (data.length > 1) {
+        combo_condition = true;
+        console.log(combo_condition);
+      } else {
+        combo_condition = false;
+        console.log(combo_condition);
+      }
+
+      const requestBody = {
+        is_combo_bet: combo_condition,
+        data: data,
+        betAmount: betAmount,
+      };
+
+      const response = await fetch(`${API_BASE_URL}placebet`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestBody),
+      });
+
+      // if (!response.ok) {
+      //   const errorData = await response.json();
+      //   console.log(errorData)
+
+      //   throw new Error(errorData.message || "Failed to fetch user details");
+      // }
+
+      if (response.status === 200) {
+        const result = await response.json();
+
+        console.log(result.message);
+
+        localStorage.removeItem("eventsArray");
+        window.location.reload();
+      } else if (response.status === 401) {
+        const result = await response.json();
+
+        console.log(result.message);
+      } else if (response.status === 404) {
+        const result = await response.json();
+
+        console.log(result.message);
+      } else {
+        console.log(" ");
+      }
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      throw error;
+    }
+  },
+
   // ... other user-related API calls
 };
 
@@ -521,13 +623,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const email = document.getElementById("email33").value;
     const password = document.getElementById("password-field2").value;
     const phone_number = document.getElementById("phone-number-field").value;
-    console.log(username);
-    console.log(email);
-    console.log(password);
-    try {
-      const result = await AuthAPI.register({ name, email, password, phone_number });
 
-      console.log(result)
+    validateEmail(email);
+
+    try {
+      const result = await AuthAPI.register({
+        name,
+        email,
+        password,
+        phone_number,
+      });
+
+      console.log(result);
 
       const registerModal = document.getElementById("exampleModal2");
       const bootstrapModal = new bootstrap.Modal(registerModal);
@@ -547,6 +654,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+function validateEmail(email) {
+  const re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
   const profileSection = document.getElementById("profileSection");
@@ -596,14 +708,16 @@ async function fetchDataBySportType(sportType) {
     let headers = {};
     if (sportType === "football") {
       headers = { sport: "football" };
-    } else if (sportType === "basketball") {
-      headers = { sport: "basketball" };
+    } else if (sportType === "bascketball") {
+      headers = { sport: "bascketball" };
     } else if (sportType === "soccer") {
       headers = { sport: "soccer" };
     } else if (sportType === "baseball") {
       headers = { sport: "baseball" };
     } else if (sportType === "golf") {
       headers = { sport: "golf" };
+    } else if (sportType === "cricket") {
+      headers = { sport: "cricket" };
     } else if (sportType === "tennis") {
       headers = { sport: "tennis" };
     } else if (sportType === "upcoming") {
@@ -621,10 +735,10 @@ async function fetchDataBySportType(sportType) {
     }
 
     const games = await response.json();
+
     return games;
   } catch (error) {
     console.error("Error fetching data:", error);
     return [];
   }
 }
-

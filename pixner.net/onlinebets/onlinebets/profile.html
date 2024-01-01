@@ -72,7 +72,7 @@
         <div class="menu-logo-adjust d-flex align-items-center">
           <div class="logo-menu me-5">
             <a href="index.html" class="logo">
-              <img src="assets/img/logo/blackpool svg.svg" alt="logo" />
+              <img src="assets/img/logo/blackpool.png" alt="logo" />
             </a>
             <a href="index.html" class="dark-logo">
               <img src="assets/img/logo/blackpool svg.svg" alt="logo" />
@@ -225,12 +225,12 @@
                         <span> Live </span>
                         <span class="live-watch"> 10 </span>
                       </a>
-                      <a href="favorites.html">
+                      <!-- <a href="favorites.html">
                         <div class="icon">
                           <i class="fas fa-star"></i>
                         </div>
                         <span> Fovarites </span>
-                      </a>
+                      </a> -->
                     </li>
                   </ul>
                 </li>
@@ -256,41 +256,81 @@
                         <div class="dd-c">
                           <ul>
                             <li>
-                              <a href="football.html">
+                              <a href="football.html?type=football">
                                 <div class="icon">
                                   <i class="icon-football"></i>
                                 </div>
-                                <span> Football </span>
+                                <span> All Leagues </span>
                               </a>
                             </li>
                             <li>
-                              <a href="efootball.html">
+                              <a href="football.html?type=premairleague">
                                 <div class="icon">
                                   <i class="icon-football"></i>
                                 </div>
-                                <span> Premaire League </span>
+                                <span> Premair League </span>
                               </a>
                             </li>
                             <li>
-                              <a href="football.html">
+                              <a href="football.html?type=championsleague">
                                 <div class="icon">
                                   <i class="icon-football"></i>
                                 </div>
-                                <span> Championships League </span>
+                                <span>UEFA Champions League </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="football.html?type=laliga">
+                                <div class="icon">
+                                  <i class="icon-football"></i>
+                                </div>
+                                <span>LaLiga</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="football.html?type=facup">
+                                <div class="icon">
+                                  <i class="icon-football"></i>
+                                </div>
+                                <span>FA Cup</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="football.html?type=seria-a">
+                                <div class="icon">
+                                  <i class="icon-football"></i>
+                                </div>
+                                <span>Seria A</span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="football.html?type=championship">
+                                <div class="icon">
+                                  <i class="icon-football"></i>
+                                </div>
+                                <span>Championship </span>
+                              </a>
+                            </li>
+                            <li>
+                              <a href="football.html?type=bundesliga">
+                                <div class="icon">
+                                  <i class="icon-football"></i>
+                                </div>
+                                <span>Bundesliga </span>
                               </a>
                             </li>
                           </ul>
                         </div>
                       </div>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href="efootball.html">
                         <div class="icon">
                           <i class="icon-football"></i>
                         </div>
                         <span> eFootball </span>
                       </a>
-                    </li>
+                    </li> -->
                     <li>
                       <a href="basketball.html">
                         <div class="icon">
@@ -308,14 +348,14 @@
                         <span> Tennis </span>
                       </a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href="table-tennis.html">
                         <div class="icon">
                           <i class="icon-tabletennis"></i>
                         </div>
                         <span> Table Tennis </span>
                       </a>
-                    </li>
+                    </li> -->
 
                     <li>
                       <a href="baseball.html">
@@ -325,14 +365,14 @@
                         <span> Baseball </span>
                       </a>
                     </li>
-                    <li>
+                    <!-- <li>
                       <a href="rugby.html">
                         <div class="icon">
                           <i class="icon-rugby"></i>
                         </div>
                         <span> Rugby </span>
                       </a>
-                    </li>
+                    </li> -->
                     <li>
                       <a href="americanfootball.html">
                         <div class="icon">
@@ -418,7 +458,7 @@
                     data-bs-toggle="tab"
                     data-bs-target="#profile3"
                     href="#"
-                    ><span>Rewards</span></a
+                    ><span>Bet History</span></a
                   >
                 </li>
                 <li class="nav-item">
@@ -441,7 +481,7 @@
                     ><span>Verification</span></a
                   >
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a
                     class="nav-link link-secondary"
                     id="profile-tab05"
@@ -450,7 +490,7 @@
                     href="#"
                     ><span>Log out</span></a
                   >
-                </li>
+                </li> -->
               </ul>
             </div>
             <div class="tab-content pt-60" id="pro-wrap">
@@ -461,7 +501,46 @@
               >
                 <div class="row">
                   <div class="col-xxl-12 col-xl-12 col-lg-7">
-                    <div class="profile-left-wrap">
+                    <div class="profile">
+                      <div class="profile-picture">
+                        <img src="assets/img/pp.jpg" alt="Profile Picture" />
+                        <div id="username-info">User101</div>
+                      </div>
+                      <div class="profile-info">
+                        <div class="info">
+                          <label for="username" class="profile-label"
+                            >Username:</label
+                          >
+                          <div id="username-info" contenteditable="false">
+                            User101
+                          </div>
+                        </div>
+                        <div class="info">
+                          <label for="email" class="profile-label"
+                            >Email:</label
+                          >
+                          <div id="email-info" contenteditable="false">
+                            something@example.com
+                          </div>
+                        </div>
+                        <div class="info">
+                          <label for="phone" class="profile-label"
+                            >Phone:</label
+                          >
+                          <div id="phone-info" contenteditable="false">
+                            123-456-7890
+                          </div>
+                        </div>
+                        <div class="info">
+                          <label for="balance" class="profile-label"
+                            >Balance:</label
+                          >
+                          <div id="balance-info" contenteditable="false">0</div>
+                        </div>
+                        <!-- // php -S localhost:8000 -->
+                      </div>
+                    </div>
+                    <!-- <div class="profile-left-wrap">
                       <div class="accounts-box">
                         <span>Account</span>
                         <p id="login-email">Login Email: jijiwi2841</p>
@@ -473,16 +552,19 @@
                         </div>
                         <form action="#0">
                           <div class="form-grp">
-                            <input
-                              id="user-name"
-                              type="text"
-                              placeholder="jijiwi2841"
-                            />
-                            <div class="left-icon">
-                              <i class="fas fa-user"></i>
-                            </div>
-                            <div class="right-lock">
-                              <i class="fa-solid fa-lock"></i>
+                            <div style="display: flex">
+                              <input
+                                id="user-name"
+                                type="text"
+                                placeholder="jijiwi2841"
+                              />
+
+                              <div class="left-icon">
+                                <i class="fas fa-user"></i>
+                              </div>
+                              <div class="right-lock">
+                                <i class="fa-solid fa-lock"></i>
+                              </div>
                             </div>
                           </div>
                           <div class="form-grp form-grp-two">
@@ -534,7 +616,7 @@
                           </p>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                   <!-- <div class="col-xxl-5 col-xl-12 col-lg-5">
                     <div class="right-lebel">
@@ -568,34 +650,371 @@
               <div class="tab-pane fade" id="profile2" role="tabpanel">
                 <div class="row">
                   <div class="col-lg-12">
-                    <div class="setting-wrap">
-                      <div class="setting-box">
-                        <h4>Language</h4>
-                        <select name="setting-select" id="setting">
-                          <option value="1">English</option>
-                          <option value="2">Bangla</option>
-                        </select>
-                      </div>
-                      <div class="setting-box">
-                        <h4>Chat History Length</h4>
-                        <div class="history">
-                          <span class="current-text"
-                            >Live Support Button Visibility:</span
-                          >
-                          <a href="#0" class="cmn--btn">
-                            <span>50</span>
-                          </a>
+                    <div class="container p-0">
+                      <h1 class="h3 mb-3">Settings</h1>
+                      <div class="row">
+                        <div class="col-md-5 col-xl-4">
+                          <div class="card">
+                            <div class="card-header">
+                              <h5 class="card-title mb-0">Profile Settings</h5>
+                            </div>
+                            <div
+                              class="list-group list-group-flush"
+                              role="tablist"
+                            >
+                              <a
+                                class="list-group-item list-group-item-action active"
+                                data-toggle="list"
+                                data-bs-toggle="tab"
+                                data-bs-target="#account"
+                              >
+                                <sapn>Account</sapn>
+                              </a>
+                              <a
+                                class="list-group-item list-group-item-action"
+                                data-bs-toggle="tab"
+                                data-bs-target="#password"
+                                href="#"
+                              >
+                                <span>Password</span>
+                              </a>
+                              <a
+                                class="list-group-item list-group-item-action"
+                                data-toggle="list"
+                                href="#"
+                                role="tab"
+                              >
+                                <span>Delete account</span>
+                              </a>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div class="setting-box">
-                        <h4>Live Support</h4>
-                        <div class="history">
-                          <span class="current-text"
-                            >Current history length:</span
-                          >
-                          <a href="#0" class="cmn--btn">
-                            <span>Visible</span>
-                          </a>
+                        <div class="col-md-7 col-xl-8">
+                          <div class="tab-content">
+                            <div
+                              class="tab-pane fade show active"
+                              id="account"
+                              role="tabpanel"
+                            >
+                              <div class="card">
+                                <div
+                                  class="card-header d-flex justify-content-between align-items-center"
+                                >
+                                  <h5 class="card-title mb-0">Public info</h5>
+
+                                  <div class="card-actions float-right">
+                                    <div class="dropdown show">
+                                      <a
+                                        id="dropdownToggle"
+                                        data-display="static"
+                                      >
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          stroke-width="2"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          class="feather feather-more-horizontal align-middle"
+                                        >
+                                          <circle
+                                            cx="12"
+                                            cy="12"
+                                            r="1"
+                                          ></circle>
+                                          <circle
+                                            cx="19"
+                                            cy="12"
+                                            r="1"
+                                          ></circle>
+                                          <circle cx="5" cy="12" r="1"></circle>
+                                        </svg>
+                                      </a>
+                                      <div
+                                        id="myDropdown"
+                                        class="dropdown-menu dropdown-menu-right"
+                                      >
+                                        <a class="dropdown-item">Edit</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <form>
+                                    <div class="row">
+                                      <div class="col-md-8">
+                                        <div class="form-input mb-3">
+                                          <label
+                                            class="form-label"
+                                            for="inputUsername"
+                                            style="margin-left: 15px"
+                                            >Username</label
+                                          >
+                                          <input
+                                            type="text"
+                                            class="form-control custom-input"
+                                            id="inputUsername"
+                                            placeholder="Username"
+                                            disabled
+                                          />
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4">
+                                        <div class="text-center">
+                                          <div class="profile-picture">
+                                            <img
+                                              src="assets/img/pp.jpg"
+                                              alt="Profile Picture"
+                                            />
+                                            <input
+                                              type="file"
+                                              id="profile-picture-input"
+                                              accept="image/*"
+                                              disabled
+                                            />
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <button
+                                      type="submit"
+                                      class="cmn--btn"
+                                      style="color: white"
+                                    >
+                                      <span>Save changes</span>
+                                    </button>
+                                  </form>
+                                </div>
+                              </div>
+                              <div class="card">
+                                <div
+                                  class="card-header d-flex justify-content-between align-items-center"
+                                >
+                                  <h5 class="card-title mb-0">Public info</h5>
+
+                                  <div class="card-actions float-right">
+                                    <div class="dropdown show">
+                                      <a
+                                        id="dropdownToggle"
+                                        data-display="static"
+                                      >
+                                        <svg
+                                          xmlns="http://www.w3.org/2000/svg"
+                                          width="24"
+                                          height="24"
+                                          viewBox="0 0 24 24"
+                                          fill="none"
+                                          stroke="currentColor"
+                                          stroke-width="2"
+                                          stroke-linecap="round"
+                                          stroke-linejoin="round"
+                                          class="feather feather-more-horizontal align-middle"
+                                        >
+                                          <circle
+                                            cx="12"
+                                            cy="12"
+                                            r="1"
+                                          ></circle>
+                                          <circle
+                                            cx="19"
+                                            cy="12"
+                                            r="1"
+                                          ></circle>
+                                          <circle cx="5" cy="12" r="1"></circle>
+                                        </svg>
+                                      </a>
+                                      <div
+                                        id="myDropdown"
+                                        class="dropdown-menu dropdown-menu-right"
+                                      >
+                                        <a class="dropdown-item">Edit</a>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="card-body">
+                                  <form class="form-box">
+                                    <div class="form-row">
+                                      <div class="form-input col-md-9 mb-3">
+                                        <label
+                                          class="form-label ml-2"
+                                          for="inputFirstName"
+                                          style="margin-left: 15px"
+                                          >First name</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control custom-input"
+                                          id="inputFirstName"
+                                          placeholder="First name"
+                                        />
+                                      </div>
+                                      <div class="form-onput col-md-9 mb-3">
+                                        <label
+                                          class="form-label"
+                                          for="inputLastName"
+                                          style="margin-left: 15px"
+                                          >Last name</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control custom-input"
+                                          id="inputLastName"
+                                          placeholder="Last name"
+                                        />
+                                      </div>
+                                    </div>
+                                    <div class="form-input col-md-9 mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputEmail4"
+                                        style="margin-left: 15px"
+                                        >Email</label
+                                      >
+                                      <input
+                                        type="email"
+                                        class="form-control custom-input"
+                                        id="inputEmail4"
+                                        placeholder="Email"
+                                      />
+                                    </div>
+                                    <div class="form-input col-md-9 mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputAddress"
+                                        style="margin-left: 15px"
+                                        >Address</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control custom-input"
+                                        id="inputAddress"
+                                        placeholder="1234 Main St"
+                                      />
+                                    </div>
+                                    <div class="form-input col-md-9 mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputAddress2"
+                                        style="margin-left: 15px"
+                                        >Address 2</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control custom-input"
+                                        id="inputAddress2"
+                                        placeholder="Apartment, studio, or floor"
+                                      />
+                                    </div>
+                                    <div class="form-row">
+                                      <div class="form-input col-md-9 mb-3">
+                                        <label
+                                          class="form-label"
+                                          for="inputCity"
+                                          style="margin-left: 15px"
+                                          >City</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control custom-input"
+                                          id="inputCity"
+                                        />
+                                      </div>
+                                      <div class="form-input col-md-9 mb-3">
+                                        <label
+                                          class="form-label"
+                                          for="inputState"
+                                          style="margin-left: 15px"
+                                          >State</label
+                                        >
+                                        <input
+                                          type="text"
+                                          id="inputState"
+                                          class="form-control custom-input"
+                                        />
+                                      </div>
+                                      <div class="form-input col-md-9 mb-5">
+                                        <label
+                                          class="form-label"
+                                          for="inputZip"
+                                          style="margin-left: 15px"
+                                          >Zip</label
+                                        >
+                                        <input
+                                          type="text"
+                                          class="form-control custom-input"
+                                          id="inputZip"
+                                        />
+                                      </div>
+                                    </div>
+                                    <button type="submit" class="cmn--btn mb-3">
+                                      <span>Save changes</span>
+                                    </button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                            <div
+                              class="tab-pane fade"
+                              id="password"
+                              role="tabpanel"
+                            >
+                              <div class="card">
+                                <div class="card-body">
+                                  <h5 class="card-title">Password</h5>
+                                  <form>
+                                    <div class="form-input mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputPasswordCurrent"
+                                        >Current password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPasswordCurrent"
+                                      />
+                                      <small
+                                        ><a href="#"
+                                          >Forgot your password?</a
+                                        ></small
+                                      >
+                                    </div>
+                                    <div class="form-input mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputPasswordNew"
+                                        >New password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPasswordNew"
+                                      />
+                                    </div>
+                                    <div class="form-input mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputPasswordNew2"
+                                        >Verify password</label
+                                      >
+                                      <input
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPasswordNew2"
+                                      />
+                                    </div>
+                                    <button type="submit" class="cmn--btn">
+                                      <span>Save changes</span>
+                                    </button>
+                                  </form>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -603,7 +1022,40 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="profile3" role="tabpanel">
-                <div class="row justify-content-between">
+                <span class="pending-bet">Pending</span>
+                <div class="table-container">
+                  <table class="bets-table" id="processingBetList">
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Potential Payout</th>
+                        <th>Bet Type</th>
+                        <th>Number of Bets</th>
+                        <th>Date</th>
+                        <!-- Add more table headers as needed -->
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+                <span class="completed-bet">Completed</span>
+                <div class="table-container">
+                  <table class="bets-table" id="completedBetList">
+                    <thead>
+                      <tr>
+                        <th>Status</th>
+                        <th>Potential Payout</th>
+                        <th>Bet Type</th>
+                        <th>Number of Bets</th>
+                        <th>Date</th>
+                        <!-- Add more table headers as needed -->
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                </div>
+
+                <!-- <div class="row justify-content-between">
                   <div class="col-xxl-7 col-xl-12 col-lg-7">
                     <div class="reword-wrap-left">
                       <div class="reword-box">
@@ -626,7 +1078,7 @@
                       </div>
                       <div class="reword-history">
                         <div class="head">
-                          <h6>Rewards</h6>
+                          <h6>Bets</h6>
                           <span>View reward history</span>
                         </div>
                         <div class="reword-history-wrap">
@@ -1173,7 +1625,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
               <div class="tab-pane fade" id="profile4" role="tabpanel">
                 <div class="row justify-content-between">
@@ -1784,7 +2236,7 @@
               <span class="blance"> $300 </span>
             </div>
             <div class="betslip-wrapper">
-              <a href="#0" class="left-betslip">
+              <!-- <a href="#0" class="left-betslip">
                 <span class="bed2"
                   ><img src="assets/img/header/right-icon/bed2.png" alt="icon"
                 /></span>
@@ -1798,28 +2250,39 @@
                   ><img src="assets/img/header/right-icon/bets.svg" alt="icon"
                 /></span>
                 <span class="text-bets">My Bets</span>
-              </a>
+              </a> -->
             </div>
             <div class="combo-box">
               <ul class="nav">
                 <li class="nav-item">
+                  <span
+                    ><img src="assets/img/header/right-icon/bed.svg" alt="icon"
+                  /></span>
                   <a
                     class="nav-link link-secondary"
                     id="combo-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#coombo"
                     href="#"
-                    ><span>Single bets</span></a
+                    onclick="populateBetslip()"
+                    ><span>Bet Slip</span></a
                   >
                 </li>
                 <li class="nav-item">
+                  <span
+                    ><img
+                      src="assets/img/header/right-icon/bets.svg"
+                      alt="icon"
+                  /></span>
+
                   <a
                     class="nav-link link-secondary active"
                     id="bets-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#bbets"
                     href="#"
-                    ><span>Combo</span></a
+                    onclick="populateComboBets(JSON.parse(localStorage.getItem('eventsArray')))"
+                    ><span>My Bets</span></a
                   >
                 </li>
               </ul>
@@ -2438,7 +2901,7 @@
                     <span class="blance"> $300 </span>
                   </div>
                   <div class="betslip-wrapper">
-                    <a href="#0" class="left-betslip">
+                    <!-- <a href="#0" class="left-betslip">
                       <span
                         ><img
                           src="assets/img/header/right-icon/bed.svg"
@@ -2453,26 +2916,38 @@
                           alt="icon"
                       /></span>
                       <span class="text-bets">My Bets</span>
-                    </a>
+                    </a> -->
                   </div>
                   <div class="combo-box">
                     <ul class="nav">
                       <li class="nav-item">
+                        <span
+                          ><img
+                            src="assets/img/header/right-icon/bed.svg"
+                            alt="icon"
+                        /></span>
                         <a
                           class="nav-link link-secondary"
                           data-bs-toggle="tab"
                           data-bs-target="#coombomobile"
                           href="#"
-                          ><span>Single bets</span></a
+                          onclick="populateBetslip()"
+                          ><span>Bet Slip</span></a
                         >
                       </li>
                       <li class="nav-item">
+                        <span
+                          ><img
+                            src="assets/img/header/right-icon/bets.svg"
+                            alt="icon"
+                        /></span>
                         <a
                           class="nav-link link-secondary active"
                           data-bs-toggle="tab"
                           data-bs-target="#bbetsmobile"
                           href="#"
-                          ><span>Combo</span></a
+                          onclick="populateComboBets(JSON.parse(localStorage.getItem('eventsArray')))"
+                          ><span>My Bets</span></a
                         >
                       </li>
                     </ul>
@@ -2677,17 +3152,21 @@
                           </div>
                           <div class="ammount-items">
                             <form action="#">
-                              <input type="number" placeholder="Bet Amount" />
+                              <input
+                                id="betAmount"
+                                type="number"
+                                placeholder="Bet Amount"
+                              />
                               <button type="submit">Max</button>
                             </form>
                           </div>
                           <div class="possible-win">
                             <span>Possible win</span>
-                            <span class="amount">$300</span>
+                            <span id="possibleWin" class="amount">$300</span>
                           </div>
                           <div class="combo-footer">
                             <a href="#0" class="cmn--btn">
-                              <span> Place Bet $300</span>
+                              <span id="placeBetButton"> Place Bet $300</span>
                             </a>
                           </div>
                         </div>
@@ -2851,30 +3330,704 @@
     <script src="assets/js/jquery.nice-select.min.js"></script>
     <!--main Js-->
     <script src="assets/js/main.js"></script>
+
     <script>
+      let eventsArray = [];
       async function renderData(token) {
         const backendData = await UserAPI.getUserDetails(token);
         console.log("userinformation", backendData);
-        const loginEmailParagraph = document.getElementById("login-email");
-        const user_name = document.getElementById("user-name");
-        const user_email = document.getElementById("user-email");
-        const phone_number = document.getElementById("phone-number");
+        const user_name = document.getElementById("username-info");
+        const user_email = document.getElementById("email-info");
+        const phone_number = document.getElementById("phone-info");
         const wallet_value = document.getElementById("wallet-value");
+        const balance_value = document.getElementById("balance-info");
 
-        if (loginEmailParagraph && backendData.email) {
-          loginEmailParagraph.textContent = `Login Email: ${backendData.email}`;
-          user_name.placeholder = `${backendData.name}`;
-          user_email.placeholder = `${backendData.email}`;
-          phone_number.placeholder = `${backendData.phone_number}`;
-          wallet_value.textContent = `${backendData.balance}.00`;
-        }
+        user_name.textContent = `${backendData.name}`;
+        user_email.textContent = `${backendData.email}`;
+        phone_number.textContent = `${backendData.phone_number}`;
+        wallet_value.textContent = `${backendData.balance}.00`;
+        balance_value.textContent = `${backendData.balance}.00`;
 
         //   const container = document.getElementById("betsall");
       }
+
+      const bbetsDiv = document.querySelector("#bbets .combo-wrapper");
+      const coomboDiv = document.querySelector("#coombo .combo-wrapper");
+      const bbetsDiv2 = document.querySelector("#exampleModal3 .combo-wrapper");
+      const coomboDiv2 = document.querySelector("#coombomobile .combo-wrapper");
+
+      function createMatchItems(team, winner, price) {
+        return `
+          <div class="match-items">
+            <div class="match-items-left">
+              <div class="icon">
+                <img src="assets/img/header/right-icon/footaball.svg" alt="icon" />
+              </div>
+              <div class="cont">
+                <span>${team}</span>
+                <span class="winner">${winner}</span>
+              </div>
+            </div>
+            <div class="match-items-right">
+              <div class="icon">
+                <img src="assets/img/header/right-icon/uptodwon.svg" alt="icon" />
+              </div>
+              <span>${price}</span>
+            </div>
+          </div>
+        `;
+      }
+
+      function populateComboBets(dataArray) {
+        const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
+        // priceSum = parseFloat(priceSum.toFixed(2))
+        const newData = document.createElement("div");
+
+        dataArray.forEach((data) => {
+          let home_team = "";
+          let away_team = "";
+          let matchItemsHTML = "";
+          if (data.type === "draw") {
+            matchItemsHTML += createMatchItems(data.team, "Draw", data.price);
+            home_team = data.home;
+            away_team = data.away;
+          } else {
+            matchItemsHTML += createMatchItems(
+              data.team,
+              "Match Winner",
+              data.price
+            );
+            home_team = data.team;
+            away_team = data.vs;
+          }
+
+          let dataString = JSON.stringify(data);
+
+          newData.innerHTML += `
+
+            <div class="close-head">
+              <span>${home_team} vs ${away_team}</span>
+              <span class="close" data-value='${dataString}' onclick={closeFunction(event)}>
+                <i class="fas fa-xmark"></i>
+              </span>
+            </div>
+
+        <div class="match-fixing">
+          ${matchItemsHTML}
+        </div>
+
+        <hr>
+
+
+      `;
+        });
+
+        const htmlContent = newData.outerHTML;
+
+        bbetsDiv.innerHTML = `
+        <div class="close-box">
+          <!-- Close box content -->
+          <div class="close-items">
+        ${htmlContent}
+        <div class="match-items match-progress">
+        <div class="match-items match-odds">
+          <div class="match-items-left">
+            <div class="cont">
+              <span>Total odds</span>
+            </div>
+          </div>
+          <div class="match-items-right">
+            <div class="icon">
+              <img
+                src="assets/img/header/right-icon/uptodwon.svg"
+                alt="icon"
+              />
+            </div>
+            <span>${parseFloat(priceSum.toFixed(2))}</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+        </div>
+        <div class="combo-switch">
+          <span> Accept all odds changes </span>
+          <label class="switch-com">
+            <input type="checkbox" class="checkbox" hidden />
+            <span class="checkbox-label">
+              <span class="ball"></span>
+            </span>
+          </label>
+        </div>
+    <div class="ammount-items">
+      <form action="#">
+
+        <input type="number" id="betAmount" placeholder="Bet Amount" value="10" onchange="updatePossibleWin(${priceSum})" />
+        <button onclick="setMaximumBet()">Max</button>
+    </div>
+    <div class="possible-win">
+        <span>Possible win</span>
+        <span id="possibleWin" class="amount">${parseFloat(
+          10 * priceSum
+        ).toFixed(2)}</span>
+    </div>
+    </form>
+    <div class="combo-footer">
+        <a href="#0" class="cmn--btn">
+            <span id="placeBetButton" onclick="getBetAmount()">Place Bet ${parseFloat(
+              10 * priceSum
+            ).toFixed(2)}</span>
+        </a>
+    </div>
+
+
+        `;
+      }
+
+      function populateBetslip() {
+        const dataArray = JSON.parse(localStorage.getItem("placedItem"));
+
+        const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
+        // priceSum = parseFloat(priceSum.toFixed(2))
+        const newData = document.createElement("div");
+
+        dataArray.forEach((data) => {
+          let home_team = "";
+          let away_team = "";
+          let matchItemsHTML = "";
+          if (data.type === "draw") {
+            matchItemsHTML += createMatchItems(data.team, "Draw", data.price);
+            home_team = data.home;
+            away_team = data.away;
+          } else {
+            matchItemsHTML += createMatchItems(
+              data.team,
+              "Match Winner",
+              data.price
+            );
+            home_team = data.team;
+            away_team = data.vs;
+          }
+
+          let dataString = JSON.stringify(data);
+
+          console.log(data.commence_time);
+
+          let dateCell = new Date(data.commence_time).toLocaleString();
+
+          newData.innerHTML += `
+
+            <div class="close-head">
+              <span>${home_team} vs ${away_team}</span>
+              <span>${dateCell}</span>
+
+            </div>
+
+        <div class="match-fixing">
+          ${matchItemsHTML}
+        </div>
+        
+
+        <hr>
+
+
+      `;
+        });
+
+        const htmlContent = newData.outerHTML;
+
+        coomboDiv.innerHTML = `
+        <div id="combo-box-container" class="close-box slip">
+         <span class="slip">BLACKPOOL SLIP</span>
+         <span class="printslip" onclick="printSlip()">Print</span>
+         <hr>
+          <!-- Close box content -->
+          <div class="close-items">
+        ${htmlContent}
+        <div class="match-items match-progress">
+        <div class="match-items match-odds">
+          <div class="match-items-left">
+            <div class="cont">
+              <span>Total odds</span>
+            </div>
+          </div>
+          <div class="match-items-right">
+            <div class="icon">
+              <img
+                src="assets/img/header/right-icon/uptodwon.svg"
+                alt="icon"
+              />
+            </div>
+            <span>${parseFloat(priceSum.toFixed(2))}</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <hr>
+
+      <div class="possible-win">
+        <span>Price</span>
+        <span id="possibleWin" class="amount">10</span>
+    </div>
+
+       <hr>
+    <div class="possible-win">
+        <span>Possible win</span>
+        <span id="possibleWin" class="amount">${parseFloat(
+          10 * priceSum
+        ).toFixed(2)}</span>
+    </div>
+        `;
+      }
+
+      function printSlip() {
+        let comboContainer = document.getElementById("combo-box-container");
+        let printContents = comboContainer.innerHTML;
+        let originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+      }
+
+      function closeFunction(event) {
+        const value = event.currentTarget.getAttribute("data-value");
+
+        const valueObject = JSON.parse(value);
+
+        const dataValueAttr = JSON.stringify({
+          ...valueObject,
+          pressed: false,
+        });
+        const dataIdAttr = JSON.stringify({
+          id: valueObject.id,
+          team: valueObject.team,
+        });
+
+        const elementToUpdate = document.getElementById(dataIdAttr);
+        if (elementToUpdate) {
+          elementToUpdate.setAttribute("data-value", dataValueAttr);
+          elementToUpdate.classList.remove("pressed");
+        }
+
+        eventsArray = eventsArray.filter((item) => {
+          return !(
+            item.id === valueObject.id && item.team === valueObject.team
+          );
+        });
+
+        // Update the pressed status of the element in the DOM
+
+        generateModalContent(eventsArray);
+        populateComboBets(eventsArray);
+        localStorage.setItem("eventsArray", JSON.stringify(eventsArray));
+      }
+
+      async function getBetAmount() {
+        const betAmount = document.getElementById("betAmount").value;
+        const eventsArray = JSON.parse(localStorage.getItem("eventsArray"));
+        const auth = localStorage.getItem("authToken");
+
+        const backendData = await UserAPI.placeBet(
+          eventsArray,
+          betAmount,
+          auth
+        );
+
+        // console.log(betAmount)
+      }
+
+      function generateModalContent(dataArray) {
+        const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
+        const newData = document.createElement("div");
+
+        dataArray.forEach((data) => {
+          let home_team = "";
+          let away_team = "";
+          let matchItemsHTML = "";
+          if (data.type === "draw") {
+            matchItemsHTML += createMatchItems(data.team, "Draw", data.price);
+            home_team = data.home;
+            away_team = data.away;
+          } else {
+            matchItemsHTML += createMatchItems(
+              data.team,
+              "Match Winner",
+              data.price
+            );
+            home_team = data.team;
+            away_team = data.vs;
+          }
+
+          newData.innerHTML += `
+                    <div class="close-head">
+                      <span>${home_team} vs ${away_team}</span>
+                      <span class="close">
+                        <i class="fas fa-xmark"></i>
+                      </span>
+                    </div>
+
+                    <div class="match-fixing">
+                    ${matchItemsHTML}
+                    </div>
+
+                    <hr>
+
+                    `;
+        });
+
+        const htmlContent = newData.innerHTML;
+
+        bbetsDiv2.innerHTML = `
+        <div class="close-box">
+          <!-- Close box content -->
+          <div class="close-items">
+        ${htmlContent}
+        <div class="match-items match-progress">
+        <div class="match-items match-odds">
+          <div class="match-items-left">
+            <div class="cont">
+              <span>Total odds</span>
+            </div>
+          </div>
+          <div class="match-items-right">
+            <div class="icon">
+              <img
+                src="assets/img/header/right-icon/uptodwon.svg"
+                alt="icon"
+              />
+            </div>
+            <span>${parseFloat(priceSum.toFixed(2))}</span>
+          </div>
+        </div>
+        </div>
+      </div>
+
+        </div>
+        <div class="combo-switch">
+          <span> Accept all odds changes </span>
+          <label class="switch-com">
+            <input type="checkbox" class="checkbox" hidden />
+            <span class="checkbox-label">
+              <span class="ball"></span>
+            </span>
+          </label>
+        </div>
+        <div class="ammount-items">
+          <form action="#">
+            <input type="number" id="betAmount" placeholder="Bet Amount" value="10" onchange="updatePossibleWin(${priceSum})" />
+            <button>Max</button>
+        </div>
+        <div class="possible-win">
+          <span>Possible win</span>
+          <span  id="possibleWin" class="amount">${parseFloat(
+            10 * priceSum
+          ).toFixed(2)}</span>
+        </form>
+
+        </div>
+        <div class="combo-footer">
+          <a href="#0" class="cmn--btn">
+            <span id="placeBetButton"  type="submit" > Place Bet ${parseFloat(
+              10 * priceSum
+            ).toFixed(2)}</span>
+          </a>
+        </div>
+
+        `;
+      }
+
+      function updatePossibleWin(priceSum) {
+        const betAmount = parseFloat(
+          document.getElementById("betAmount").value
+        );
+        console.log(betAmount);
+        const possibleWin = document.getElementById("possibleWin");
+        const placeBetButton = document.getElementById("placeBetButton");
+
+        const formattedPossibleWin = (betAmount * priceSum).toFixed(2);
+
+        possibleWin.textContent = formattedPossibleWin;
+        placeBetButton.innerHTML = `<span> Place Bet $${formattedPossibleWin}</span>`;
+      }
+
+      document
+        .getElementById("betAmount")
+        .addEventListener("input", function (event) {
+          const betAmount = event.target.value;
+          console.log(betAmount);
+          updatePossibleWin(betAmount);
+        });
+
+      // function createBetElement(bet) {
+      //   const tableRow = document.createElement("tr"); // Create a table row
+
+      //   // Create table data elements for each property
+      //   const statusCell = document.createElement("td");
+      //   statusCell.textContent = bet.status;
+      //   tableRow.appendChild(statusCell);
+
+      //   const potentialPayoutCell = document.createElement("td");
+      //   potentialPayoutCell.textContent = bet.potential_payout;
+      //   tableRow.appendChild(potentialPayoutCell);
+
+      //   const betTypeCell = document.createElement("td");
+      //   betTypeCell.textContent = bet.bet_type;
+      //   tableRow.appendChild(betTypeCell);
+
+      //   // Append the table row to the appropriate table based on status
+      //   if (bet.status === "COMPLETED" || bet.status === "FAILED") {
+      //     document
+      //       .getElementById("completedBetList")
+      //       .querySelector("tbody")
+      //       .appendChild(tableRow);
+      //   } else {
+      //     document
+      //       .getElementById("processingBetList")
+      //       .querySelector("tbody")
+      //       .appendChild(tableRow);
+      //   }
+
+      //   if (bet.bet_type !== "SINGLE") {
+      //     const numBets = document.createElement("td");
+      //     numBets.textContent = `Number of Bets: ${bet.bets.length}`;
+      //     tableRow.appendChild(numBets);
+
+      //     const totalPotentialPayout = bet.bets.reduce(
+      //       (total, b) => total + parseFloat(b.potential_payout),
+      //       0
+      //     );
+      //     const totalPayout = document.createElement("td");
+      //     totalPayout.textContent = `Total Potential Payout: ${totalPotentialPayout}`;
+      //     tableRow.appendChild(totalPayout);
+      //   }
+
+      //   return tableRow;
+      // }
+      function createBetElement(bet) {
+        const tableRow = document.createElement("tr"); // Create a table row
+
+        // Create table data elements for each property
+        const statusCell = document.createElement("td");
+        if (bet.bet_type !== "SINGLE") {
+          statusCell.textContent = bet.status;
+          tableRow.appendChild(statusCell);
+
+          const totalPotentialPayout = bet.bets.reduce(
+            (total, b) => total + parseFloat(b.potential_payout),
+            0
+          );
+          const totalPayout = document.createElement("td");
+          totalPayout.textContent = `${totalPotentialPayout}`;
+          tableRow.appendChild(totalPayout);
+
+          const betTypeCell = document.createElement("td");
+          betTypeCell.textContent = "COMBO";
+          tableRow.appendChild(betTypeCell);
+
+          const numBets = document.createElement("td");
+          numBets.textContent = `${bet.bets.length}`;
+          tableRow.appendChild(numBets);
+
+          const date = document.createElement("td");
+          const dateCell = new Date(bet.date).toLocaleString();
+          date.textContent = dateCell;
+          tableRow.appendChild(date);
+        } else {
+          statusCell.textContent = bet.status;
+          tableRow.appendChild(statusCell);
+
+          const potentialPayoutCell = document.createElement("td");
+          potentialPayoutCell.textContent = bet.potential_payout;
+          tableRow.appendChild(potentialPayoutCell);
+
+          const betTypeCell = document.createElement("td");
+          betTypeCell.textContent = bet.bet_type;
+          tableRow.appendChild(betTypeCell);
+
+          const numBets = document.createElement("td");
+          numBets.textContent = "1";
+          tableRow.appendChild(numBets);
+
+          const date = document.createElement("td");
+          const dateCell = new Date(bet.created_at).toLocaleString();
+          date.textContent = dateCell;
+          tableRow.appendChild(date);
+        }
+
+        // Append the table row to the appropriate table based on status
+        if (bet.status === "COMPLETED" || bet.status === "FAILED") {
+          document
+            .getElementById("completedBetList")
+            .querySelector("tbody")
+            .appendChild(tableRow);
+        } else {
+          document
+            .getElementById("processingBetList")
+            .querySelector("tbody")
+            .appendChild(tableRow);
+        }
+
+        return tableRow;
+      }
+
+      // The rest of your code remains the same for fetching and rendering the data
+
+      async function renderBetHistory(token) {
+        // ... (existing code)
+        const data = await UserAPI.betHistory(token);
+        console.log(data);
+
+        const completedBetList = document.getElementById("completedBetList");
+        const processingBetList = document.getElementById("processingBetList");
+
+        data.single_bets.forEach((bet) => {
+          const betElement = createBetElement(bet);
+          if (bet.status === "COMPLETED" || bet.status === "FAILED") {
+            completedBetList.appendChild(betElement);
+          } else {
+            processingBetList.appendChild(betElement);
+          }
+        });
+
+        data.combo_bets.forEach((comboBet) => {
+          const betElement = createBetElement(comboBet);
+          if (comboBet.status === "COMPLETED" || comboBet.status === "FAILED") {
+            completedBetList.appendChild(betElement);
+          } else {
+            processingBetList.appendChild(betElement);
+          }
+        });
+      }
+
+      // function createBetElement(bet) {
+      //   const card = document.createElement("div");
+      //   card.classList.add("bet-card");
+
+      //   const status = document.createElement("p");
+      //   status.textContent = `Status: ${bet.status}`;
+      //   card.appendChild(status);
+
+      //   const potentialPayout = document.createElement("p");
+      //   potentialPayout.textContent = `Potential Payout: ${bet.potential_payout}`;
+      //   card.appendChild(potentialPayout);
+
+      //   const betType = document.createElement("p");
+      //   betType.textContent = `Bet Type: ${bet.bet_type}`;
+      //   card.appendChild(betType);
+
+      //   if (bet.bet_type !== 'SINGLE') {
+      //       console.log(bet)
+      //     const numBets = document.createElement("p");
+      //     numBets.textContent = `Number of Bets: ${bet.bets.length}`;
+      //     card.appendChild(numBets);
+
+      //     const totalPotentialPayout = bet.bets.reduce(
+      //       (total, b) => total + parseFloat(b.potential_payout),
+      //       0
+      //     );
+      //     const totalPayout = document.createElement("p");
+      //     totalPayout.textContent = `Total Potential Payout: ${totalPotentialPayout}`;
+      //     card.appendChild(totalPayout);
+      //   }
+
+      //   return card;
+      // }
+
+      // async function renderBetHistory(token) {
+      //   const data = await UserAPI.betHistory(token);
+
+      //   const completedBetList = document.getElementById("completedBetList");
+      //   const processingBetList = document.getElementById("processingBetList");
+
+      //   data.single_bets.forEach((bet) => {
+      //     const betElement = createBetElement(bet);
+      //     if (bet.status === "COMPLETED" || bet.status === "FAILED") {
+      //       completedBetList.appendChild(betElement);
+      //     } else {
+      //       processingBetList.appendChild(betElement);
+      //     }
+      //   });
+
+      //   data.combo_bets.forEach((comboBet) => {
+
+      //       const betElement = createBetElement(comboBet);
+      //       if (comboBet.status === "COMPLETED" || comboBet.status === "FAILED") {
+      //         completedBetList.appendChild(betElement);
+      //       } else {
+      //         processingBetList.appendChild(betElement);
+      //       }
+      //     });
+
+      // }
+
+      $(document).ready(function () {
+        // Dropdown toggle when SVG icon is clicked
+        $("#dropdownToggle").on("click", function (e) {
+          e.stopPropagation(); // Prevent default dropdown behavior
+          $("#myDropdown").toggleClass("show");
+        });
+
+        // Enable/disable inputs when specific tag within dropdown is clicked
+        $(".dropdown-item").on("click", function (e) {
+          e.preventDefault();
+          // Check if the clicked tag is 'Edit'
+          if ($(this).text().trim() === "Edit") {
+            $("#inputUsername, #profile-picture-input").prop(
+              "disabled",
+              function (i, v) {
+                return !v;
+              }
+            );
+            // Close dropdown after enabling inputs (optional)
+            $("#myDropdown").removeClass("show");
+          }
+        });
+
+        // Close dropdown when clicking outside the dropdown area
+        $(document).on("click", function (e) {
+          if (!$(e.target).closest(".dropdown").length) {
+            $("#myDropdown").removeClass("show");
+          }
+        });
+      });
       window.onload = () => {
         const token = localStorage.getItem("authToken");
         if (token) {
           renderData(token);
+          renderBetHistory(token);
+
+          const storedState = localStorage.getItem("eventsArray");
+          const eventsArrays = JSON.parse(storedState);
+
+          if (storedState) {
+            // Apply the stored button states to the DOM
+            eventsArrays.forEach((item) => {
+              eventsArray.push(item);
+              const identifier = {
+                id: item.id,
+                team: item.team,
+              };
+              const element = document.getElementById(
+                JSON.stringify(identifier)
+              );
+              if (element) {
+                element.classList.add("pressed");
+                element.setAttribute(
+                  "data-value",
+                  JSON.stringify({
+                    ...item,
+                    pressed: true,
+                  })
+                );
+              } else {
+                console.log("no element");
+              }
+            });
+          }
+          populateComboBets(eventsArray);
+          generateModalContent(eventsArray);
         }
       };
     </script>
