@@ -2701,66 +2701,95 @@
 
             // Create your HTML structure dynamically using the backend data
             matchDiv.innerHTML = `
-      <div class="table-wrap mb-5">
-        <div class="table-inner">
-          <div class="table-head">
-            <a href="details.html" class="left-compo">
-              <span>
-                <img src="assets/img/table/luage.png" alt="icon" />
-              </span>
-              <span>${item.sport_title}</span>
-            </a>
-            <ul class="right-compo">
-              <li>${new Date(item.commence_time).toLocaleString()}</li>
-              <li>Match Winner</li>
-              <li>Total</li>
-            </ul>
-          </div>
-          <div class="table-body">
-            <ul class="table-body-left">
-              <li>
-                <a href="#0">
-                  <span>${Home.team}</span>
-                </a>
-              </li>
-              <li>
-                <a href="#0" class="vs"> VS </a>
-              </li>
-              <li>
-                <a  href="#0">
-                  <span>${Away.team}</span>
-                </a>
-              </li>
-            </ul>
-            <div class="table-body-right">
-              <a href="#0" data-value='${homeStringified}' class="table-pointing-box">
-                <span class="list">1</span>
-                <span>${Home.price}</span>
-              </a>
-              <a href="#0" data-value='${drawStringified}' class="table-pointing-box">
-                <span class="list">X</span>
-                <span>${Draw.price}</span>
-              </a>
-              <a href="#0" data-value='${awayStringified}' class="table-pointing-box">
-                <span class="list">2</span>
-                <span>${Away.price}</span>
-              </a>
-              <a href="#0" class="table-pointing-box">
-                <span class="list">O 2.5</span>
-                <span>1.6</span>
-              </a>
-              <a href="#0" class="table-pointing-box">
-                <span class="list">U 2.5</span>
-                <span>3.1</span>
-              </a>
-			  <a href="#0" class="table-pointing-box">
-			  <span class="last-digit">+37</span>
-			</a>
+            <div class="table-wrap mb-3">
+              <div class="table-inner">
+                <div class="table-head">
+                  <a href="details.html" class="left-compo">
+                    <span>
+                      <img src="assets/img/clubs/${
+                        item.sport_title
+                      }.png" alt="icon" />
+                    </span>
+                    <span class="sport-title">${item.sport_title}</span>
+                    
+                  </a>
+                  <ul class="right-compo">
+                    
+                    <li>${new Date(item.commence_time).toLocaleString()}</li>
+                    <li>Match Winner</li>
+                    <li>Total</li>
+                  </ul>
+                  <ul class="right-compo-match">
+
+                    <li>
+                      <a href="#0">
+                        <span>${Home.team}</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#0" class="vs"> VS </a>
+                    </li>
+                    <li>
+                      <a  href="#0">
+                        <span>${Away.team}</span>
+                      </a>
+                    </li>
+                    <a href="#0" class="table-pointing-box more-odds-mobile">
+      			  <span class="last-digit">+37</span>
+      			</a>
+                    
+                      <li class="matchtime-mobile">${new Date(
+                        item.commence_time
+                      ).toLocaleString()}</li>
+
+                  </ul>
+                  
+                </div>
+                <div class="table-body">
+                  <ul class="table-body-left">
+                    <li>
+                      <a href="#0">
+                        <span>${Home.team}</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#0" class="vs"> VS </a>
+                    </li>
+                    <li>
+                      <a  href="#0">
+                        <span>${Away.team}</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <div class="table-body-right"  id="tableBodyRight">
+                    <a href="#0" data-value='${homeStringified}' id='${homeStringifiedId}' class="table-pointing-box">
+                      <span class="list">1</span>
+                      <span>${Home.price}</span>
+                    </a>
+                    <a href="#0" data-value='${drawStringified}' id='${drawStringifiedId}' class="table-pointing-box">
+                      <span class="list">X</span>
+                      <span>${Draw.price}</span>
+                    </a>
+                    <a href="#0" data-value='${awayStringified}' id='${awayStringifiedId}' class="table-pointing-box">
+                      <span class="list">2</span>
+                      <span>${Away.price}</span>
+                    </a>
+                    <a href="#0" class="table-pointing-box">
+                      <span class="list">O2.5</span>
+                      <span>1.6</span>
+                    </a>
+                    <a href="#0" class="table-pointing-box">
+                      <span class="list">U2.5</span>
+                      <span>3.1</span>
+                    </a>
+      			  <a href="details.html" class="table-pointing-box more-odds">
+      			  <span class="last-digit">+37</span>
+      			</a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    `;
+          `;
 
             matchDiv.addEventListener("click", (event) => {
               event.preventDefault();
