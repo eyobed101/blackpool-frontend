@@ -375,50 +375,60 @@ const API_BASE_URL = "http://localhost:8000/api/";
 const AuthAPI = {
   register: async function (userData) {
     try {
-      await fetch(`${API_BASE_URL}register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            // Show verification modal after successful registration
-            $("#exampleModal2").modal("hide"); // Hide registration modal
-            $("#verificationModal").modal("show"); // Show verification modal
-          } else {
-            console.error("Registration failed:", data.error);
-            // Show an error message to the user
-          }
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-          // Show an error message to the user
-        });
-      // const response = await fetch(`${API_BASE_URL}register`, {
+      // await fetch(`${API_BASE_URL}register`, {
       //   method: "POST",
       //   headers: {
       //     "Content-Type": "application/json",
       //   },
       //   body: JSON.stringify(userData),
-      // });
+      // })
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     if (data.success) {
+      //       // Show verification modal after successful registration
+      //       $("#exampleModal2").modal("hide"); // Hide registration modal
+      //       $("#verificationModal").modal("show"); // Show verification modal
+      //     } else {
+      //       console.error("Registration failed:", data.error);
+      //       // Show an error message to the user
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error:", error);
+      //     // Show an error message to the user
+      //   });
+      $("#loadingSpinner").show();
 
-      // if (!response.ok) {
-      //   const errorData = await response.json();
-      //   throw new Error(errorData.error || "Failed to register user");
-      // }
+      const response = await fetch(`${API_BASE_URL}register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
 
-      // const result = await response.json();
-      // return result.success;
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to register user");
+      }
+
+      const result = await response.json();
+      $("#exampleModal2").modal("hide");
+      $("#exampleModal").modal("show");
+
+      return result.success;
     } catch (error) {
       console.error("Error registering user:", error);
       throw error;
+    } finally {
+      // Hide loading spinner after receiving the response or encountering an error
+      $("#loadingSpinner").hide();
     }
     // Implementation
   },
   login: async function (loginData) {
+    $("#loadingSpinner").show();
+
     try {
       const response = await fetch(`${API_BASE_URL}login`, {
         method: "POST",
@@ -466,7 +476,11 @@ const AuthAPI = {
     } catch (error) {
       console.error("Error logging in:", error);
       throw error;
+    }finally {
+      // Hide loading spinner after receiving the response or encountering an error
+      $("#loadingSpinner").hide();
     }
+
     // Implementation
   },
   // ... other authentication-related API calls
@@ -474,6 +488,8 @@ const AuthAPI = {
 
 const UserAPI = {
   getUserDetails: async function (authToken) {
+    $("#loadingSpinner").show();
+
     try {
       const response = await fetch(`${API_BASE_URL}details`, {
         method: "GET",
@@ -492,12 +508,17 @@ const UserAPI = {
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
+    }finally {
+      // Hide loading spinner after receiving the response or encountering an error
+      $("#loadingSpinner").hide();
     }
   },
   uploadVerification: async function (verificationData) {
     // Implementation
   },
   betHistory: async function (authToken) {
+    $("#loadingSpinner").show();
+
     try {
       const response = await fetch(`${API_BASE_URL}bet-history`, {
         method: "GET",
@@ -515,6 +536,9 @@ const UserAPI = {
       return result;
     } catch (e) {
       console.error("Error fetching user details:", error);
+    }finally {
+      // Hide loading spinner after receiving the response or encountering an error
+      $("#loadingSpinner").hide();
     }
     // Implementation
   },
@@ -535,6 +559,8 @@ const UserAPI = {
         data: data,
         betAmount: betAmount,
       };
+      $("#loadingSpinner").show();
+
 
       const response = await fetch(`${API_BASE_URL}placebet`, {
         method: "POST",
@@ -559,8 +585,12 @@ const UserAPI = {
         console.log(result.message);
 
         localStorage.removeItem("eventsArray");
+        localStorage.setItem("placedItem", JSON.stringify(data));
+        localStorage.setItem("price", betAmount);
         window.location.reload();
       } else if (response.status === 401) {
+        $("#exampleModal2").modal("show");
+        // $("#verificationModal").modal("show");
         const result = await response.json();
 
         console.log(result.message);
@@ -574,6 +604,10 @@ const UserAPI = {
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
+    }finally {
+      // Hide loading spinner after receiving the response or encountering an error
+      $("#loadingSpinner").hide();
+
     }
   },
 
@@ -634,20 +668,20 @@ document.addEventListener("DOMContentLoaded", () => {
         phone_number,
       });
 
-      console.log(result);
+      // console.log(result);
 
-      const registerModal = document.getElementById("exampleModal2");
-      const bootstrapModal = new bootstrap.Modal(registerModal);
-      bootstrapModal.hide();
+      // const registerModal = document.getElementById("exampleModal2");
+      // const bootstrapModal = new bootstrap.Modal(registerModal);
+      // bootstrapModal.hide();
 
-      // const loginModal = document.getElementById("exampleModal");
-      // const bootstrapModal2 = new bootstrap.Modal(loginModal);
-      // bootstrapModal2.show();
+      // // const loginModal = document.getElementById("exampleModal");
+      // // const bootstrapModal2 = new bootstrap.Modal(loginModal);
+      // // bootstrapModal2.show();
 
-      window.location.href = "/index.html";
+      // // window.location.href = "/index.html";
 
-      // Redirect to another page, update UI, etc.
-      // ...
+      // // Redirect to another page, update UI, etc.
+      // // ...
     } catch (error) {
       console.error("Error registration:", error);
       // Handle login error (e.g., display error message)
@@ -702,6 +736,108 @@ document.addEventListener("DOMContentLoaded", () => {
   // window.location.href = '/home'; // Replace '/home' with the URL of your home page
 });
 
+
+document.addEventListener("DOMContentLoaded", function () {
+  const signUpLink = document.getElementById("signUpLink");
+
+  signUpLink.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    $("#exampleModal").modal("hide");
+    $("#exampleModal2").modal("show");
+  });
+});
+document.addEventListener("DOMContentLoaded", function () {
+  const signUpLink = document.getElementById("loginLink");
+
+  signUpLink.addEventListener("click", function (event) {
+    event.preventDefault();
+
+    $("#exampleModal2").modal("hide");
+    $("#exampleModal").modal("show");
+  });
+});
+
+document
+  .getElementById("changePasswordForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const currentPassword = document.getElementById(
+      "inputPasswordCurrent"
+    ).value;
+    const newPassword = document.getElementById("inputPasswordNew").value;
+    const newPasswordConfirm =
+      document.getElementById("inputPasswordNew2").value;
+
+    if (newPassword !== newPasswordConfirm) {
+      return;
+    }
+
+    const payload = {
+      current_password: currentPassword,
+      new_password: newPassword,
+    };
+
+    const token = localStorage.getItem("authToken");
+
+    fetch(`${API_BASE_URL}changepassword`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (response.ok) {
+          console.log("Password changed successfully");
+        } else {
+          return response.json().then((error) => {
+            console.log(error);
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
+
+document
+  .getElementById("deleteAccountBtn")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    if (
+      confirm(
+        "Are you sure you want to delete your account? This action cannot be undone."
+      )
+    ) {
+      const token = localStorage.getItem("authToken");
+
+      fetch(`${API_BASE_URL}deleteaccount`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            localStorage.removeItem("authToken");
+            localStorage.removeItem("username");
+          } else {
+            // Handle error responses from the backend
+            return response.json().then((error) => {
+              // Handle error response
+            });
+          }
+        })
+        .catch((error) => {
+          // Handle fetch errors
+        });
+    }
+  });
+
 // Function to fetch data from the backend API
 async function fetchDataBySportType(sportType) {
   try {
@@ -742,3 +878,27 @@ async function fetchDataBySportType(sportType) {
     return [];
   }
 }
+
+
+// JavaScript to move elements based on screen size
+// function moveElements() {
+//   const rightCompoDesktop = document.getElementById('rightCompoDesktop');
+//   const rightCompoMobile = document.getElementById('rightCompoMobile');
+//   const accordion = document.getElementById('accordion');
+
+//   if (rightCompoDesktop && rightCompoMobile && accordion) {
+//     if (window.innerWidth <= 768) {
+//       rightCompoDesktop.style.display = 'none'; 
+//       rightCompoMobile.style.display = 'block'; 
+//     } else {
+//       rightCompoDesktop.style.display = 'block'; 
+//       rightCompoMobile.style.display = 'none'; 
+//     }
+//   } else {
+//     console.error("One or more elements not found.");
+//   }
+// }
+
+// // Initial check on page load and on window resize
+// document.addEventListener('DOMContentLoaded', moveElements);
+// window.addEventListener('resize', moveElements);

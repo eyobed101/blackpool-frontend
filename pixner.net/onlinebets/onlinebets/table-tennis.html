@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BLACKPOOL</title>
     <!--Favicon img-->
-    <link rel="shortcut icon" href="assets/img/logo/favicon.png" />
+    <link rel="shortcut icon" href="assets/img/logo/blackpool.png" />
     <!--Bootstarp min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!--Bootstarp map css-->
@@ -153,16 +153,18 @@
           <div class="signup-area" id="signupArea">
             <div id="profileSection" style="display: none">
               <div class="items">
-                <img
-                  id="userAvatar"
-                  src="assets/img/avater.png"
-                  alt="User Avatar"
-                  width="30"
-                  height="30"
-                  style="border-radius: 50%"
-                />
-                <span id="username" style="margin-right: 20px"></span>
-                <button id="logoutButton" class="cmn--btn">
+                <a href="profile.html">
+                  <img
+                    href="profile.html"
+                    id="userAvatar"
+                    src="assets/img/avater.png"
+                    alt="User Avatar"
+                    width="30"
+                    height="30"
+                    style="border-radius: 50%"
+                  /></a>
+                <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
+                <button class="mobile-hide" id="logoutButton" class="cmn--btn">
                   <span>Log Out</span>
                 </button>
               </div>

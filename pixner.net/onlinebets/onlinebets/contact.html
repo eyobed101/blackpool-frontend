@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BLACKPOOL</title>
     <!--Favicon img-->
-    <link rel="shortcut icon" href="assets/img/logo/favicon.png" />
+    <link rel="shortcut icon" href="assets/img/logo/blackpool.png" />
     <!--Bootstarp min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!--Bootstarp map css-->
@@ -154,16 +154,18 @@
             <!-- Profile Section (Initially Hidden) -->
             <div id="profileSection" style="display: none">
               <div class="items">
-                <img
-                  id="userAvatar"
-                  src="assets/img/avater.png"
-                  alt="User Avatar"
-                  width="30"
-                  height="30"
-                  style="border-radius: 50%"
-                />
-                <span id="username" style="margin-right: 20px"></span>
-                <button id="logoutButton" class="cmn--btn">
+                <a href="profile.html">
+                  <img
+                    href="profile.html"
+                    id="userAvatar"
+                    src="assets/img/avater.png"
+                    alt="User Avatar"
+                    width="30"
+                    height="30"
+                    style="border-radius: 50%"
+                  /></a>
+                <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
+                <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                   <span>Log Out</span>
                 </button>
               </div>
@@ -207,7 +209,7 @@
                   <ul class="menu-promot menu-promot-first">
                     <li>
                       <form action="#">
-                        <input type="text" placeholder="Search........." />
+                        <input type="text" placeholder="Search" />
                         <span class="icon">
                           <i class="fas fa-magnifying-glass"></i>
                         </span>
@@ -1107,7 +1109,8 @@
               <h5>Sign into your account</h5>
               <p>
                 Don't have an account?
-                <a href="#0" class="text-base">Sign up</a>
+                <a href="#0" id="signUpLink"
+                class="text-base">Sign up</a>
               </p>
             </div>
           </div>
@@ -1170,26 +1173,12 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div class="orbar">
-                  <span>OR</span>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
-                <ul class="log-social">
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-steam-symbol"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                </ul>
               </form>
               <!-- Add the successContainer and errorContainer divs below the form -->
               <div id="successContainer" class="mt-3"></div>
@@ -1213,7 +1202,8 @@
               <h5>Create New Account</h5>
               <p>
                 Already have an account?
-                <a href="#0" class="text-base">Login</a>
+                <a href="#0"  id="loginLink"
+                class="text-base">Login</a>
               </p>
             </div>
           </div>
@@ -1315,26 +1305,12 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div class="orbar">
-                  <span>OR</span>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
-                <ul class="log-social">
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-steam-symbol"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                </ul>
               </form>
             </div>
           </div>
@@ -1937,6 +1913,9 @@
 
       function populateBetslip() {
         const dataArray = JSON.parse(localStorage.getItem("placedItem"));
+        const priceAmo = localStorage.getItem("price");
+
+        const price = priceAmo;
 
         const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
         // priceSum = parseFloat(priceSum.toFixed(2))
@@ -2019,14 +1998,14 @@
 
       <div class="possible-win">
         <span>Price</span>
-        <span id="possibleWin" class="amount">10</span>
+        <span id="possibleWin" class="amount">${price}</span>
     </div>
 
        <hr>
     <div class="possible-win">
         <span>Possible win</span>
         <span id="possibleWin" class="amount">${parseFloat(
-          10 * priceSum
+          price * priceSum
         ).toFixed(2)}</span>
     </div>
         `;

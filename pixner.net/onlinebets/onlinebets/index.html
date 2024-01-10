@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BLACKPOOL</title>
     <!--Favicon img-->
-    <link rel="shortcut icon" href="assets/img/logo/favicon.png" />
+    <link rel="shortcut icon" href="assets/img/logo/blackpool.png" />
     <!--Bootstarp min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!--Bootstarp map css-->
@@ -128,6 +128,16 @@
               </a>
             </li>
           </ul>
+          <!-- <li class="menu--btn">
+            <a
+              href="#0"
+              class="cmn--btn"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal2"
+            >
+              <span>Deposit</span>
+            </a>
+          </li> -->
         </div>
         <div class="right-menu-reature">
           <div class="language">
@@ -149,16 +159,26 @@
           <div class="signup-area" id="signupArea">
             <div id="profileSection" style="display: none">
               <div class="items">
-                <img
-                  id="userAvatar"
-                  src="assets/img/avater.png"
-                  alt="User Avatar"
-                  width="30"
-                  height="30"
-                  style="border-radius: 50%"
-                />
-                <span id="username" style="margin-right: 20px"></span>
-                <button id="logoutButton" class="cmn--btn">
+                <a href="profile.html">
+                  <img
+                    href="profile.html"
+                    id="userAvatar"
+                    src="assets/img/avater.png"
+                    alt="User Avatar"
+                    width="35"
+                    height="35"
+                    style="border-radius: 50%"
+                /></a>
+                <span
+                  class="mobile-hide"
+                  id="username"
+                  style="margin-right: 20px"
+                ></span>
+                <button
+                  class="mobile-hide cmn--btn"
+                  id="logoutButton"
+                  class="cmn--btn"
+                >
                   <span>Log Out</span>
                 </button>
               </div>
@@ -202,7 +222,7 @@
                   <ul class="menu-promot menu-promot-first">
                     <li>
                       <form action="#">
-                        <input type="text" placeholder="Search........." />
+                        <input type="text" placeholder="Search" />
                         <span class="icon">
                           <i class="fas fa-magnifying-glass"></i>
                         </span>
@@ -17709,95 +17729,8 @@
                   <div class="combo-wrapper">
                     <div class="close-box">
                       <div class="close-items">
-                        <div class="close-head">
-                          <span>Scotland vs Ukraine</span>
-                          <span class="close">
-                            <i class="fas fa-xmark"></i>
-                          </span>
-                        </div>
+                        <div class="close-head"></div>
                         <div class="match-fixing">
-                          <div class="match-items">
-                            <div class="match-items-left">
-                              <div class="icon">
-                                <img
-                                  src="assets/img/header/right-icon/footaball.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <div class="cont">
-                                <span>Scotland</span>
-                                <span class="winner">Match Winner</span>
-                              </div>
-                            </div>
-                            <div class="match-items-right">
-                              <div class="icon">
-                                <img
-                                  src="assets/img/header/right-icon/uptodwon.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <span>3.20</span>
-                            </div>
-                          </div>
-                          <div class="match-items">
-                            <div class="match-items-left">
-                              <div class="icon">
-                                <img
-                                  src="assets/img/header/right-icon/footaball.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <div class="cont">
-                                <span>Draw</span>
-                                <span class="winner">Match Winner</span>
-                              </div>
-                            </div>
-                            <div class="match-items-right">
-                              <div class="icon">
-                                <img
-                                  src="assets/img/header/right-icon/uptodwon.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <span>4.60</span>
-                            </div>
-                          </div>
-                          <p>
-                            Add 2 more outcome(s) with odds greater than 1.4 to
-                            get x1.08
-                          </p>
-                          <div class="match-items match-progress">
-                            <div class="match-items-left">
-                              <div class="prabox-wrap">
-                                <div class="terminal-bar">
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                  <span></span>
-                                </div>
-                                <div class="bar-count">
-                                  <p>x1.08</p>
-                                  <p>x1,15</p>
-                                  <p>x1.20</p>
-                                  <p>x1.50</p>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="match-items-right">
-                              <div class="icon">
-                                <img
-                                  src="assets/img/header/right-icon/uptodwon.svg"
-                                  alt="icon"
-                                />
-                              </div>
-                              <span>1.00</span>
-                            </div>
-                          </div>
                           <div class="match-items match-odds">
                             <div class="match-items-left">
                               <div class="cont">
@@ -17811,7 +17744,7 @@
                                   alt="icon"
                                 />
                               </div>
-                              <span>12.19</span>
+                              <span>0</span>
                             </div>
                           </div>
                         </div>
@@ -17834,11 +17767,11 @@
                     </div>
                     <div class="possible-win">
                       <span>Possible win</span>
-                      <span class="amount">$300</span>
+                      <span class="amount">$10</span>
                     </div>
                     <div class="combo-footer">
                       <a href="#0" class="cmn--btn">
-                        <span> Place Bet $300</span>
+                        <span> Place Bet $10</span>
                       </a>
                     </div>
                   </div>
@@ -17985,7 +17918,7 @@
               <h5>Sign into your account</h5>
               <p>
                 Don't have an account?
-                <a href="#0" class="text-base">Sign up</a>
+                <a href="#0" id="signUpLink" class="text-base">Sign up</a>
               </p>
             </div>
           </div>
@@ -18048,6 +17981,12 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
               </form>
               <!-- Add the successContainer and errorContainer divs below the form -->
               <div id="successContainer" class="mt-3"></div>
@@ -18071,7 +18010,7 @@
               <h5>Create New Account</h5>
               <p>
                 Already have an account?
-                <a href="#0" class="text-base">Login</a>
+                <a href="#0" id="loginLink" class="text-base">Login</a>
               </p>
             </div>
           </div>
@@ -18173,6 +18112,12 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
@@ -18245,7 +18190,7 @@
                       /></span>
                       <span class="text-blabce">Balance</span>
                     </div>
-                    <span class="blance"> $300 </span>
+                    <span class="blance"> 0 USDT</span>
                   </div>
                   <div class="betslip-wrapper">
                     <!-- <a href="#0" class="left-betslip">
@@ -18682,6 +18627,45 @@
     <!--main Js-->
     <script src="assets/js/main.js"></script>
     <script>
+      const newOptions = {
+        loop: true,
+        margin: 10,
+        smartSpeed: 2500,
+        autoplayTimeout: 2500,
+        autoplay: false,
+        nav: true,
+        dots: true,
+        responsiveClass: true,
+        navText: [
+          '<i class="fas fa-chevron-left"></i>',
+          '<i class="fas fa-chevron-right"></i>',
+        ],
+        responsive: {
+          0: {
+            items: 1,
+          },
+          575: {
+            items: 1,
+          },
+          767: {
+            items: 1,
+          },
+          991: {
+            items: 2,
+          },
+          1199: {
+            items: 1,
+          },
+          1499: {
+            items: 2,
+          },
+          1999: {
+            items: 2,
+          },
+        },
+      };
+    </script>
+    <script>
       let eventsArray = [];
       async function renderData(sportType, callback) {
         const backendData = await fetchDataBySportType(sportType);
@@ -18689,28 +18673,1011 @@
         const sportTable = document.createElement("div");
         sportTable.classList.add("match-table", "pt-60");
 
-        // Constructing the header with the sport type and "More" button
-        const sportHeader = document.createElement("div");
-        sportHeader.classList.add("match-table-head", "pt-spane-none");
-        sportHeader.innerHTML = `
+        if (backendData.length === 0) {
+          return 0;
+        }
+
+        const oldGamesContainer = document.querySelector(
+          ".progress-slider.owl-theme.owl-carousel"
+        );
+
+        $(oldGamesContainer)
+          .trigger("destroy.owl.carousel")
+          .removeClass("owl-loaded");
+
+        const gamesContainer = document.createElement("div");
+        gamesContainer.classList.add(
+          "progress-slider",
+          "owl-theme",
+          "owl-carousel"
+        );
+
+        if (sportType === "soccer") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+
+              const homeTeam = game.home_team;
+              const awayTeam = game.away_team;
+              const itemId = game.id;
+
+              const homeTeamOutcome =
+              game.bookmakers &&
+              game.bookmakers[0] &&
+              game.bookmakers[0].markets &&
+              game.bookmakers[0].markets[0]
+                  ? game.bookmakers[0].markets[0].outcomes.find(
+                      (outcome) => outcome.name === homeTeam
+                    )
+                  : null;
+
+              const drawOutcome =
+              game.bookmakers &&
+              game.bookmakers[0] &&
+              game.bookmakers[0].markets &&
+              game.bookmakers[0].markets[0]
+                  ? game.bookmakers[0].markets[0].outcomes.find(
+                      (outcome) => outcome.name === "Draw"
+                    )
+                  : null;
+
+              const awayTeamOutcome =
+              game.bookmakers &&
+              game.bookmakers[0] &&
+              game.bookmakers[0].markets &&
+              game.bookmakers[0].markets[0]
+                  ? game.bookmakers[0].markets[0].outcomes.find(
+                      (outcome) => outcome.name === awayTeam
+                    )
+                  : null;
+
+              const homeTeamPrice = homeTeamOutcome ? homeTeamOutcome.price : "--";
+              const drawPrice = drawOutcome ? drawOutcome.price : "--";
+              const awayTeamPrice = awayTeamOutcome ? awayTeamOutcome.price : "--";
+
+              const Home = {
+                sport: sportType,
+                price: homeTeamPrice,
+                type: "home",
+                team: homeTeam,
+                id: game.id,
+                pressed: false,
+                vs: awayTeam,
+              };
+
+              const HomeID = {
+                id: game.id,
+                team: homeTeam,
+              };
+
+              const Away = {
+                sport: sportType,
+                price: awayTeamPrice,
+                type: "away",
+                team: awayTeam,
+                id: game.id,
+                pressed: false,
+                vs: homeTeam,
+              };
+
+              const AwayID = {
+                id: game.id,
+                team: awayTeam,
+              };
+
+              const Draw = {
+                sport: sportType,
+                price: drawPrice,
+                type: "draw",
+                team: "X",
+                id: game.id,
+                pressed: false,
+                home: homeTeam,
+                away: awayTeam,
+              };
+
+              const DrawID = {
+                id: game.id,
+                team: "X",
+              };
+
+              const homeStringified = JSON.stringify(Home);
+              const drawStringified = JSON.stringify(Draw);
+              const awayStringified = JSON.stringify(Away);
+
+              const homeStringifiedId = JSON.stringify(HomeID);
+              const awayStringifiedId = JSON.stringify(AwayID);
+              const drawStringifiedId = JSON.stringify(DrawID);
+
+
+
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <img src="assets/img/clubs/${
+                        game.sport_title
+                      }.png" alt="icon" />
+                        </span>
+                        <span class="text">${game.sport_title}</span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.home_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.away_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" data-value='${homeStringified}' id='${homeStringifiedId}' class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>${Home.price}</span>
+                        </a>
+                        <a href="#0" data-value='${drawStringified}' id='${drawStringifiedId}' class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>${Draw.price}</span>
+                        </a>
+                        <a href="#0" data-value='${awayStringified}' id='${awayStringifiedId}' class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>${Away.price}</span>
+                        </a>
+                        
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+              <h2>Football</h2>
+              <a href="football.html" class="tablebtn">More</a>
+            `;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else if (sportType === "football") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+              console.log(selectedGames);
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <i class="icon-football"></i>
+                        </span>
+                        <span class="text"> League Nations UEFA </span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>Italy</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>Scotland</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>3.55</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>4.25</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>5.05</span>
+                        </a>
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+            <h2>American Football</h2>
+            <a href="americanfootball.html" class="tablebtn">More</a>
+          `;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else if (sportType === "cricket") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <i class="icon-football"></i>
+                        </span>
+                        <span class="text">${game.sport_title}</span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.home_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.away_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>3.55</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>4.25</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>5.05</span>
+                        </a>
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+  <h2>Cricket</h2>
+  <a href="cricket.html" class="tablebtn">More</a>
+`;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else if (sportType === "tennis") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <i class="icon-football"></i>
+                        </span>
+                        <span class="text">${game.sport_title}</span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.home_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.away_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>3.55</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>4.25</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>5.05</span>
+                        </a>
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+  <h2>Tennis</h2>
+  <a href="tennis.html" class="tablebtn">More</a>
+`;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else if (sportType === "baseball") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <i class="icon-football"></i>
+                        </span>
+                        <span class="text">${game.sport_title}</span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.home_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.away_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>3.55</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>4.25</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>5.05</span>
+                        </a>
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+  <h2>Baseball</h2>
+  <a href="baseball.html" class="tablebtn">More</a>
+`;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else if (sportType === "bascketball") {
+          let selectedGames = [];
+
+          const groupedGames = groupGamesByCommenceTime(backendData);
+
+          if (groupedGames.live.length > 1) {
+            selectedGames = groupedGames.live.slice(0, 6);
+          } else if (groupedGames.live.length === 1) {
+            selectedGames = groupedGames.live.slice(0, 1);
+
+            if (groupedGames.prematch.length > 0) {
+              selectedGames.push(groupedGames.prematch.slice(0, 6));
+            }
+          } else if (
+            groupedGames.live.length === 0 &&
+            groupedGames.prematch.length > 1
+          ) {
+            selectedGames = groupedGames.prematch.slice(0, 6);
+          } else {
+            selectedGames = [];
+          }
+
+          if (selectedGames.length !== 0) {
+            selectedGames.forEach((game) => {
+              const progressSliderItems = document.createElement("div");
+              progressSliderItems.classList.add("progress-slider-items");
+
+              // Creating the HTML structure using the game details
+              const gameHTML = `
+              
+                      <div class="title">
+                        <span class="icon">
+                          <i class="icon-football"></i>
+                        </span>
+                        <span class="text">${game.sport_title}</span>
+                      </div>
+                      <div class="main-progress-wrap">
+                        <div class="cart-item">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/italy.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>65<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.home_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-item cart-middle-item">
+                          <div class="card myborder">
+                            <div class="percent">
+                              <div class="pro1">
+                                <div class="pro2">
+                                  <div class="pro3"></div>
+                                </div>
+                              </div>
+                              <div class="content-area middle-bg">
+                                <div class="icon">
+                                  <span class="vs">Vs</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="cart-items">
+                          <div class="card">
+                            <div class="percent">
+                              <svg>
+                                <circle cx="55" cy="55" r="45"></circle>
+                                <circle
+                                  cx="55"
+                                  cy="55"
+                                  r="45"
+                                  style="--percent: 28"
+                                ></circle>
+                              </svg>
+                              <div class="content-area">
+                                <div class="icon">
+                                  <img
+                                    src="assets/img/table/scotland.png"
+                                    alt="flag"
+                                  />
+                                </div>
+                                <div class="number">
+                                  <h3>28<span>%</span></h3>
+                                </div>
+                                <div class="title">
+                                  <span>${game.away_team}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="match-pointing">
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">1</span>
+                          <span>3.55</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">X</span>
+                          <span>4.25</span>
+                        </a>
+                        <a href="#0" class="match-pointing-box">
+                          <span class="list">2</span>
+                          <span>5.05</span>
+                        </a>
+                      </div>
+                    `;
+
+              progressSliderItems.innerHTML = gameHTML;
+              gamesContainer.appendChild(progressSliderItems);
+            });
+            container.appendChild(gamesContainer);
+            $(gamesContainer).owlCarousel(newOptions);
+          }
+
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
+            <h2>Bascketball</h2>
+            <a href="bascketball.html" class="tablebtn">More</a>
+          `;
+
+          sportTable.appendChild(sportHeader);
+
+          container.appendChild(sportTable);
+        } else {
+          // Constructing the header with the sport type and "More" button
+          const sportHeader = document.createElement("div");
+          sportHeader.classList.add("match-table-head", "pt-spane-none");
+
+          sportHeader.innerHTML = `
   <h2>${sportType}</h2>
   <a href="${sportType}.html" class="tablebtn">More</a>
 `;
 
-        sportTable.appendChild(sportHeader);
+          sportTable.appendChild(sportHeader);
 
-        // Append the constructed header to the container
-        container.appendChild(sportTable);
-        //         const sportHeader = document.createElement("div");
-        //         sportHeader.classList.add("match-table-head", "pt-20", "pb-20");
-
-        //         // Constructing the header with the sport type and "More" button
-        //         sportHeader.innerHTML = `
-        //     <h2>${sportType.toUpperCase()}</h2>
-        //     <a href="${sportType}.html" class="tablebtn">More</a>
-        // `;
-
-        //         container.appendChild(sportHeader);
+          container.appendChild(sportTable);
+        }
 
         backendData.slice(0, 10).forEach((item) => {
           const matchDiv = document.createElement("div");
@@ -18815,7 +19782,9 @@
                 <div class="table-head">
                   <a href="details.html" class="left-compo">
                     <span>
-                      <img src="assets/img/table/luage.png" alt="icon" />
+                      <img src="assets/img/clubs/${
+                        item.sport_title
+                      }.png" alt="icon" />
                     </span>
                     <span>${item.sport_title}</span>
                   </a>
@@ -18862,7 +19831,7 @@
                       <span class="list">U 2.5</span>
                       <span>3.1</span>
                     </a>
-      			  <a href="#0" class="table-pointing-box">
+      			  <a href="details.html">
       			  <span class="last-digit">+37</span>
       			</a>
                   </div>
@@ -19085,6 +20054,9 @@
 
       function populateBetslip() {
         const dataArray = JSON.parse(localStorage.getItem("placedItem"));
+        const priceAmo = localStorage.getItem("price");
+
+        const price = priceAmo;
 
         const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
         // priceSum = parseFloat(priceSum.toFixed(2))
@@ -19167,14 +20139,14 @@
 
       <div class="possible-win">
         <span>Price</span>
-        <span id="possibleWin" class="amount">10</span>
+        <span id="possibleWin" class="amount">${price}</span>
     </div>
 
        <hr>
     <div class="possible-win">
         <span>Possible win</span>
         <span id="possibleWin" class="amount">${parseFloat(
-          10 * priceSum
+          price * priceSum
         ).toFixed(2)}</span>
     </div>
         `;
@@ -19359,51 +20331,29 @@
           updatePossibleWin(betAmount);
         });
 
-      // function groupGamesByCommenceTime(games) {
-      //   const currentTime = new Date();
-      //   const today = new Date(currentTime);
-      //   today.setHours(0, 0, 0, 0); // Set today's date to midnight
+     
 
-      //   const tomorrow = new Date(currentTime);
-      //   tomorrow.setDate(tomorrow.getDate() + 1);
-      //   tomorrow.setHours(0, 0, 0, 0); // Set tomorrow's date to midnight
+      function groupGamesByCommenceTime(games) {
+        const currentTime = new Date();
+        const today = new Date(currentTime);
+        today.setHours(0, 0, 0, 0);
 
-      //   const liveGames = [];
-      //   const todayGames = [];
-      //   const tomorrowGames = [];
-      //   const prematchGames = [];
+        const liveGames = [];
+        const prematchGames = [];
 
-      //   games.forEach((game) => {
-      //     const commenceTime = new Date(game.commence_time);
-      //     commenceTime.setHours(0, 0, 0, 0);
+        games.forEach((game) => {
+          const commenceTime = new Date(game.commence_time);
+          commenceTime.setHours(0, 0, 0, 0);
 
-      //     if (commenceTime.getTime() < today.getTime()) {
-      //       liveGames.push(game);
-      //     } else if (commenceTime.getTime() === today.getTime()) {
-      //       todayGames.push(game);
-      //     } else if (commenceTime.getTime() === tomorrow.getTime()) {
-      //       tomorrowGames.push(game);
-      //     } else {
-      //       prematchGames.push(game);
-      //     }
-      //   });
+          if (commenceTime.getTime() <= currentTime.getTime()) {
+            liveGames.push(game);
+          } else {
+            prematchGames.push(game);
+          }
+        });
 
-      //   const groupedGames = {
-      //     live: liveGames,
-      //     today: todayGames,
-      //     tomorrow: tomorrowGames,
-      //   };
-
-      //   prematchGames.forEach((game) => {
-      //     const key = game.commence_time.split("T")[0];
-      //     if (!groupedGames[key]) {
-      //       groupedGames[key] = [];
-      //     }
-      //     groupedGames[key].push(game);
-      //   });
-
-      //   return groupedGames;
-      // }
+        return { live: liveGames, prematch: prematchGames };
+      }
 
       window.onload = () => {
         const urlParams = new URLSearchParams(window.location.search);

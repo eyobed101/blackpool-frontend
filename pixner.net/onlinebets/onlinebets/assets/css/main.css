@@ -296,6 +296,15 @@ p {
   margin-bottom: 25px;
 }
 
+#loadingSpinner {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Adjust the z-index as needed */
+}
+
 /*-Responsive-*/
 /*-Responsive-*/
 @media screen and (max-width: 991px) {
@@ -1485,7 +1494,7 @@ p {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  fill: var(--white);
+  /* fill: var(--white); */
 }
 .header-wrapper .main-menu {
   display: flex;
@@ -1739,7 +1748,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    fill: var(--white);
+    /* fill: var(--white); */
   }
   /* .header-wrapper .logo-menu {
     padding-right: 10px;
@@ -1748,7 +1757,7 @@ p {
     gap: 12.2px;
   }
   .header-wrapper .right-menu-reature .signup-area {
-    padding-left: 5px;
+    padding-left: 2px;
     gap: 14px;
   }
   .main-menu li:not(:last-child) {
@@ -1958,7 +1967,6 @@ p {
 }
 
 @media screen and (max-width: 1199px) {
-
   .header-wrapper .logo-menu {
     max-width: 160px;
     height: auto;
@@ -1988,7 +1996,10 @@ p {
   .header-wrapper .right-menu-reature {
     width: 20%;
   }
-  .header-wrapper .right-menu-reature .signup-area {
+  /* .header-wrapper .right-menu-reature .signup-area {
+    display: none;
+  } */
+  .header-wrapper .right-menu-reature .signup-area .mobile-hide{
     display: none;
   }
   .main-menu {
@@ -2085,8 +2096,6 @@ p {
   }
 }
 @media screen and (max-width: 991px) {
-
-  
   .header-wrapper .logo-menu {
     max-width: 160px;
     height: auto;
@@ -2102,7 +2111,6 @@ p {
   }
 }
 @media screen and (max-width: 767px) {
-
   .header-wrapper .logo-menu {
     max-width: 160px;
     height: auto;
@@ -2142,7 +2150,7 @@ p {
     padding-top: 5%;
   }
 
-  .mode--toggle img {
+  /* .mode--toggle img {
     transition: all ease 0.3s;
     position: absolute;
     left: 6px;
@@ -2155,7 +2163,7 @@ p {
   .mode--toggle {
     width: 40px;
     height: 20px;
-  }
+  } */
 }
 @media screen and (max-width: 575px) {
   .header-wrapper .menu-logo-adjust {
@@ -2164,6 +2172,10 @@ p {
   .header-wrapper .right-menu-reature {
     width: 12%;
   }
+  /* .mode--toggle {
+    width: 30px;
+    height: 15px;
+  } */
 }
 @media screen and (max-width: 520px) {
   .header-wrapper .menu-logo-adjust {
@@ -2176,6 +2188,13 @@ p {
   .header-wrapper .right-menu-reature .language {
     display: none;
   }
+  .header-wrapper .right-menu-reature .mode--toggle {
+    display: none;
+  }
+  /* .mode--toggle {
+    width: 30px;
+    height: 15px;
+  } */
 }
 @media screen and (max-width: 460px) {
   .header-wrapper .menu-logo-adjust {
@@ -2185,6 +2204,11 @@ p {
   .header-wrapper .right-menu-reature {
     width: 20%;
   }
+  /* .mode--toggle {
+    width: 30px;
+    height: 15px;
+  } */
+ 
 }
 .header {
   background-color: var(--box-two);
@@ -2205,6 +2229,10 @@ p {
   .header .menu ul li form {
     margin-right: 31px;
   }
+  /* .mode--toggle {
+    width: 30px;
+    height: 15px;
+  } */
 }
 .header .menu ul li form input {
   width: 100%;
@@ -3700,6 +3728,7 @@ p {
 .info {
   display: flex;
   flex-direction: column;
+  
   /* justify-content: center;
   align-items: center; */
   margin-bottom: 15px;
@@ -3710,13 +3739,17 @@ label.profile-label {
   margin-right: 40px;
   margin-top: 20px;
   margin-bottom: 10px;
+  
 }
 
 div[contenteditable="false"] {
   flex-grow: 1;
-  padding: 8px;
-  border: 1px solid var(--match-border);
+  padding: 10px;
+  /* border: 1px solid var(--match-border); */
   border-radius: 4px;
+  background: var(--box-bg);
+  border: none;
+  color: var(--white);
 
   /* margin-right: 20%; */
   /* width: 70%; */
@@ -3855,6 +3888,10 @@ tr:nth-child(even) {
 
 /* end bet */
 
+#year-select2my {
+  width: 150px;
+  overflow-y: scroll;
+}
 
 .right-lebel {
   background-color: var(--table-bg);
@@ -4431,6 +4468,8 @@ tr:nth-child(even) {
 .varification form .date-wrap .items .nice-select .list {
   background-color: unset;
   background-color: var(--box-bg);
+  height: 150px;
+  overflow-y: scroll;
 }
 .varification form .date-wrap .items .nice-select .list .option {
   border: 1px solid var(--vari-border);
@@ -4728,7 +4767,7 @@ tr:nth-child(even) {
 
 .body-middle {
   width: 100%;
-  padding-top: 80px;
+  padding-top: 30px;
   overflow: hidden;
 }
 
@@ -5882,6 +5921,170 @@ tr:nth-child(even) {
   color: var(--point-color);
 }
 
+.main-tabbing
+  .match-table
+  .table-wrap
+  .table-inner
+  .table-head
+  .right-compo-match {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .main-tabbing .match-table .table-wrap .table-inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .main-tabbing .match-table .table-wrap .table-inner .table-head .right-compo {
+    display: none;
+  }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-head
+    .right-compo-match {
+    display: flex;
+    flex-direction: row; /* Display items in a row */
+    flex-wrap: wrap;
+    margin-right: auto;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-head
+    .right-compo-match .more-odds-mobile{
+    margin-left: auto;
+    font-weight: 600;
+  }
+ 
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-head
+    .right-compo-match
+    li:not(:last-child) {
+    margin-left: 10px;
+  }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-head
+    .right-compo-match
+    .matchtime-mobile {
+      margin-left: 10px;
+    width: 100%; /* Make the matchtime-mobile take full width */
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-head
+    .right-compo-match
+    .more-odds-mobile a{
+margin-right: 10px !important;  }
+
+  .main-tabbing .match-table .table-wrap .table-inner .table-body {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-left {
+    display: none;
+  }
+  .main-tabbing .match-table .table-wrap .table-inner .table-head .sport-title {
+    display: none;
+  }
+
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right {
+      width: 100%;
+      justify-content: center;
+
+    }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right .more-odds{
+      display: none;
+
+    }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right
+    .table-pointing-box {
+    cursor: pointer;
+    margin: 2px;    
+    min-width: 60px;
+    min-height: 50px;
+  }
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right
+    .table-pointing-box
+    .list
+    span {
+    font-size: 11px;
+  }
+  .main-tabbing
+  .match-table
+  .table-wrap
+  .table-inner
+  .table-body
+  .table-body-right
+  .table-pointing-box:not(:last-child)
+  .list {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  display: block;
+  margin-top: -3px;
+  margin-bottom: 5px;
+  color: var(--point-color);
+}
+  .main-tabbing
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right
+    a
+    span {
+    font-size: 12px;
+  }
+
+  /* .main-tabbing .match-table .table-wrap .table-inner .table-body .table-body-right {
+    width: 100%;
+    order: 2;
+    display: none;
+  } */
+}
+
 .calender-bar {
   position: relative;
   margin-bottom: 34px !important;
@@ -6159,21 +6362,34 @@ tr:nth-child(even) {
 /*--Button Area End--*/
 @media screen and (max-width: 1199px) {
   h1 {
-    font-size: 56px;
+    font-size: 50px;
+    line-height: 70.8px;
+  }
+  h2 {
+    font-size: 37px;
     line-height: 70.8px;
   }
   h3 {
-    font-size: 38px;
+    font-size: 32px;
     line-height: 49px;
   }
   h5 {
     font-size: 22px;
     line-height: 29.2px;
   }
+  .body-middle {
+    width: 100%;
+    padding-top: 60px;
+    overflow: hidden;
+  }
 }
 @media screen and (max-width: 991px) {
   h2 {
-    font-size: 47px;
+    font-size: 40px;
+    line-height: 64.1px;
+  }
+  h1 {
+    font-size: 50px;
     line-height: 64.1px;
   }
   h3 {
@@ -6183,6 +6399,11 @@ tr:nth-child(even) {
   h4 {
     font-size: 29px;
     line-height: 50.2px;
+  }
+  .body-middle {
+    width: 100%;
+    padding-top: 60px;
+    overflow: hidden;
   }
 }
 @media screen and (max-width: 767px) {
@@ -7063,9 +7284,7 @@ tr:nth-child(even) {
   -o-transition: all 0.2s linear;
   transition: all 0.2s linear;
 }
-.logo img {
-  filter: brightness(50%);
-}
+
 .social-icons a:active,
 .social-icons a:focus,
 .social-icons a:hover {

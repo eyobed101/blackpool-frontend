@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BLACKPOOL</title>
     <!--Favicon img-->
-    <link rel="shortcut icon" href="assets/img/logo/favicon.png" />
+    <link rel="shortcut icon" href="assets/img/logo/blackpool.png" />
     <!--Bootstarp min css-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <!--Bootstarp map css-->
@@ -153,16 +153,18 @@
           <div class="signup-area" id="signupArea">
             <div id="profileSection" style="display: none">
               <div class="items">
-                <img
-                  id="userAvatar"
-                  src="assets/img/avater.png"
-                  alt="User Avatar"
-                  width="30"
-                  height="30"
-                  style="border-radius: 50%"
-                />
-                <span id="username" style="margin-right: 20px"></span>
-                <button id="logoutButton" class="cmn--btn">
+                <a href="profile.html">
+                  <img
+                    href="profile.html"
+                    id="userAvatar"
+                    src="assets/img/avater.png"
+                    alt="User Avatar"
+                    width="35"
+                    height="35"
+                    style="border-radius: 50%"
+                  /></a>
+                <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
+                <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                   <span>Log Out</span>
                 </button>
               </div>
@@ -206,7 +208,7 @@
                   <ul class="menu-promot menu-promot-first">
                     <li>
                       <form action="#">
-                        <input type="text" placeholder="Search........." />
+                        <input type="text" placeholder="Search" />
                         <span class="icon">
                           <i class="fas fa-magnifying-glass"></i>
                         </span>
@@ -424,7 +426,7 @@
                       aria-controls="bannerfilter"
                     >
                       <span class="icon"><i class="fas fa-bars"></i></span>
-                      <span>Selected disciplines: 3/14</span>
+                      <span>Selected disciplines:</span>
                     </button>
                     <div
                       id="bannerfilter"
@@ -434,55 +436,30 @@
                         <ul class="banner-filter-components">
                           <li>
                             <span><i class="icon-basketball"></i></span>
-                            <a href="#0"> Basketball </a>
+                            <a href="basketball.html"> Basketball </a>
                           </li>
-                          <li>
-                            <span><i class="icon-basketball"></i></span>
-                            <a href="#0"> eBasketball </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-scgo"></i></span>
-                            <a href="#0"> CS:GO </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-basketball"></i></span>
-                            <a href="#0"> Basketball </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-basketball"></i></span>
-                            <a href="#0"> eBasketball </a>
-                          </li>
+                          
                           <li>
                             <span><i class="icon-tennis"></i></span>
-                            <a href="#0"> Tennis </a>
+                            <a href="tennis.html"> Tennis </a>
                           </li>
-                          <li>
-                            <span><i class="icon-etennis"></i></span>
-                            <a href="#0"> eTennis </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-hockyball"></i></span>
-                            <a href="#0"> Ice hockey </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-hockyman"></i></span>
-                            <a href="#0"> eHockey </a>
-                          </li>
-                          <li>
-                            <span><i class="icon-volleyball"></i></span>
-                            <a href="#0"> Volleyball </a>
-                          </li>
+                        
                           <li>
                             <span><i class="icon-baseball"></i></span>
-                            <a href="#0"> Baseball </a>
+                            <a href="baseball.html"> Baseball </a>
                           </li>
-                          <li>
-                            <span><i class="icon-futsal"></i></span>
-                            <a href="#0"> Futsal </a>
-                          </li>
+                          
                           <li>
                             <span><i class="icon-cricket"></i></span>
-                            <a href="#0"> Cricket </a>
+                            <a href="cricket.html"> Cricket </a>
+                          </li>
+                          <li>
+                            <span><i class="icon-football"></i></span>
+                            <a href="football.html"> Football </a>
+                          </li>
+                          <li>
+                            <span><i class="icon-football"></i></span>
+                            <a href="americanfootball.html"> American Football </a>
                           </li>
                         </ul>
                       </div>
@@ -1009,7 +986,8 @@
               <h5>Sign into your account</h5>
               <p>
                 Don't have an account?
-                <a href="#0" class="text-base">Sign up</a>
+                <a href="#0"  id="signUpLink"
+                class="text-base">Sign up</a>
               </p>
             </div>
           </div>
@@ -1072,26 +1050,13 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div class="orbar">
-                  <span>OR</span>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
-                <ul class="log-social">
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-steam-symbol"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                </ul>
+                
               </form>
               <!-- Add the successContainer and errorContainer divs below the form -->
               <div id="successContainer" class="mt-3"></div>
@@ -1115,7 +1080,8 @@
               <h5>Create New Account</h5>
               <p>
                 Already have an account?
-                <a href="#0" class="text-base">Login</a>
+                <a href="#0" id="loginLink"
+                class="text-base">Login</a>
               </p>
             </div>
           </div>
@@ -1217,26 +1183,13 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div class="orbar">
-                  <span>OR</span>
+                <div id="loadingSpinner">
+                  <!-- Bootstrap spinner -->
+                  <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
                 </div>
-                <ul class="log-social">
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-steam-symbol"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-twitter"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i class="fab fa-linkedin-in"></i>
-                    </a>
-                  </li>
-                </ul>
+                
               </form>
             </div>
           </div>
@@ -1707,21 +1660,7 @@
       let eventsArray = [];
       async function renderData(sportType, callback) {
         const backendData = await fetchDataBySportType(sportType);
-        const container = document.getElementById("betsall");
-        const sportTable = document.createElement("div");
-        sportTable.classList.add("match-table", "pt-60");
-
-        // Constructing the header with the sport type and "More" button
-        const sportHeader = document.createElement("div");
-        sportHeader.classList.add("match-table-head", "pt-spane-none");
-        sportHeader.innerHTML = `
-  <h2>${sportType}</h2>
-`;
-
-        sportTable.appendChild(sportHeader);
-
-        // Append the constructed header to the container
-        container.appendChild(sportTable);
+       
         //         const sportHeader = document.createElement("div");
         //         sportHeader.classList.add("match-table-head", "pt-20", "pb-20");
 
@@ -1734,6 +1673,31 @@
         //         container.appendChild(sportHeader);
 
         let dataFiltered = await filterLiveGames(backendData);
+
+        console.log(`${sportType}`,dataFiltered);
+
+
+        if(dataFiltered.length === 0){
+          return 0;
+        }
+        const container = document.getElementById("betsall");
+        const sportTable = document.createElement("div");
+        sportTable.classList.add("match-table", "pt-60");
+
+  
+        
+        // Constructing the header with the sport type and "More" button
+        const sportHeader = document.createElement("div");
+        sportHeader.classList.add("match-table-head", "pt-spane-none");
+        sportHeader.innerHTML = `
+  <h2>${sportType}</h2>
+`;
+
+        sportTable.appendChild(sportHeader);
+
+        // Append the constructed header to the container
+        container.appendChild(sportTable);
+
 
         dataFiltered.slice(0, 20).forEach((item) => {
           const matchDiv = document.createElement("div");
@@ -1841,6 +1805,9 @@
                       <img src="assets/img/table/luage.png" alt="icon" />
                     </span>
                     <span>${item.sport_title}</span>
+                    <span>
+                      <img src="assets/img/live.png" alt="icon" width="50px" />
+                    </span>
                   </a>
                   <ul class="right-compo">
                     <li>${new Date(item.commence_time).toLocaleString()}</li>
@@ -2106,6 +2073,9 @@
 
       function populateBetslip() {
         const dataArray = JSON.parse(localStorage.getItem("placedItem"));
+        const priceAmo = localStorage.getItem("price");
+
+        const price = priceAmo;
 
         const priceSum = dataArray.reduce((sum, obj) => sum + obj.price, 0);
         // priceSum = parseFloat(priceSum.toFixed(2))
@@ -2188,14 +2158,14 @@
 
       <div class="possible-win">
         <span>Price</span>
-        <span id="possibleWin" class="amount">10</span>
+        <span id="possibleWin" class="amount">${price}</span>
     </div>
 
        <hr>
     <div class="possible-win">
         <span>Possible win</span>
         <span id="possibleWin" class="amount">${parseFloat(
-          10 * priceSum
+          price * priceSum
         ).toFixed(2)}</span>
     </div>
         `;
@@ -2393,10 +2363,10 @@
 
       window.onload = () => {
         const urlParams = new URLSearchParams(window.location.search);
-        //   const defaultSports = ["basketball", "football", "tennis", "cricket", "baseball"];
         const defaultSports = [
           "soccer",
           "football",
+          "bascketball",
           "tennis",
           "cricket",
           "baseball",
