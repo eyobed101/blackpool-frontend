@@ -369,8 +369,8 @@ function setTheme(theme) {
   }
 }
 
-// const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
-const API_BASE_URL = "http://localhost:8000/api/";
+const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+// const API_BASE_URL = "http://localhost:8000/api/";
 
 const AuthAPI = {
   register: async function (userData) {
