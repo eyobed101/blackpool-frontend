@@ -1632,7 +1632,7 @@
               </div>
               <div class="tab-pane fade" id="profile4" role="tabpanel">
                 <div class="row justify-content-between">
-                  <h3 id="wallet-value" class="wallet-title">300.00</h3>
+                  <h3 id="wallet-value" class="wallet-title">..pending</h3>
                   <div class="wallet-tab-wrap">
                     <ul class="nav">
                       <li class="nav-item">
@@ -1692,40 +1692,31 @@
                           <div class="currency-head-left">
                             <div class="icon">
                               <img
-                                src="assets/img/table/details/bitcoin.png"
+                                src="assets/img/table/details/thether.png"
                                 alt="icon"
                               />
                             </div>
                             <div class="cont">
-                              <h6>Purchase Crypto with Card</h6>
-                              <p>You don`t have Crypto? Buy it here now.</p>
+                              <h6 id="wallet-address"></h6>
+                              <p>TRC20 wallet address</p>
                             </div>
                           </div>
-                          <div class="currency-head-right">
+                          <!-- <div class="currency-head-right">
                             <a href="#0" class="cmn--btn">
                               <span>Purchase Crypto</span>
                             </a>
-                          </div>
+                          </div> -->
                         </div>
                         <div class="row mb-4 g-3">
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/bitcoin.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Bitcoin</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 BTC = $19565.46</span>
-                              </a>
-                            </div>
+                          <div class="col-lg-12" style="width: 100%;">
+                               <div class="justify-content-start row">
+                                 <div class="col-lg-6">
+                                  <div id="wallet-container"></div>
+                                 </div>
+                               </div>
                           </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
+                          <div class="col-lg-12" style="width:100%">
+                            <!-- <div class="bitcoin-item">
                               <a href="#0" class="icon-wrap">
                                 <span class="icon">
                                   <img
@@ -1738,169 +1729,87 @@
                               <a href="#0">
                                 <span> 1 ETH = $1343.21</span>
                               </a>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/thether.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>TETHER</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 USDT = $1.00 </span>
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/litecoin.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Litecoin</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 LTC = $53.76</span>
-                              </a>
-                            </div>
-                          </div>
-                        </div>
-                        <h5 class="currency-title">Gift Cards</h5>
-                        <div class="row g-3">
-                          <div class="col-lg-4">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/master.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>MasterCard</span>
-                              </a>
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/paypal.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Paypal</span>
-                              </a>
-                            </div>
-                          </div>
-
-                          <div class="col-lg-4">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/gplay.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Google Pay</span>
-                              </a>
-                            </div>
+                            </div> -->
+                             <div class="row justify-content-start">
+                                 <div class="col-lg-10">
+                                  <form class="p-4" id="depositForm" method="post" enctype="multipart/form-data">
+                                    <div class="row justify-content-start">
+                                      <label for="amountField">Amount</label>
+                                      <input class="form-control inputContent" name="amount" style="margin-top:10px;height:40px;" placeholder="amount" id="amountField" type="text"/>
+                                    </div>
+                                    <div class="row justify-content-start">
+                                      <label  for="receiptImage" style="margin-top:15px;">Receipt</label>
+                                      <div class="form-control h-auto inputContent" style="margin-top:10px">
+                                        <input name="transaction_image"  type="file" id="receiptImage" class="form-control-file " />
+                                      </div>
+                                    </div>
+                                    <div class="row justify-content-start" style="margin-top:20px;">
+                                       <div class="col-lg-6">
+                                        <div class="row">
+                                            <!-- Bootstrap spinner -->
+                                            <div class="spinner-border text-primary" role="status" id="DepositSpinner" style="display: none;">
+                                              <span class="visually-hidden">Loading...</span>
+                                            </div>
+                                            <button class="cmn--btn" id="Deposit-Button">
+                                              <span>Deposit</span>
+                                            </button>
+                                        </div>
+                                       </div>
+                                    </div>
+                                  </form>
+                                 </div>
+                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="tab-pane fade" id="wallet2" role="tabpanel">
                       <div class="currency-wrap">
-                        <h5 class="currency-title">Crypto Currencies</h5>
+                        <h5 class="currency-title">Withdrawal Request</h5>
                         <div class="row mb-4 g-3">
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/bitcoin.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Bitcoin</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 BTC = $19565.46</span>
-                              </a>
-                            </div>
+                          <div class="col-lg-12">
+                            <div class="row justify-content-start">
+                              <div class="col-lg-10">
+                               <form class="p-4" id="withdrawForm" method="post">
+                                 <div class="row justify-content-start">
+                                   <label for="amountField">Amount</label>
+                                   <input class="form-control inputContent" name="amount" style="margin-top:10px;height:40px;" placeholder="amount" id="withdrawAmount" type="text"/>
+                                 </div>
+                                 <div class="row justify-content-start">
+                                   <label  for="withdrawAccount" style="margin-top:15px;">Wallet Address</label>
+                                    <input class="form-control inputContent" name="wallet_address" style="margin-top:10px;height:40px;" placeholder="wallet address" id="withdrawAccount" type="text"/>
+                                 </div>
+                                 <div class="row justify-content-start" style="margin-top:20px;">
+                                    <div class="col-lg-6">
+                                     <div class="row">
+                                         <!-- Bootstrap spinner -->
+                                         <button class="cmn--btn" id="Withdraw-Button">
+                                          <span class="spinner-border text-primary" role="status" id="WithdrawSpinner" style="display: none;">
+                                            <span class="visually-hidden">Loading...</span>
+                                          </span>
+                                           <span>Withdraw</span>
+                                         </button>
+                                     </div>
+                                    </div>
+                                 </div>
+                               </form>
+                              </div>
                           </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/ethereum.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Ethereum</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 ETH = $1343.21</span>
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/thether.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>TETHER</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 USDT = $1.00 </span>
-                              </a>
-                            </div>
-                          </div>
-                          <div class="col-lg-6">
-                            <div class="bitcoin-item">
-                              <a href="#0" class="icon-wrap">
-                                <span class="icon">
-                                  <img
-                                    src="assets/img/table/details/litecoin.png"
-                                    alt="icon"
-                                  />
-                                </span>
-                                <span>Litecoin</span>
-                              </a>
-                              <a href="#0">
-                                <span> 1 LTC = $53.76</span>
-                              </a>
-                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="tab-pane fade" id="wallet3" role="tabpanel">
                       <div class="description-table">
-                        <table>
+                        <table id="transactionTable">
                           <tbody>
                             <tr>
                               <th>Amount</th>
                               <th>Date</th>
                               <th>Status</th>
-                              <th>Action</th>
+                              <th>Type</th>
                             </tr>
-                            <tr class="tb1">
+                            <!-- <tr class="tb1">
                               <td>
                                 <span class="text1">-$620</span>
                               </td>
@@ -1977,7 +1886,7 @@
                               <td>
                                 <span class="text1">Withdraw</span>
                               </td>
-                            </tr>
+                            </tr> -->
                           </tbody>
                         </table>
                       </div>
@@ -3311,7 +3220,7 @@
         user_email.textContent = `${backendData.email}`;
         phone_number.textContent = `${backendData.phone_number}`;
         wallet_value.textContent = `${backendData.balance}.00`;
-        balance_value.textContent = `${backendData.balance}.00 USDT`;
+        balance_value.innerHTML = `${backendData.balance}.00 USDT`;
 
         //   const container = document.getElementById("betsall");
       }

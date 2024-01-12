@@ -369,7 +369,8 @@ function setTheme(theme) {
   }
 }
 
-const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+const API_BASE_URL = "http://backend.blackpoolbet.com/api/";
+const API_STORAGE_URL = "http://backend.blackpoolbet.com/public/storage/app/"
 // const API_BASE_URL = "http://localhost:8000/api/";
 
 const AuthAPI = {
@@ -837,7 +838,138 @@ document
         });
     }
   });
+  $("#profile-tab03").on("click", function (event) {
+        $.ajax({
+          type: "get",
+          url: `${API_BASE_URL}wallets/getDefault`,
+          beforeSend: function(xhr) {
+              xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+          },
+          success: function (response) {
+            console.log(response)
+                $("#wallet-address").html(response.wallet[0].wallet_address)
+                $("#wallet-container").html(`<img src="${API_STORAGE_URL}${response.wallet[0].wallet_qr}" width="150px" height="150px"/>"`)
+          }
+        });
+  });
+  $("#Deposit-Button").on('click', function(event) {
+         $("#DepositSpinner").show()
+         $("form#depositForm").submit(function(e) {
+             e.preventDefault();
+             const token = localStorage.getItem("authToken");
+             var formData = new FormData(this);
+             $.ajax({
+                 url:`${API_BASE_URL}deposit`,
+                 type:"POST",
+                 data:formData,
+                 beforeSend: function(xhr) {
+                    xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+                  },
+                 success: function (data) {
+                    alert("Successfully Sent Deposit Request")
+                    $("#amountField").val("")
+                    $("#receiptImage").val("")
+                    $("#DepositSpinner").hide()
+                 },
+                 statusCode: {
+                     500: function(xhr) {
+                        $('#DepositSpinner').hide()
+                        alert("Something went wrong")
+                     }
+                 },
+                 cache: false,
+                 contentType:false,
+                 processData:false
+             })
+         })
+  })
+  $("#Withdraw-Button").on('click', function(event) {
+    $("#WithdrawSpinner").show()
+    $("form#withdrawForm").submit(function(e) {
+        e.preventDefault();
+        const token = localStorage.getItem("authToken");
+        var formData = new FormData(this);
+        $.ajax({
+            url:`${API_BASE_URL}withdraw`,
+            type:"POST",
+            data:formData,
+            beforeSend: function(xhr) {
+               xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+             },
+            success: function (data) {
+               alert("Successfully Sent Withdraw Request")
+               $("#withdrawAmount").val("")
+               $("#withdrawAccount").val("")
+               $("#WithdrawSpinner").hide()
+            },
+            statusCode: {
+                500: function(xhr) {
+                   $('#WithdrawSpinner').hide()
+                   alert("Something went wrong")
+                }
+            },
+            processData: false,
+            cache:false,
+            contentType: false,
+        })
+    })
+})
+$("#wallet-tab03").on('click', function(event){
+        const token = localStorage.getItem("authToken");
+        $.ajax({
+            type:"GET",
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+            },
+            url: `${API_BASE_URL}history`,
+            success: function(response){
+              var transaction = response.transaction;
+                      //Important code starts here to populate table  
+              var tableHTML = "";
+                console.log(transaction)
+                 for(let i = 0; i < transaction.length; i++)
+                 {
+                       const dateObject = new Date(transaction[i].created_at)
+                       const options = { year: 'numeric', month: 'long', day: 'numeric'};
+                       const formattedDate = dateObject.toLocaleDateString('en-US', options);
+                       tableHTML += `<tr>
+                             <td>${transaction[i].amount} USDT</td>
+                             <td>${formattedDate}</td>
+                             <td>${transaction[i].status}</td>
+                             <td>${transaction[i].type}</td>
+                       </tr>`
+                 }
+                 $("#transactionTable").append(tableHTML)
+             }
+        })
+})
+  document.getElementById("profile-tab03").onclick(async (event) => {
+    console.log("tab joined")
+    $("#loadingSpinner").show();
+    try {
+      const authToken = localStorage.getItem("authToken");
+      const response = await fetch(`${API_BASE_URL}details`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`, 
+        },
+      });
 
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch user details");
+      }
+
+      const result = await response.json();
+      document.getElementById("wallet-value").innerHTML += `<p>${result.success.balance} USDT</p>`;
+      $("#loadingSpinner").hide();
+      return result.success; 
+    
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      throw error;
+    }
+  })
 // Function to fetch data from the backend API
 async function fetchDataBySportType(sportType) {
   try {

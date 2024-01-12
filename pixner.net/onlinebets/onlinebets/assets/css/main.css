@@ -7303,4 +7303,11 @@ margin-right: 10px !important;  }
 .social-icons a.dribbble:hover {
   background-color: #ea4c89;
 }
+.inputContent {
+  border-radius: 4px;
+  background: var(--left-menu);
+  border: none;
+  height: 50px !important;
+  color: var(--white);
+}
 /* Footer end */
