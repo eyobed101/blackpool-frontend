@@ -304,6 +304,14 @@ p {
   transform: translate(-50%, -50%);
   z-index: 9999; /* Adjust the z-index as needed */
 }
+#loadingSpinner2 {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999; /* Adjust the z-index as needed */
+}
 
 /*-Responsive-*/
 /*-Responsive-*/
@@ -1756,10 +1764,11 @@ p {
   .header-wrapper .right-menu-reature {
     gap: 12.2px;
   }
-  .header-wrapper .right-menu-reature .signup-area {
+  .header-wrapper .right-menu-reature .signup-area{
     padding-left: 2px;
     gap: 14px;
   }
+
   .main-menu li:not(:last-child) {
     margin-right: 20px !important;
   }
@@ -1996,9 +2005,13 @@ p {
   .header-wrapper .right-menu-reature {
     width: 20%;
   }
-  /* .header-wrapper .right-menu-reature .signup-area {
+  .header-wrapper .right-menu-reature .signup-area #signupButton{
     display: none;
-  } */
+  }
+  .header-wrapper .right-menu-reature .signup-area #loginButton{
+    display: none;
+  }
+  
   .header-wrapper .right-menu-reature .signup-area .mobile-hide{
     display: none;
   }
@@ -2188,9 +2201,9 @@ p {
   .header-wrapper .right-menu-reature .language {
     display: none;
   }
-  .header-wrapper .right-menu-reature .mode--toggle {
+  /* .header-wrapper .right-menu-reature .mode--toggle {
     display: none;
-  }
+  } */
   /* .mode--toggle {
     width: 30px;
     height: 15px;
@@ -2781,16 +2794,20 @@ p {
   background-color: unset;
   box-shadow: none;
   position: relative;
-  background-color: var(--hob);
+  /* background-color: var(--hob); */
   margin-top: 1px;
+  color: #000;
+
 }
 .register-from form .items .form-check .form-check-input::before {
   content: "";
   position: absolute;
   inset: 0;
+  color: #000;
 }
 .register-from form .items .check-area .form-check {
   font-size: 14px;
+
 }
 .register-from form .items .check-area .form-check-input {
   background-color: transparent;
@@ -4414,6 +4431,7 @@ tr:nth-child(even) {
   background-image: unset;
   width: 18px;
   height: 18px;
+  color: var(--white);
   background-color: var(--theme-bg);
 }
 .varification

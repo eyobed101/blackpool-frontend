@@ -369,36 +369,14 @@ function setTheme(theme) {
   }
 }
 
-const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
-// const API_BASE_URL = "http://localhost:8000/api/";
+// const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+const API_BASE_URL = "http://localhost:8000/api/";
 
 const AuthAPI = {
   register: async function (userData) {
-    try {
-      // await fetch(`${API_BASE_URL}register`, {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(userData),
-      // })
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     if (data.success) {
-      //       // Show verification modal after successful registration
-      //       $("#exampleModal2").modal("hide"); // Hide registration modal
-      //       $("#verificationModal").modal("show"); // Show verification modal
-      //     } else {
-      //       console.error("Registration failed:", data.error);
-      //       // Show an error message to the user
-      //     }
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error:", error);
-      //     // Show an error message to the user
-      //   });
-      $("#loadingSpinner").show();
+    $("#loadingSpinner2").show();
 
+    try {
       const response = await fetch(`${API_BASE_URL}register`, {
         method: "POST",
         headers: {
@@ -406,23 +384,46 @@ const AuthAPI = {
         },
         body: JSON.stringify(userData),
       });
+      
 
       if (!response.ok) {
+
         const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to register user");
+        console.log(errorData.error);
+        const errorMessage = errorData.error;
+
+        const errorAlert = document.createElement("div");
+        errorAlert.classList.add("alert", "alert-danger");
+        errorAlert.textContent = errorMessage;
+
+        const errorContainer = document.getElementById("errorContainer2");
+        errorContainer.innerHTML = "";
+        errorContainer.appendChild(errorAlert);
+
+        throw new Error(errorMessage);
       }
 
       const result = await response.json();
-      $("#exampleModal2").modal("hide");
+
+      const successAlert = document.createElement("div");
+      successAlert.classList.add("alert", "alert-success");
+      successAlert.textContent = "Registeration successful!";
+
+      const successContainer = document.getElementById("successContainer2");
+      successContainer.innerHTML = "";
+      successContainer.appendChild(successAlert);
+
       $("#exampleModal").modal("show");
+      $("#exampleModal2").modal("hide");
 
       return result.success;
     } catch (error) {
-      console.error("Error registering user:", error);
-      throw error;
+      
+
+      console.error("Network error or issue with fetch:", error);
+      
     } finally {
-      // Hide loading spinner after receiving the response or encountering an error
-      $("#loadingSpinner").hide();
+      $("#loadingSpinner2").hide();
     }
     // Implementation
   },
@@ -457,9 +458,11 @@ const AuthAPI = {
       }
 
       const result = await response.json();
+      // console.log(result.user);
 
       localStorage.setItem("authToken", result.token);
-      localStorage.setItem("username", result.username);
+      localStorage.setItem("username", result.user.username);
+      localStorage.setItem("userData", JSON.stringify(result.user));
 
       // Display success notification using Bootstrap alert
       const successAlert = document.createElement("div");
@@ -476,7 +479,7 @@ const AuthAPI = {
     } catch (error) {
       console.error("Error logging in:", error);
       throw error;
-    }finally {
+    } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner").hide();
     }
@@ -508,7 +511,7 @@ const UserAPI = {
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
-    }finally {
+    } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner").hide();
     }
@@ -536,7 +539,7 @@ const UserAPI = {
       return result;
     } catch (e) {
       console.error("Error fetching user details:", error);
-    }finally {
+    } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner").hide();
     }
@@ -560,7 +563,6 @@ const UserAPI = {
         betAmount: betAmount,
       };
       $("#loadingSpinner").show();
-
 
       const response = await fetch(`${API_BASE_URL}placebet`, {
         method: "POST",
@@ -604,10 +606,9 @@ const UserAPI = {
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
-    }finally {
+    } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner").hide();
-
     }
   },
 
@@ -652,6 +653,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   registerForm.addEventListener("submit", async (event) => {
     event.preventDefault();
+
+    const successContainer = document.getElementById("successContainer2");
+    successContainer.innerHTML = "";
+    const errorContainer = document.getElementById("errorContainer2");
+    errorContainer.innerHTML = "";
+
+    const checkbox1 = document.getElementById("ones1");
+    const checkbox2 = document.getElementById("ones2");
+    const checkbox3 = document.getElementById("ones3");
+
+    // Check if all specific checkboxes are selected
+    const allSelected =
+      checkbox1.checked && checkbox2.checked && checkbox3.checked;
+
+    if (!allSelected) {
+      const errorAlert = document.createElement("div");
+      errorAlert.classList.add("alert", "alert-danger");
+      errorAlert.textContent = "Please check the Box!";
+
+      const errorContainer = document.getElementById("errorContainer2");
+      errorContainer.innerHTML = ""; // Clear previous errors
+      errorContainer.appendChild(errorAlert);
+      // console.log("Not all checkboxes are selected. Display an error message or take action.");
+      return;
+    }
 
     const name = document.getElementById("uname").value;
     const email = document.getElementById("email33").value;
@@ -735,7 +761,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Redirect to the home page after successful login
   // window.location.href = '/home'; // Replace '/home' with the URL of your home page
 });
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const signUpLink = document.getElementById("signUpLink");
@@ -879,7 +904,6 @@ async function fetchDataBySportType(sportType) {
   }
 }
 
-
 // JavaScript to move elements based on screen size
 // function moveElements() {
 //   const rightCompoDesktop = document.getElementById('rightCompoDesktop');
@@ -888,11 +912,11 @@ async function fetchDataBySportType(sportType) {
 
 //   if (rightCompoDesktop && rightCompoMobile && accordion) {
 //     if (window.innerWidth <= 768) {
-//       rightCompoDesktop.style.display = 'none'; 
-//       rightCompoMobile.style.display = 'block'; 
+//       rightCompoDesktop.style.display = 'none';
+//       rightCompoMobile.style.display = 'block';
 //     } else {
-//       rightCompoDesktop.style.display = 'block'; 
-//       rightCompoMobile.style.display = 'none'; 
+//       rightCompoDesktop.style.display = 'block';
+//       rightCompoMobile.style.display = 'none';
 //     }
 //   } else {
 //     console.error("One or more elements not found.");

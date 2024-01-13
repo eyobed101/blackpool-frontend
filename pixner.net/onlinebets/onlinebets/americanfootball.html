@@ -148,24 +148,30 @@
               </div>
             </div>
           </div>
-          <div class="mode--toggle">
-            <img src="assets/img/sun.png" alt="" />
-          </div>
+          
           <div class="signup-area" id="signupArea">
             <div id="profileSection" style="display: none">
               <div class="items">
+                <img
+                  class="mobile-hide"
+                  src="assets/img/quality.png"
+                  alt="User Avatar"
+                  width="35"
+                  height="35"
+                  style="border-radius: 50%; margin-right:10px;"
+                />
                 <a href="profile.html">
-                  <img
-                    href="profile.html"
-                    id="userAvatar"
-                    src="assets/img/avater.png"
-                    alt="User Avatar"
-                    width="30"
-                    height="30"
-                    style="border-radius: 50%"
-                  /></a>
+                <img
+                  href="profile.html"
+                  id="userAvatar"
+                  src="assets/img/avater.png"
+                  alt="User Avatar"
+                  width="30"
+                  height="30"
+                  style="border-radius: 50%"
+                /></a>
                 <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
-                <button class="mobile-hide cmn--btn"  id="logoutButton" class="cmn--btn">
+                <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                   <span>Log Out</span>
                 </button>
               </div>
@@ -262,64 +268,64 @@
                             <li>
                               <a href="football.html?type=football">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/football.png" alt="icon" />
+                              </div>
                                 <span> All Leagues </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=premairleague">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/EPL.png" alt="icon" />
+                              </div>
                                 <span> Premair League </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=championsleague">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/UEFA Champions League.png" alt="icon" />
+                              </div>
                                 <span>UEFA Champions League </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=laliga">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/La Liga - Spain.png" alt="icon" />
+                              </div>
                                 <span>LaLiga</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=facup">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/FA Cup.png" alt="icon" />
+                              </div>
                                 <span>FA Cup</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=seria-a">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/Seria A.png" alt="icon" />
+                              </div>
                                 <span>Seria A</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=championship">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/championship.png" alt="icon" />
+                              </div>
                                 <span>Championship </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=bundesliga">
                                 <div class="icon">
-                                  <i class="icon-football"></i>
-                                </div>
+                                  <img src="assets/img/clubs/Bundesliga - Germany.png" alt="icon" />
+                              </div>
                                 <span>Bundesliga </span>
                               </a>
                             </li>
@@ -847,9 +853,16 @@
                             <span class="add">Odds</span>
                           </div>
                         </div>
-                        <a href="#0" class="condition-box">
+                        <a href="#terms.html" class="condition-box" style="margin-bottom: 10px;">
                           Terms & Conditions
                         </a>
+                        <div style="display: flex;">
+                        <span style="margin-left: 5px;margin-right: 20px; padding: 3px;">Theme</span>
+                        <div class="mode--toggle" style="display: block;">
+                        </div>
+                          
+                          <img src="assets/img/sun.png" alt="" />
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -1145,14 +1158,16 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div id="loadingSpinner">
+                <div id="loadingSpinner2">
                   <!-- Bootstrap spinner -->
                   <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>
                 </div>
-                
               </form>
+              <!-- Add the successContainer and errorContainer divs below the form -->
+              <div id="successContainer2" class="mt-3"></div>
+              <div id="errorContainer2" class="mt-3"></div>
             </div>
           </div>
         </div>
