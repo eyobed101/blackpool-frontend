@@ -304,14 +304,6 @@ p {
   transform: translate(-50%, -50%);
   z-index: 9999; /* Adjust the z-index as needed */
 }
-#loadingSpinner2 {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999; /* Adjust the z-index as needed */
-}
 
 /*-Responsive-*/
 /*-Responsive-*/
@@ -1167,6 +1159,25 @@ p {
   text-align: center;
   padding: 4px 4px 7px;
 }
+
+.disabled-link {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.right-site-menu .right-box .combo-wrapper .combo-footer {
+  position: relative;
+}
+
+
+.right-site-menu .right-box .combo-wrapper #loadingSpinner2 {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .right-site-menu .right-box .accordion-box {
   margin-top: 30px;
   border-radius: 5px;
@@ -1764,7 +1775,7 @@ p {
   .header-wrapper .right-menu-reature {
     gap: 12.2px;
   }
-  .header-wrapper .right-menu-reature .signup-area{
+  .header-wrapper .right-menu-reature .signup-area {
     padding-left: 2px;
     gap: 14px;
   }
@@ -2005,14 +2016,14 @@ p {
   .header-wrapper .right-menu-reature {
     width: 20%;
   }
-  .header-wrapper .right-menu-reature .signup-area #signupButton{
+  .header-wrapper .right-menu-reature .signup-area #signupButton {
     display: none;
   }
-  .header-wrapper .right-menu-reature .signup-area #loginButton{
+  .header-wrapper .right-menu-reature .signup-area #loginButton {
     display: none;
   }
-  
-  .header-wrapper .right-menu-reature .signup-area .mobile-hide{
+
+  .header-wrapper .right-menu-reature .signup-area .mobile-hide {
     display: none;
   }
   .main-menu {
@@ -2163,7 +2174,7 @@ p {
     padding-top: 5%;
   }
 
-  /* .mode--toggle img {
+  .mode--toggle img {
     transition: all ease 0.3s;
     position: absolute;
     left: 6px;
@@ -2176,7 +2187,7 @@ p {
   .mode--toggle {
     width: 40px;
     height: 20px;
-  } */
+  }
 }
 @media screen and (max-width: 575px) {
   .header-wrapper .menu-logo-adjust {
@@ -2221,7 +2232,6 @@ p {
     width: 30px;
     height: 15px;
   } */
- 
 }
 .header {
   background-color: var(--box-two);
@@ -2797,7 +2807,6 @@ p {
   /* background-color: var(--hob); */
   margin-top: 1px;
   color: #000;
-
 }
 .register-from form .items .form-check .form-check-input::before {
   content: "";
@@ -2807,7 +2816,6 @@ p {
 }
 .register-from form .items .check-area .form-check {
   font-size: 14px;
-
 }
 .register-from form .items .check-area .form-check-input {
   background-color: transparent;
@@ -3745,7 +3753,7 @@ p {
 .info {
   display: flex;
   flex-direction: column;
-  
+
   /* justify-content: center;
   align-items: center; */
   margin-bottom: 15px;
@@ -3756,7 +3764,6 @@ label.profile-label {
   margin-right: 40px;
   margin-top: 20px;
   margin-bottom: 10px;
-  
 }
 
 div[contenteditable="false"] {
@@ -3860,11 +3867,15 @@ tr:nth-child(even) {
   margin: 0;
 }
 
-.card-body {
-  font-size: 16px;
-}
 
 /* Styles for Completed Bet */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
 .completed {
   background-color: var(--theme-bg);
 }
@@ -3901,6 +3912,7 @@ tr:nth-child(even) {
 .bet-card p {
   margin: 5px 0;
 }
+
 */
 
 /* end bet */
@@ -5975,11 +5987,12 @@ tr:nth-child(even) {
     .table-wrap
     .table-inner
     .table-head
-    .right-compo-match .more-odds-mobile{
+    .right-compo-match
+    .more-odds-mobile {
     margin-left: auto;
     font-weight: 600;
   }
- 
+
   .main-tabbing
     .match-table
     .table-wrap
@@ -5996,7 +6009,7 @@ tr:nth-child(even) {
     .table-head
     .right-compo-match
     .matchtime-mobile {
-      margin-left: 10px;
+    margin-left: 10px;
     width: 100%; /* Make the matchtime-mobile take full width */
     font-size: 15px;
     font-weight: 400;
@@ -6007,8 +6020,10 @@ tr:nth-child(even) {
     .table-inner
     .table-head
     .right-compo-match
-    .more-odds-mobile a{
-margin-right: 10px !important;  }
+    .more-odds-mobile
+    a {
+    margin-right: 10px !important;
+  }
 
   .main-tabbing .match-table .table-wrap .table-inner .table-body {
     flex-direction: column;
@@ -6033,19 +6048,18 @@ margin-right: 10px !important;  }
     .table-inner
     .table-body
     .table-body-right {
-      width: 100%;
-      justify-content: center;
-
-    }
+    width: 100%;
+    justify-content: center;
+  }
   .main-tabbing
     .match-table
     .table-wrap
     .table-inner
     .table-body
-    .table-body-right .more-odds{
-      display: none;
-
-    }
+    .table-body-right
+    .more-odds {
+    display: none;
+  }
   .main-tabbing
     .match-table
     .table-wrap
@@ -6054,7 +6068,7 @@ margin-right: 10px !important;  }
     .table-body-right
     .table-pointing-box {
     cursor: pointer;
-    margin: 2px;    
+    margin: 2px;
     min-width: 60px;
     min-height: 50px;
   }
@@ -6070,21 +6084,21 @@ margin-right: 10px !important;  }
     font-size: 11px;
   }
   .main-tabbing
-  .match-table
-  .table-wrap
-  .table-inner
-  .table-body
-  .table-body-right
-  .table-pointing-box:not(:last-child)
-  .list {
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 700;
-  display: block;
-  margin-top: -3px;
-  margin-bottom: 5px;
-  color: var(--point-color);
-}
+    .match-table
+    .table-wrap
+    .table-inner
+    .table-body
+    .table-body-right
+    .table-pointing-box:not(:last-child)
+    .list {
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 700;
+    display: block;
+    margin-top: -3px;
+    margin-bottom: 5px;
+    color: var(--point-color);
+  }
   .main-tabbing
     .match-table
     .table-wrap

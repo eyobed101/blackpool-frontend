@@ -110,7 +110,7 @@
                 >Quick Bets</a
               >
             </li> -->
-            <li class="menu--btn">
+            <li id="afterlogin" class="menu--btn">
               <a
                 href="#0"
                 class="btn--two"
@@ -120,7 +120,7 @@
                 <span>Log In</span>
               </a>
             </li>
-            <li class="menu--btn">
+            <li id="afterlogin2" class="menu--btn">
               <a
                 href="#0"
                 class="cmn--btn"
@@ -128,6 +128,11 @@
                 data-bs-target="#exampleModal2"
               >
                 <span>Sign Up</span>
+              </a>
+            </li>
+            <li id="afterlogout" class="menu--btn">
+              <a href="#0" class="cmn--btn">
+                <span>Log Out</span>
               </a>
             </li>
           </ul>
@@ -158,20 +163,28 @@
                   alt="User Avatar"
                   width="35"
                   height="35"
-                  style="border-radius: 50%; margin-right:10px;"
+                  style="border-radius: 50%; margin-right: 10px"
                 />
                 <a href="profile.html">
-                <img
-                  href="profile.html"
-                  id="userAvatar"
-                  src="assets/img/avater.png"
-                  alt="User Avatar"
-                  width="30"
-                  height="30"
-                  style="border-radius: 50%"
+                  <img
+                    href="profile.html"
+                    id="userAvatar"
+                    src="assets/img/avater.png"
+                    alt="User Avatar"
+                    width="30"
+                    height="30"
+                    style="border-radius: 50%"
                 /></a>
-                <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
-                <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
+                <span
+                  class="mobile-hide"
+                  id="username"
+                  style="margin-right: 20px"
+                ></span>
+                <button
+                  class="mobile-hide cmn--btn"
+                  id="logoutButton"
+                  class="cmn--btn"
+                >
                   <span>Log Out</span>
                 </button>
               </div>
@@ -268,64 +281,88 @@
                             <li>
                               <a href="football.html?type=football">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/football.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/football.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span> All Leagues </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=premairleague">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/EPL.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/EPL.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span> Premair League </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=championsleague">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/UEFA Champions League.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/UEFA Champions League.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>UEFA Champions League </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=laliga">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/La Liga - Spain.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/La Liga - Spain.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>LaLiga</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=facup">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/FA Cup.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/FA Cup.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>FA Cup</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=seria-a">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/Seria A.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/Seria A.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>Seria A</span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=championship">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/championship.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/championship.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>Championship </span>
                               </a>
                             </li>
                             <li>
                               <a href="football.html?type=bundesliga">
                                 <div class="icon">
-                                  <img src="assets/img/clubs/Bundesliga - Germany.png" alt="icon" />
-                              </div>
+                                  <img
+                                    src="assets/img/clubs/Bundesliga - Germany.png"
+                                    alt="icon"
+                                  />
+                                </div>
                                 <span>Bundesliga </span>
                               </a>
                             </li>
@@ -513,7 +550,10 @@
                   <div class="col-xxl-12 col-xl-12 col-lg-7">
                     <div class="profile">
                       <div class="profile-picture">
-                        <img src="assets/img/avater.png" alt="Profile Picture" />
+                        <img
+                          src="assets/img/avater.png"
+                          alt="Profile Picture"
+                        />
                         <div id="username-info">User101</div>
                       </div>
                       <div class="profile-info">
@@ -521,7 +561,7 @@
                           <label for="username" class="profile-label"
                             >Username:</label
                           >
-                          <div id="username-info" contenteditable="false">
+                          <div id="username-info2" contenteditable="false">
                             User101
                           </div>
                         </div>
@@ -545,7 +585,9 @@
                           <label for="balance" class="profile-label"
                             >Balance:</label
                           >
-                          <div id="balance-info" contenteditable="false">0 USDT</div>
+                          <div id="balance-info" contenteditable="false">
+                            0 USDT
+                          </div>
                         </div>
                         <!-- // php -S localhost:8000 -->
                       </div>
@@ -712,11 +754,16 @@
                                   class="card-header d-flex justify-content-between align-items-center"
                                 >
                                   <h5 class="card-title mb-0">Public info</h5>
+                                  <div>
+                                    <button id="editButton" class="cmn--btn">
+                                      <span id="idedit">Edit</span>
+                                    </button>
+                                  </div>
 
-                                  <div class="card-actions float-right">
+                                  <!-- <div class="card-actions float-right">
                                     <div class="dropdown show">
                                       <a
-                                        id="dropdownToggle"
+                                        id="dropdownToggle2"
                                         data-display="static"
                                       >
                                         <svg
@@ -745,35 +792,18 @@
                                         </svg>
                                       </a>
                                       <div
-                                        id="myDropdown"
-                                        class="dropdown-menu dropdown-menu-right"
+                                        id="myDropdown2"
+                                        class="dropdown-menu-1 dropdown-menu-right-1"
                                       >
                                         <a class="dropdown-item">Edit</a>
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> -->
                                 </div>
                                 <div class="card-body">
-                                  <form>
-                                    <div class="row">
-                                      <div class="col-md-8">
-                                        <div class="form-input mb-3">
-                                          <label
-                                            class="form-label"
-                                            for="inputUsername"
-                                            style="margin-left: 15px"
-                                            >Username</label
-                                          >
-                                          <input
-                                            type="text"
-                                            class="form-control custom-input"
-                                            id="inputUsername"
-                                            placeholder="Username"
-                                            disabled
-                                          />
-                                        </div>
-                                      </div>
-                                      <div class="col-md-4">
+                                  <form class="form-box" id="myForm">
+                                    <div class="form-row">
+                                      <div class="form-input col-md-9 mb-3">
                                         <div class="text-center">
                                           <div class="profile-picture">
                                             <img
@@ -790,64 +820,6 @@
                                         </div>
                                       </div>
                                     </div>
-                                    <button
-                                      type="submit"
-                                      class="cmn--btn"
-                                      style="color: white"
-                                    >
-                                      <span>Save changes</span>
-                                    </button>
-                                  </form>
-                                </div>
-                              </div>
-                              <div class="card">
-                                <div
-                                  class="card-header d-flex justify-content-between align-items-center"
-                                >
-                                  <h5 class="card-title mb-0">Public info</h5>
-
-                                  <div class="card-actions float-right">
-                                    <div class="dropdown show">
-                                      <a
-                                        id="dropdownToggle"
-                                        data-display="static"
-                                      >
-                                        <svg
-                                          xmlns="http://www.w3.org/2000/svg"
-                                          width="24"
-                                          height="24"
-                                          viewBox="0 0 24 24"
-                                          fill="none"
-                                          stroke="currentColor"
-                                          stroke-width="2"
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          class="feather feather-more-horizontal align-middle"
-                                        >
-                                          <circle
-                                            cx="12"
-                                            cy="12"
-                                            r="1"
-                                          ></circle>
-                                          <circle
-                                            cx="19"
-                                            cy="12"
-                                            r="1"
-                                          ></circle>
-                                          <circle cx="5" cy="12" r="1"></circle>
-                                        </svg>
-                                      </a>
-                                      <div
-                                        id="myDropdown"
-                                        class="dropdown-menu dropdown-menu-right"
-                                      >
-                                        <a class="dropdown-item">Edit</a>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="card-body">
-                                  <form class="form-box">
                                     <div class="form-row">
                                       <div class="form-input col-md-9 mb-3">
                                         <label
@@ -861,6 +833,7 @@
                                           class="form-control custom-input"
                                           id="inputFirstName"
                                           placeholder="First name"
+                                          disabled
                                         />
                                       </div>
                                       <div class="form-onput col-md-9 mb-3">
@@ -875,35 +848,24 @@
                                           class="form-control custom-input"
                                           id="inputLastName"
                                           placeholder="Last name"
+                                          disabled
                                         />
                                       </div>
                                     </div>
-                                    <div class="form-input col-md-9 mb-3">
-                                      <label
-                                        class="form-label"
-                                        for="inputEmail4"
-                                        style="margin-left: 15px"
-                                        >Email</label
-                                      >
-                                      <input
-                                        type="email"
-                                        class="form-control custom-input"
-                                        id="inputEmail4"
-                                        placeholder="Email"
-                                      />
-                                    </div>
+
                                     <div class="form-input col-md-9 mb-3">
                                       <label
                                         class="form-label"
                                         for="inputAddress"
                                         style="margin-left: 15px"
-                                        >Address</label
+                                        >Country</label
                                       >
                                       <input
                                         type="text"
                                         class="form-control custom-input"
                                         id="inputAddress"
                                         placeholder="1234 Main St"
+                                        disabled
                                       />
                                     </div>
                                     <div class="form-input col-md-9 mb-3">
@@ -911,13 +873,30 @@
                                         class="form-label"
                                         for="inputAddress2"
                                         style="margin-left: 15px"
-                                        >Address 2</label
+                                        placeholder="1234 Main St"
+                                        >Address</label
                                       >
                                       <input
                                         type="text"
                                         class="form-control custom-input"
                                         id="inputAddress2"
                                         placeholder="Apartment, studio, or floor"
+                                        disabled
+                                      />
+                                    </div>
+                                    <div class="form-input col-md-9 mb-3">
+                                      <label
+                                        class="form-label"
+                                        for="inputAddress4"
+                                        style="margin-left: 15px"
+                                        >Addres 2</label
+                                      >
+                                      <input
+                                        type="text"
+                                        class="form-control custom-input"
+                                        id="inputAddress4"
+                                        placeholder="Address 2"
+                                        disabled
                                       />
                                     </div>
                                     <div class="form-row">
@@ -932,6 +911,8 @@
                                           type="text"
                                           class="form-control custom-input"
                                           id="inputCity"
+                                          placeholder="1234 Main St"
+                                          disabled
                                         />
                                       </div>
                                       <div class="form-input col-md-9 mb-3">
@@ -939,12 +920,14 @@
                                           class="form-label"
                                           for="inputState"
                                           style="margin-left: 15px"
-                                          >State</label
+                                          >Province</label
                                         >
                                         <input
                                           type="text"
                                           id="inputState"
                                           class="form-control custom-input"
+                                          placeholder="1234 Main St"
+                                          disabled
                                         />
                                       </div>
                                       <div class="form-input col-md-9 mb-5">
@@ -952,19 +935,47 @@
                                           class="form-label"
                                           for="inputZip"
                                           style="margin-left: 15px"
-                                          >Zip</label
+                                          >Postal Code</label
                                         >
                                         <input
                                           type="text"
                                           class="form-control custom-input"
                                           id="inputZip"
+                                          placeholder="1234 Main St"
+                                          disabled
                                         />
                                       </div>
                                     </div>
-                                    <button type="submit" class="cmn--btn mb-3">
-                                      <span>Save changes</span>
-                                    </button>
+                                    <div style="display: flex">
+                                      <button
+                                        type="submit"
+                                        class="cmn--btn mb-3"
+                                        id="submitButtonUser"
+                                        disabled
+                                      >
+                                        <span>Save changes</span>
+                                      </button>
+                                      <div
+                                        id="loadingSpinner4"
+                                        style="margin-left: 10px; display: none"
+                                      >
+                                        <!-- Bootstrap spinner -->
+                                        <div
+                                          class="spinner-border text-primary"
+                                          role="status"
+                                        >
+                                          <span class="visually-hidden"
+                                            >Loading...</span
+                                          >
+                                        </div>
+                                      </div>
+                                    </div>
                                   </form>
+                                  <div
+                                    id="successContainer4"
+                                    class="mt-3"
+                                  ></div>
+                                  <div id="errorContainer4" class="mt-3"></div>
                                 </div>
                               </div>
                             </div>
@@ -2361,9 +2372,7 @@
                   <div class="combo-wrapper">
                     <div class="close-box">
                       <div class="close-items">
-                        
                         <div class="match-fixing">
-                          
                           <div class="match-items match-odds">
                             <div class="match-items-left">
                               <div class="cont">
@@ -2400,11 +2409,11 @@
                     </div>
                     <div class="possible-win">
                       <span>Possible win</span>
-                      <span class="amount">$300</span>
+                      <span class="amount">0</span>
                     </div>
                     <div class="combo-footer">
                       <a href="#0" class="cmn--btn">
-                        <span> Place Bet $300</span>
+                        <span> Place Bet </span>
                       </a>
                     </div>
                   </div>
@@ -2435,7 +2444,6 @@
                     >
                       <div class="accordion-body">
                         <div class="select-wrap">
-                          
                           <div class="select-one">
                             <select class="select" name="select" id="n-select">
                               <option value="1">English</option>
@@ -2443,7 +2451,7 @@
                             </select>
                             <span class="add">Lunguage</span>
                           </div>
-                          
+
                           <div class="select-two">
                             <select class="select" name="select" id="s-select">
                               <option value="1">Decimal</option>
@@ -2452,16 +2460,29 @@
                             <span class="add">Odds</span>
                           </div>
                         </div>
-                        <a href="#terms.html" class="condition-box" style="margin-bottom: 10px;">
+                        <a
+                          href="#terms.html"
+                          class="condition-box"
+                          style="margin-bottom: 10px"
+                        >
                           Terms & Conditions
                         </a>
-                        <div style="display: flex;">
-                        <span style="margin-left: 5px;margin-right: 20px; padding: 3px;">Theme</span>
-                        <div class="mode--toggle" style="display: block;">
-                        </div>
-                          
+                        <div style="display: flex">
+                          <span
+                            style="
+                              margin-left: 5px;
+                              margin-right: 20px;
+                              padding: 3px;
+                            "
+                            >Theme</span
+                          >
+                          <div
+                            class="mode--toggle"
+                            style="display: block"
+                          ></div>
+
                           <img src="assets/img/sun.png" alt="" />
-                      </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -2754,7 +2775,7 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                
+
                 <div id="loadingSpinner2">
                   <!-- Bootstrap spinner -->
                   <div class="spinner-border text-primary" role="status">
@@ -2915,11 +2936,11 @@
                             </div>
                             <div class="possible-win">
                               <span>Possible win</span>
-                              <span class="amount">$300</span>
+                              <span class="amount">0</span>
                             </div>
                             <div class="combo-footer">
                               <a href="#0" class="cmn--btn">
-                                <span> Place Bet $300</span>
+                                <span> Place Bet</span>
                               </a>
                             </div>
                           </div>
@@ -2933,9 +2954,7 @@
                         <div class="combo-wrapper">
                           <div class="close-box">
                             <div class="close-items">
-                              
                               <div class="match-fixing">
-                                
                                 <div class="match-items match-odds">
                                   <div class="match-items-left">
                                     <div class="cont">
@@ -2976,18 +2995,17 @@
                           </div>
                           <div class="possible-win">
                             <span>Possible win</span>
-                            <span id="possibleWin" class="amount">$300</span>
+                            <span id="possibleWin" class="amount">0</span>
                           </div>
                           <div class="combo-footer">
                             <a href="#0" class="cmn--btn">
-                              <span id="placeBetButton"> Place Bet $300</span>
+                              <span id="placeBetButton"> Place Bet</span>
                             </a>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
                 </div>
                 <div class="popular-bets">
                   <div class="head">
@@ -3092,18 +3110,45 @@
       let eventsArray = [];
       async function renderData(token) {
         const backendData = await UserAPI.getUserDetails(token);
-        console.log("userinformation", backendData);
         const user_name = document.getElementById("username-info");
+        const user_name2 = document.getElementById("username-info2");
         const user_email = document.getElementById("email-info");
         const phone_number = document.getElementById("phone-info");
         const wallet_value = document.getElementById("wallet-value");
         const balance_value = document.getElementById("balance-info");
+        const balanceElements = document.querySelectorAll(".blance");
 
         user_name.textContent = `${backendData.name}`;
+        user_name2.textContent = `${backendData.name}`;
         user_email.textContent = `${backendData.email}`;
         phone_number.textContent = `${backendData.phone_number}`;
         wallet_value.textContent = `${backendData.balance}.00`;
         balance_value.textContent = `${backendData.balance}.00 USDT`;
+        balanceElements.forEach(function (element) {
+          element.textContent = `${backendData.balance}.00 USDT`;
+        });
+
+        const backendData2 = await UserAPI.getVerificationDetails(token);
+
+        if (backendData2) {
+          const first_name = document.getElementById("inputFirstName");
+          const last_name = document.getElementById("inputLastName");
+          const address2 = document.getElementById("inputAddress4");
+          const country = document.getElementById("inputAddress");
+          const address = document.getElementById("inputAddress2");
+          const city = document.getElementById("inputCity");
+          const province = document.getElementById("inputState");
+          const postalcode = document.getElementById("inputZip");
+
+          first_name.placeholder = backendData2.first_name;
+          last_name.placeholder = backendData2.last_name;
+          country.placeholder = backendData2.country;
+          address.placeholder = backendData2.address;
+          address2.placeholder = backendData2.address2;
+          city.placeholder = backendData2.city;
+          province.placeholder = backendData2.province;
+          postalcode.placeholder = backendData2.postalcode;
+        }
 
         //   const container = document.getElementById("betsall");
       }
@@ -3230,12 +3275,23 @@
     </div>
     </form>
     <div class="combo-footer">
-        <a href="#0" class="cmn--btn">
+        <a id="inLoading" href="#0" class="cmn--btn">
             <span id="placeBetButton" onclick="getBetAmount()">Place Bet ${parseFloat(
               10 * priceSum
             ).toFixed(2)}</span>
         </a>
+        <div id="loadingSpinner2">
+      <!-- Bootstrap spinner -->
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
+    </div>
+
+    
+
+    <div id="successPlace" class="mt-3"></div>
+    <div id="errorPlace" class="mt-3"></div>
 
 
         `;
@@ -3722,34 +3778,12 @@
 
       // }
 
-      $(document).ready(function () {
-        // Dropdown toggle when SVG icon is clicked
-        $("#dropdownToggle").on("click", function (e) {
-          e.stopPropagation(); // Prevent default dropdown behavior
-          $("#myDropdown").toggleClass("show");
-        });
-
-        // Enable/disable inputs when specific tag within dropdown is clicked
-        $(".dropdown-item").on("click", function (e) {
-          e.preventDefault();
-          // Check if the clicked tag is 'Edit'
-          if ($(this).text().trim() === "Edit") {
-            $("#inputUsername, #profile-picture-input").prop(
-              "disabled",
-              function (i, v) {
-                return !v;
-              }
-            );
-            // Close dropdown after enabling inputs (optional)
-            $("#myDropdown").removeClass("show");
-          }
-        });
-
-        // Close dropdown when clicking outside the dropdown area
-        $(document).on("click", function (e) {
-          if (!$(e.target).closest(".dropdown").length) {
-            $("#myDropdown").removeClass("show");
-          }
+      $("#editButton").on("click", function () {
+        // Toggle the disabled state of other elements
+        $(
+          "#inputUsername, #profile-picture-input, #inputFirstName,#submitButtonUser, #inputLastName, #inputAddress4, #inputAddress, #inputAddress2, #inputCity, #inputState, #inputZip"
+        ).prop("disabled", function (i, v) {
+          return !v;
         });
       });
       window.onload = () => {
@@ -3797,7 +3831,6 @@
 
       const verificationTab = document.getElementById("profile-tab04");
 
-
       fetch(endpoint, {
         method: "GET",
         headers: {
@@ -3815,7 +3848,6 @@
         .catch((error) => {
           console.error("Error:", error);
         });
-
 
       const select = document.getElementById("year-select2my");
       const currentYear = new Date().getFullYear();
@@ -4072,6 +4104,85 @@
     </script>
 
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const first_name = document.getElementById("inputFirstName").value;
+          const last_name = document.getElementById("inputLastName").value;
+          const country = document.getElementById("inputAddress").value;
+          const address = document.getElementById("inputAddress2").value;
+          const address2 = document.getElementById("inputAddress4").value;
+          const city = document.getElementById("inputCity").value;
+          const province = document.getElementById("inputState").value;
+          const postalcode = document.getElementById("inputZip").value;
+
+          document.getElementById("loadingSpinner4").style.display = "block";
+
+          
+
+          let formData = {
+            first_name: first_name,
+            last_name: last_name,
+            country: country,
+            address: address,
+            address2: address2,
+            city: city,
+            province: province,
+            postalcode: postalcode,
+            // profile_picture: document.getElementById("profile-picure"),
+          };
+          const token = localStorage.getItem("authToken");
+
+          console.log("to be updated", formData);
+
+          try {
+            fetch(`${API_BASE_URL}updateinfo`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify(formData),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                const sucessAlert = document.createElement("div");
+                sucessAlert.classList.add("alert", "alert-success");
+                sucessAlert.textContent = "You Successfully Changed";
+
+                const successContainer =
+                  document.getElementById("successContainer4");
+                successContainer.innerHTML = "";
+                successContainer.appendChild(sucessAlert);
+
+                document.getElementById("loadingSpinner4").style.display = "none";
+                window.location.reload();
+
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                const errorAlert = document.createElement("div");
+                errorAlert.classList.add("alert", "alert-danger");
+                errorAlert.textContent = "Failed to Change!";
+
+                const errorContainer =
+                  document.getElementById("errorContainer4");
+                errorContainer.innerHTML = ""; // Clear previous errors
+                errorContainer.appendChild(errorAlert);
+
+                document.getElementById("loadingSpinner4").style.display = "none";
+
+              });
+          } catch (error) {
+            console.log("first");
+            document.getElementById("loadingSpinner4").style.display = "none";
+
+          } 
+        });
+      });
+
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("verificationForm");
         form.addEventListener("submit", function (event) {

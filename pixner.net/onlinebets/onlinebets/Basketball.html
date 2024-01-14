@@ -147,12 +147,20 @@
               </div>
             </div>
           </div>
-          <div class="mode--toggle">
+          <!-- <div class="mode--toggle">
             <img src="assets/img/sun.png" alt="" />
-          </div>
+          </div> -->
           <div class="signup-area" id="signupArea">
             <div id="profileSection" style="display: none">
               <div class="items">
+                <img
+                  class="mobile-hide"
+                  src="assets/img/quality.png"
+                  alt="User Avatar"
+                  width="35"
+                  height="35"
+                  style="border-radius: 50%; margin-right:10px;"
+                />
                 <a href="profile.html">
                   <img
                     href="profile.html"
@@ -842,6 +850,22 @@
                         <a href="#0" class="condition-box">
                           Terms & Conditions
                         </a>
+                        <div style="display: flex; margin-top: 5px;">
+                          <span
+                            style="
+                              margin-left: 5px;
+                              margin-right: 20px;
+                              padding: 3px;
+                            "
+                            >Theme</span
+                          >
+                          <div
+                            class="mode--toggle"
+                            style="display: block"
+                          ></div>
+
+                          <img src="assets/img/sun.png" alt="" />
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -940,8 +964,7 @@
               <h5>Sign into your account</h5>
               <p>
                 Don't have an account?
-                <a href="#0" id="signUpLink"
-                class="text-base">Sign up</a>
+                <a href="#0" id="signUpLink" class="text-base">Sign up</a>
               </p>
             </div>
           </div>
@@ -1033,8 +1056,7 @@
               <h5>Create New Account</h5>
               <p>
                 Already have an account?
-                <a href="#0"  id="loginLink"
-                class="text-base">Login</a>
+                <a href="#0" id="loginLink" class="text-base">Login</a>
               </p>
             </div>
           </div>
@@ -1136,13 +1158,16 @@
                     <span>Start Playing</span>
                   </button>
                 </div>
-                <div id="loadingSpinner">
+                <div id="loadingSpinner2">
                   <!-- Bootstrap spinner -->
                   <div class="spinner-border text-primary" role="status">
                     <span class="visually-hidden">Loading...</span>
                   </div>
                 </div>
               </form>
+              <!-- Add the successContainer and errorContainer divs below the form -->
+              <div id="successContainer2" class="mt-3"></div>
+              <div id="errorContainer2" class="mt-3"></div>
             </div>
           </div>
         </div>

@@ -516,6 +516,33 @@ const UserAPI = {
       $("#loadingSpinner").hide();
     }
   },
+
+  getVerificationDetails: async function (authToken) {
+    $("#loadingSpinner3").show();
+
+    try {
+      const response = await fetch(`${API_BASE_URL}profileinfo`, {
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch user details");
+      }
+
+      const result = await response.json();
+      return result.verification_details;
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      throw error;
+    } finally {
+      $("#loadingSpinner3").hide();
+    }
+  },
+
   uploadVerification: async function (verificationData) {
     // Implementation
   },
@@ -562,7 +589,11 @@ const UserAPI = {
         data: data,
         betAmount: betAmount,
       };
-      $("#loadingSpinner").show();
+      $("#loadingSpinner2").show();
+      const inLoading = document.getElementById("inLoading");
+      inLoading.classList.add('disabled-link');
+      inLoading.setAttribute('disabled', true);
+
 
       const response = await fetch(`${API_BASE_URL}placebet`, {
         method: "POST",
@@ -584,31 +615,64 @@ const UserAPI = {
       if (response.status === 200) {
         const result = await response.json();
 
-        console.log(result.message);
+        const successAlert = document.createElement("div");
+        successAlert.classList.add("alert", "alert-success");
+        successAlert.textContent = "Bet Placed Successfully";
+
+
+        const successContainer = document.getElementById("successPlace");
+        successContainer.innerHTML = ""; 
+        successContainer.appendChild(successAlert);
+
 
         localStorage.removeItem("eventsArray");
         localStorage.setItem("placedItem", JSON.stringify(data));
         localStorage.setItem("price", betAmount);
-        window.location.reload();
+        (function() {
+          setTimeout(function() {
+            window.location.reload(); 
+          }, 3000);
+        })();       
+        // window.location.reload();
       } else if (response.status === 401) {
         $("#exampleModal2").modal("show");
-        // $("#verificationModal").modal("show");
         const result = await response.json();
 
         console.log(result.message);
       } else if (response.status === 404) {
+        $("#exampleModal2").modal("show");
         const result = await response.json();
 
         console.log(result.message);
+      }else if (response.status === 400) {
+
+        const result = await response.json();
+        const errorAlert = document.createElement("div");
+        errorAlert.classList.add("alert", "alert-success");
+        errorAlert.textContent = result.message;
+
+        const errorContainer = document.getElementById("errorPlace");
+        errorContainer.innerHTML = ""; 
+        errorContainer.appendChild(errorAlert);
+
       } else {
-        console.log(" ");
+        const errorAlert = document.createElement("div");
+        errorAlert.classList.add("alert", "alert-success");
+        errorAlert.textContent = "Failed to Place Bet";
+
+        const errorContainer = document.getElementById("errorPlace");
+        errorContainer.innerHTML = ""; 
+        errorContainer.appendChild(errorAlert);      
       }
     } catch (error) {
       console.error("Error fetching user details:", error);
       throw error;
     } finally {
       // Hide loading spinner after receiving the response or encountering an error
-      $("#loadingSpinner").hide();
+      $("#loadingSpinner2").hide();
+      // const inLoading = document.getElementById("inLoading");
+      // inLoading.classList.remove('disabled-link');
+      // inLoading.setAttribute('disabled', false);
     }
   },
 
@@ -728,13 +792,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const loginButton = document.getElementById("loginButton");
   const signupButton = document.getElementById("signupButton");
   const signupArea = document.getElementById("signupArea");
+  const afterlogin = document.getElementById("afterlogin");
 
   function showProfile(username, avatarUrl) {
     profileSection.style.display = "block";
+    // profileSection1.style.display = "block";
     usernameElement.textContent = username;
     userAvatar.src = avatarUrl;
     loginButton.style.display = "none";
+    // loginButton1.style.display = "none";
     signupButton.style.display = "none";
+    // signupButton1.style.display = "none";
   }
 
   // Check if username and authToken exist in localStorage
@@ -754,8 +822,11 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
     profileSection.style.display = "none";
+    // profileSection1.style.display = "none";
     loginButton.style.display = "block";
+    // loginButton1.style.display = "block";
     signupButton.style.display = "block";
+    // signupButton1.style.display = "block";
   });
 
   // Redirect to the home page after successful login
