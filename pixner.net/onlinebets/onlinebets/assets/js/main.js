@@ -370,11 +370,15 @@ function setTheme(theme) {
 }
 
 // const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+// const API_STORAGE_URL = "http://backend.blackpoolbet.com/public/storage/app/"
+
 const API_BASE_URL = "http://localhost:8000/api/";
+const API_STORAGE_URL = "http://localhost:8000/public/storage/app/"
+
 
 const AuthAPI = {
   register: async function (userData) {
-    $("#loadingSpinner2").show();
+    $("#loadingSpinner5").show();
 
     try {
       const response = await fetch(`${API_BASE_URL}register`, {
@@ -423,7 +427,7 @@ const AuthAPI = {
       console.error("Network error or issue with fetch:", error);
       
     } finally {
-      $("#loadingSpinner2").hide();
+      $("#loadingSpinner5").hide();
     }
     // Implementation
   },
@@ -590,6 +594,7 @@ const UserAPI = {
         betAmount: betAmount,
       };
       $("#loadingSpinner2").show();
+      $("#loadingSpinnerMobile").show();
       const inLoading = document.getElementById("inLoading");
       inLoading.classList.add('disabled-link');
       inLoading.setAttribute('disabled', true);
@@ -623,6 +628,9 @@ const UserAPI = {
         const successContainer = document.getElementById("successPlace");
         successContainer.innerHTML = ""; 
         successContainer.appendChild(successAlert);
+        const successContainerMobile = document.getElementById("successPlaceMobile");
+        successContainerMobile.innerHTML = ""; 
+        successContainerMobile.appendChild(successAlert);
 
 
         localStorage.removeItem("eventsArray");
@@ -654,6 +662,9 @@ const UserAPI = {
         const errorContainer = document.getElementById("errorPlace");
         errorContainer.innerHTML = ""; 
         errorContainer.appendChild(errorAlert);
+        const errorContainerMobile = document.getElementById("errorPlaceMobile");
+        errorContainerMobile.innerHTML = ""; 
+        errorContainerMobile.appendChild(errorAlert);
 
       } else {
         const errorAlert = document.createElement("div");
@@ -662,7 +673,10 @@ const UserAPI = {
 
         const errorContainer = document.getElementById("errorPlace");
         errorContainer.innerHTML = ""; 
-        errorContainer.appendChild(errorAlert);      
+        errorContainer.appendChild(errorAlert); 
+        const errorContainerMobile = document.getElementById("errorPlaceMobile");
+        errorContainerMobile.innerHTML = ""; 
+        errorContainerMobile.appendChild(errorAlert);     
       }
     } catch (error) {
       console.error("Error fetching user details:", error);
@@ -670,6 +684,7 @@ const UserAPI = {
     } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner2").hide();
+      $("#loadingSpinnerMobile").hide();
       // const inLoading = document.getElementById("inLoading");
       // inLoading.classList.remove('disabled-link');
       // inLoading.setAttribute('disabled', false);
@@ -821,17 +836,22 @@ document.addEventListener("DOMContentLoaded", () => {
   logoutButton.addEventListener("click", () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
+    localStorage.removeItem("userData");
+    localStorage.removeItem("eventsArray");
     profileSection.style.display = "none";
     // profileSection1.style.display = "none";
     loginButton.style.display = "block";
     // loginButton1.style.display = "block";
     signupButton.style.display = "block";
     // signupButton1.style.display = "block";
+    window.location.reload();
   });
 
   // Redirect to the home page after successful login
   // window.location.href = '/home'; // Replace '/home' with the URL of your home page
 });
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const signUpLink = document.getElementById("signUpLink");
@@ -933,6 +953,140 @@ document
         });
     }
   });
+
+
+  $("#profile-tab03").on("click", function (event) {
+    $.ajax({
+      type: "get",
+      url: `${API_BASE_URL}wallets/getDefault`,
+      beforeSend: function(xhr) {
+          xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+      },
+      success: function (response) {
+        console.log(response)
+            $("#wallet-address").html(response.wallet[0].wallet_address)
+            $("#wallet-container").html(`<img src="${API_STORAGE_URL}${response.wallet[0].wallet_qr}" width="150px" height="150px"/>"`)
+      }
+    });
+});
+$("#Deposit-Button").on('click', function(event) {
+     $("#DepositSpinner").show()
+     $("form#depositForm").submit(function(e) {
+         e.preventDefault();
+         const token = localStorage.getItem("authToken");
+         var formData = new FormData(this);
+         $.ajax({
+             url:`${API_BASE_URL}deposit`,
+             type:"POST",
+             data:formData,
+             beforeSend: function(xhr) {
+                xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+              },
+             success: function (data) {
+                alert("Successfully Sent Deposit Request")
+                $("#amountField").val("")
+                $("#receiptImage").val("")
+                $("#DepositSpinner").hide()
+             },
+             statusCode: {
+                 500: function(xhr) {
+                    $('#DepositSpinner').hide()
+                    alert("Something went wrong")
+                 }
+             },
+             cache: false,
+             contentType:false,
+             processData:false
+         })
+     })
+})
+$("#Withdraw-Button").on('click', function(event) {
+$("#WithdrawSpinner").show()
+$("form#withdrawForm").submit(function(e) {
+    e.preventDefault();
+    const token = localStorage.getItem("authToken");
+    var formData = new FormData(this);
+    $.ajax({
+        url:`${API_BASE_URL}withdraw`,
+        type:"POST",
+        data:formData,
+        beforeSend: function(xhr) {
+           xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+         },
+        success: function (data) {
+           alert("Successfully Sent Withdraw Request")
+           $("#withdrawAmount").val("")
+           $("#withdrawAccount").val("")
+           $("#WithdrawSpinner").hide()
+        },
+        statusCode: {
+            500: function(xhr) {
+               $('#WithdrawSpinner').hide()
+               alert("Something went wrong")
+            }
+        },
+        processData: false,
+        cache:false,
+        contentType: false,
+    })
+})
+})
+$("#wallet-tab03").on('click', function(event){
+    const token = localStorage.getItem("authToken");
+    $.ajax({
+        type:"GET",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("Authorization", `Bearer ${token}`)
+        },
+        url: `${API_BASE_URL}history`,
+        success: function(response){
+          var transaction = response.transaction;
+                  //Important code starts here to populate table  
+          var tableHTML = "";
+            console.log(transaction)
+             for(let i = 0; i < transaction.length; i++)
+             {
+                   const dateObject = new Date(transaction[i].created_at)
+                   const options = { year: 'numeric', month: 'long', day: 'numeric'};
+                   const formattedDate = dateObject.toLocaleDateString('en-US', options);
+                   tableHTML += `<tr>
+                         <td>${transaction[i].amount} USDT</td>
+                         <td>${formattedDate}</td>
+                         <td>${transaction[i].status}</td>
+                         <td>${transaction[i].type}</td>
+                   </tr>`
+             }
+             $("#transactionTable").append(tableHTML)
+         }
+    })
+})
+document.getElementById("profile-tab03").onclick(async (event) => {
+console.log("tab joined")
+$("#loadingSpinner").show();
+try {
+  const authToken = localStorage.getItem("authToken");
+  const response = await fetch(`${API_BASE_URL}details`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${authToken}`, 
+    },
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Failed to fetch user details");
+  }
+
+  const result = await response.json();
+  document.getElementById("wallet-value").innerHTML += `<p>${result.success.balance} USDT</p>`;
+  $("#loadingSpinner").hide();
+  return result.success; 
+
+} catch (error) {
+  console.error("Error fetching user details:", error);
+  throw error;
+}
+})
 
 // Function to fetch data from the backend API
 async function fetchDataBySportType(sportType) {
