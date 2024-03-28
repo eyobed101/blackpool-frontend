@@ -381,13 +381,29 @@ const AuthAPI = {
     $("#loadingSpinner5").show();
 
     try {
-      const response = await fetch(`${API_BASE_URL}register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData),
-      });
+      var response = "";
+      var input = document.getElementById("agent-number-field");
+      console.log(input.value)
+      // Check if the value of the input is empty
+      if (input.value.trim() === "") {
+        response = await fetch(`${API_BASE_URL}register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+      } else {
+        // console.log(input.value)
+        response = await fetch(`${API_BASE_URL}${input.value}/user/register`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        });
+      }
+     
       
 
       if (!response.ok) {
