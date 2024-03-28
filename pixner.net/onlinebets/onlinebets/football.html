@@ -1410,39 +1410,94 @@
 
   <script>
     let eventsArray = [];
+    let teamNames = [];
     async function renderData(sportType, type, callback) {
       let backendData = await fetchDataBySportType(sportType);
 
       if (type === "football") {
-        console.log("all");
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "premairleague") {
         backendData = filterDataBySportKeys(backendData, "soccer_epl");
+        fetch("assets/img/epl.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
+
       } else if (type === "championsleague") {
         backendData = filterDataBySportKeys(
           backendData,
           "soccer_uefa_champs_league"
         );
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "laliga") {
         backendData = filterDataBySportKeys(
           backendData,
           "soccer_spain_la_liga"
         );
+        fetch("assets/img/laliga.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "seria-a") {
         backendData = filterDataBySportKeys(
           backendData,
           "soccer_brazil_campeonato"
         );
+        fetch("assets/img/seriaA.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "championship") {
         backendData = filterDataBySportKeys(backendData, "soccer_efl_champ");
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "bundesliga") {
         backendData = filterDataBySportKeys(
           backendData,
           "soccer_germany_bundesliga"
         );
+        fetch("assets/img/bundeliga.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else if (type === "facup") {
         backendData = filterDataBySportKeys(backendData, "soccer_fa_cup");
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       } else {
         console.log("all");
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+          })
+          .catch(error => console.error('Error fetching team names:', error));
       }
 
       function filterDataBySportKeys(data, keys) {
@@ -1453,7 +1508,7 @@
 
       const groupedGames = groupGamesByCommenceTime(backendData);
 
-      Object.entries(groupedGames).forEach(([commenceTime, games]) => {
+      Object.entries(groupedGames).forEach(([commenceTime, games]) =>  {
         const headerText = {
           live: "Live",
           today: "Today",
@@ -1642,6 +1697,11 @@
           const overStringifiedId = JSON.stringify(OverID);
           const underStringifiedId = JSON.stringify(UnderID);
 
+          // homeImg = estimateTeamName(Home.team);
+          // awayImg = estimateTeamName(Away.team);
+
+          // console.log("BBBBBBBBBBB", homeImg, awayImg);
+
           // Create your HTML structure dynamically using the backend data
           matchDiv.innerHTML = `
             <div class="table-wrap mb-3">
@@ -1666,14 +1726,18 @@
                     <li>
                       <a href="#0">
                         <span>${Home.team}</span>
+
                       </a>
+                      <img src="assets/img/teams/${Home.team}.png" alt="icon" width="20px" />
+
                       
                     </li>
                     <li>
                       <a href="#0" class="vs"> VS </a>
                     </li>
                     <li>
-                      
+                      <img src="assets/img/teams/${Away.team}.png" alt="icon" width="10px" />
+
                         <span>${Away.team}</span>
                       </a>
                     </li>
@@ -1694,14 +1758,14 @@
                       <a href="#0">
                         <span>${Home.team}</span>
                       </a>
-                      <img src="assets/img/clubs/football.png" alt="icon" />
+                      <img src="assets/img/teams/${Home.team}.png" alt="icon" width="20px" />
 
                     </li>
                     <li>
                       <a href="#0" class="vs"> VS </a>
                     </li>
                     <li>
-                      <img src="assets/img/clubs/football.png" alt="icon" />
+                      <img src="assets/img/teams/${Away.team}.png" alt="icon" width="20px" />
                       <a  href="#0">
                         <span>${Away.team}</span>
                       </a>
@@ -1839,6 +1903,35 @@
         });
       });
       callback();
+    }
+
+    async function estimateTeamName(imageFileName) {
+      console.log(imageFileName)
+      if (teamNames.length === 0) {
+        fetch("assets/img/soccer.json")
+          .then(response => response.json())
+          .then(data => {
+            teamNames = data;
+            for (const name of teamNames) {
+              const regex = new RegExp(name, 'i');
+              if (regex.test(imageFileName)) {
+                console.log(name, imageFileName)
+                return name;
+              }
+            }
+            return 'Unknown';
+
+          })
+          .catch(error => console.error('Error fetching team names:', error));
+      } else {
+        for (const name of teamNames) {
+          const regex = new RegExp(name, 'i');
+          if (regex.test(imageFileName)) {
+            return name;
+          }
+        }
+        return 'Unknown';
+      }
     }
 
     const bbetsDiv = document.querySelector("#bbets .combo-wrapper");
@@ -2467,7 +2560,7 @@
         depositButton2.style.display = "none";
         profilePage.style.display = "none";
         verificationTag.style.display = "none";
-        
+
         $(".menu--btn#logout-btn").hide();
 
       }
