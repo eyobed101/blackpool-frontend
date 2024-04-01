@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Mirrored from pixner.net/onlinebets/onlinebets/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:01:16 GMT -->
+<!-- Mirrored from pixner.net/Blackpoolbet/Blackpoolbet/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:01:16 GMT -->
 
 <head>
   <meta charset="UTF-8" />
@@ -121,7 +121,7 @@
             </a>
           </li>
           <li class="menu--btn" id="logout-btn">
-            <a href="#0" class="cmn--btn" id="logoutButton">
+            <a href="#0" class="cmn--btn">
               <span>Logout</span>
             </a>
           </li>
@@ -419,7 +419,7 @@
                 <div class="banner-content">
                   <h1>10% Live-betting Bonus</h1>
                   <h2>10% up to €150</h2>
-                  <a href="#0" class="cmn--btn" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                  <a id="registration" style="display: none; width: 40%; margin: 0 auto;" href="#0" class="cmn--btn" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <span>Registration</span>
                   </a>
                 </div>
@@ -7100,7 +7100,7 @@
             <div class="col-md-8 col-sm-6 col-12">
               <p class="copyright-text">
                 Copyright 2022
-                <a href="#0" class="text-base">OnlineBets</a> All Rights
+                <a href="#0" class="text-base">Blackpoolbet</a> All Rights
                 Reserved.
               </p>
             </div>
@@ -12357,6 +12357,7 @@
       const deposit = document.getElementById("depositButton");
       const depositButton2 = document.getElementById("depositButton2");
       const verificationTag = document.getElementById("verificationSign");
+      const registration = document.getElementById("registration");
 
 
 
@@ -12365,6 +12366,7 @@
         deposit.style.display = "block";
         depositButton2.style.display = "block";
         profilePage.style.display = "block";
+        registration.style.display = "none";
 
         $(".menu--btn#login-btn").hide();
         $(".menu--btn#signup-btn").hide();
@@ -12386,6 +12388,8 @@
         depositButton2.style.display = "none";
         profilePage.style.display = "none";
         verificationTag.style.display = "none";
+        registration.style.display = "block";
+
         $(".menu--btn#logout-btn").hide();
 
       }

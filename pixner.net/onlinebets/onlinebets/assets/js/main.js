@@ -369,11 +369,11 @@ function setTheme(theme) {
   }
 }
 
-// const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
-// const API_STORAGE_URL = "http://backend.blackpoolbet.com/public/storage/app/"
+const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+const API_STORAGE_URL = "http://backend.blackpoolbet.com/public/storage/app/"
 
-const API_BASE_URL = "http://localhost:8000/api/";
-const API_STORAGE_URL = "http://localhost:8000/public/storage/app/"
+// const API_BASE_URL = "http://localhost:8000/api/";
+// const API_STORAGE_URL = "http://localhost:8000/public/storage/app/"
 
 
 const AuthAPI = {
@@ -804,6 +804,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const usernameElement = document.getElementById("username");
   const userAvatar = document.getElementById("userAvatar");
   const logoutButton = document.getElementById("logoutButton");
+  const logoutButton2 = document.getElementById('logout-btn');
+
   const loginButton = document.getElementById("loginButton");
   const signupButton = document.getElementById("signupButton");
   const signupArea = document.getElementById("signupArea");
@@ -834,6 +836,19 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   logoutButton.addEventListener("click", () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("username");
+    localStorage.removeItem("userData");
+    localStorage.removeItem("eventsArray");
+    profileSection.style.display = "none";
+    // profileSection1.style.display = "none";
+    loginButton.style.display = "block";
+    // loginButton1.style.display = "block";
+    signupButton.style.display = "block";
+    // signupButton1.style.display = "block";
+    window.location.reload();
+  });
+  logoutButton2.addEventListener("click", () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
     localStorage.removeItem("userData");
@@ -1128,6 +1143,30 @@ async function fetchDataBySportType(sportType) {
     return [];
   }
 }
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const logoutButton = document.getElementById('logout-btn');
+//   console.log("first")
+  
+//   // Add click event listener to the logout button
+//   logoutButton.addEventListener('click', function(event) {
+//       event.preventDefault(); // Prevent default link behavior
+      
+//       localStorage.removeItem("authToken");
+//     localStorage.removeItem("username");
+//     localStorage.removeItem("userData");
+//     localStorage.removeItem("eventsArray");
+//     profileSection.style.display = "none";
+//     // profileSection1.style.display = "none";
+//     loginButton.style.display = "block";
+//     // loginButton1.style.display = "block";
+//     signupButton.style.display = "block";
+//     // signupButton1.style.display = "block";
+//     window.location.reload();
+//   });
+// });
+
+
 
 // JavaScript to move elements based on screen size
 // function moveElements() {

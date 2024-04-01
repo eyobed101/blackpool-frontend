@@ -3903,18 +3903,28 @@ tr:nth-child(even) {
 }
 
 .completed-bet {
-  font-weight: 700;
+  font-weight: 600;
   line-height: 37px;
   font-size: 31px;
   margin-bottom: 10px;
   margin-top: 50px;
 }
 .pending-bet {
-  font-weight: 700;
+  font-weight: 600;
   line-height: 37px;
   font-size: 31px;
   margin-bottom: 10px;
   margin-top: 50px;
+}
+
+@media (max-width: 768px) {
+  .completed-bet,
+  .pending-bet {
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 30px;
+    margin-bottom: 5px;
+  }
 }
 
 /* Styles for Processing Bet */
