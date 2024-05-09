@@ -3043,6 +3043,24 @@
         return groupedGames;
       }
     </script>
+    <script>
+
+      const token = localStorage.getItem("authToken");
+      
+      
+      async function fetchSettlement() {
+        try {
+          const response = await UserAPI.getSettlement(token);
+          
+        } catch (error) {
+          console.error("Error fetching data:", error);
+          // Handle the error as needed
+        }
+      }
+      
+      fetchSettlement();
+          
+      </script>
   </body>
 
   <!-- Mirrored from pixner.net/Blackpoolbet/Blackpoolbet/rugby.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:04:18 GMT -->

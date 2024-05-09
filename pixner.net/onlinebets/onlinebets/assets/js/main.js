@@ -369,11 +369,11 @@ function setTheme(theme) {
   }
 }
 
-// const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
-// const API_STORAGE_URL = "http://backend.blackpoolbet.com/public/storage/app/"
+const API_BASE_URL = "https://backend.blackpoolbet.com/api/";
+const API_STORAGE_URL = "http://backend.blackpoolbet.com/storage/app/"
 
-const API_BASE_URL = "http://127.0.0.1:8000/api/";
-const API_STORAGE_URL = "http://127.0.0.1:8000/storage/app/"
+// const API_BASE_URL = "http://127.0.0.1:8000/api/";
+// const API_STORAGE_URL = "http://127.0.0.1:8000/storage/app/"
 
 
 const AuthAPI = {
@@ -534,6 +534,30 @@ const UserAPI = {
     } finally {
       // Hide loading spinner after receiving the response or encountering an error
       $("#loadingSpinner").hide();
+    }
+  },
+  getSettlement: async function (authToken) {
+
+    try {
+      const response = await fetch(`${API_BASE_URL}settlement`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+          Accept: "application/json",
+         "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Failed to fetch user details");
+      }
+
+      const result = await response.json();
+      return result;
+    } catch (error) {
+      console.error("Error fetching user details:", error);
+      throw error;
     }
   },
 

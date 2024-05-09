@@ -151,12 +151,12 @@
 
         <div class="signup-area" id="signupArea">
           <div id="profileSection" style="display: none">
-            <div class="items">
-              <img id="verificationSign" style="display: none;" class="mobile-hide"  src="assets/img/quality.png" alt="User Avatar" width="35" height="35"
-                style="border-radius: 50%; margin-right: 10px" />
+            <div class="items" style="display: flex;">
+              <img id="verificationSign" style="display: none;" class="mobile-hide" src="assets/img/quality.png"
+                alt="User Avatar" width="35" height="35" style="border-radius: 50%; margin-right:10px;" />
               <a href="profile.html">
-                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="30"
-                  height="30" style="border-radius: 50%" /></a>
+                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="35"
+                  height="35" style="border-radius: 50%; margin-left: 10px;" /></a>
               <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
               <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                 <span>Log Out</span>
@@ -2148,6 +2148,22 @@
     }
 
     window.onload = () => {
+        const authToken = localStorage.getItem("authToken")
+        
+        if(authToken) {
+            async function getUserDetail() {
+            try {
+              const response = await UserAPI.getUserDetails(authToken);
+              
+              localStorage.setItem("userData", JSON.stringify(response));
+            } catch (error) {
+              console.error("Error fetching data:", error);
+              // Handle the error as needed
+            }
+          }
+          
+          getUserDetail();
+        }
       const urlParams = new URLSearchParams(window.location.search);
       const sportType = urlParams.get("sportType") || "football"; //
       const storedState = localStorage.getItem("eventsArray");
@@ -2222,6 +2238,50 @@
       });
     };
   </script>
+  <script>
+
+    const token = localStorage.getItem("authToken");
+    
+    
+    async function fetchSettlement() {
+      try {
+        const response = await UserAPI.getSettlement(token);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error as needed
+      }
+    }
+    
+    async function fetchScores(sportHeaderValue) {
+  try {
+    const response = await fetch(`${API_BASE_URL}scores`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "sport": sportHeaderValue
+      },
+    });
+
+    // Handle the response as needed
+    if (response.ok) {
+      const data = await response.json();
+      // Process the data here
+    } else {
+      throw new Error(`Failed to fetch scores: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error("Error fetching scores:", error);
+    // Handle the error as needed
+  }
+}
+
+// Example usage:
+fetchScores("football");
+    
+    fetchSettlement();
+        
+    </script>
 </body>
 
 <!-- Mirrored from pixner.net/Blackpoolbet/Blackpoolbet/americanfootball.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:04:45 GMT -->

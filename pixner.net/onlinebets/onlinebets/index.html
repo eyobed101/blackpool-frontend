@@ -159,12 +159,12 @@
                   </div> -->
         <div class="signup-area" id="signupArea">
           <div id="profileSection" style="display: none">
-            <div class="items">
+            <div class="items" style="display: flex;">
               <img id="verificationSign" style="display: none;" class="mobile-hide" src="assets/img/quality.png"
                 alt="User Avatar" width="35" height="35" style="border-radius: 50%; margin-right:10px;" />
               <a href="profile.html">
                 <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="35"
-                  height="35" style="border-radius: 50%" /></a>
+                  height="35" style="border-radius: 50%; margin-left: 10px;" /></a>
               <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
               <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                 <span>Log Out</span>
@@ -8091,7 +8091,7 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/italy.png"
+                                    src="assets/img/teams/${game.home_team}.png"
                                        alt="flag"
                                      />
                                    </div>
@@ -8136,7 +8136,7 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/scotland.png"
+                                     src="assets/img/teams/${game.away_team}.png"
                                        alt="flag"
                                      />
                                    </div>
@@ -8384,9 +8384,9 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/italy.png"
+                                     src="assets/img/teams/${game.home_team}.png"
                                        alt="flag"
-                                     />
+                                     onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"/>
                                    </div>
                                    <div class="number">
                                      <h3>65<span>%</span></h3>
@@ -8429,8 +8429,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/scotland.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.away_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8531,8 +8531,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/italy.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.home_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8576,8 +8576,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/scotland.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.away_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8676,8 +8676,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/italy.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.home_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8721,8 +8721,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/scotland.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.away_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8821,8 +8821,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/italy.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.home_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -8866,8 +8866,8 @@
                                  <div class="content-area">
                                    <div class="icon">
                                      <img
-                                       src="assets/img/table/scotland.png"
-                                       alt="flag"
+                                     src="assets/img/teams/${game.away_team}.png"
+                                       alt="flag" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"
                                      />
                                    </div>
                                    <div class="number">
@@ -9115,7 +9115,7 @@
                   <a href="#" class="left-compo">
                     <span>
                       <img src="assets/img/clubs/${item.sport_title
-          }.png" alt="icon" />
+          }.png" alt="icon" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"/>
                     </span>
                     <span class="sport-title">${item.sport_title}</span>
                     
@@ -9159,14 +9159,14 @@
                       <a href="#0">
                         <span>${Home.team}</span>
                       </a>
-                      <img src="assets/img/clubs/football.png" alt="icon" />
+                      <img src="assets/img/teams/${Home.team}.png" alt="icon" width="20px" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';" />
 
                     </li>
                     <li>
                       <a href="#0" class="vs"> VS </a>
                     </li>
                     <li>
-                      <img src="assets/img/clubs/football.png" alt="icon" />
+                      <img src="assets/img/teams/${Away.team}.png" alt="icon"  width="20px" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';"/>
                       <a  href="#0">
                         <span>${Away.team}</span>
                       </a>
@@ -12340,6 +12340,22 @@
 
 
     window.onload = () => {
+        const authToken = localStorage.getItem("authToken")
+        
+        if(authToken) {
+            async function getUserDetail() {
+            try {
+              const response = await UserAPI.getUserDetails(authToken);
+              
+              localStorage.setItem("userData", JSON.stringify(response));
+            } catch (error) {
+              console.error("Error fetching data:", error);
+              // Handle the error as needed
+            }
+          }
+          
+          getUserDetail();
+        }
       const urlParams = new URLSearchParams(window.location.search);
       //   const defaultSports = ["basketball", "football", "tennis", "cricket", "baseball"];
       const defaultSports = [
@@ -12520,6 +12536,56 @@ fetchBanner();
 
 
   </script>
+
+<script>
+
+const token = localStorage.getItem("authToken");
+
+
+async function fetchSettlement() {
+  try {
+    const response = await UserAPI.getSettlement(token);
+    
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    // Handle the error as needed
+  }
+}
+async function fetchScores(sportHeaderValue) {
+  try {
+    const response = await fetch(`${API_BASE_URL}scores`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "sport": sportHeaderValue
+      },
+    });
+
+    // Handle the response as needed
+    if (response.ok) {
+      const data = await response.json();
+      // Process the data here
+    } else {
+      throw new Error(`Failed to fetch scores: ${response.statusText}`);
+    }
+  } catch (error) {
+    console.error("Error fetching scores:", error);
+    // Handle the error as needed
+  }
+}
+
+// Example usage:
+fetchScores("soccer");
+fetchScores("football");
+fetchScores("baseball");
+fetchScores("cricket");
+fetchScores("bascketball");
+
+
+fetchSettlement();
+    
+</script>
+
 </body>
 
 </html>

@@ -154,12 +154,12 @@
           </div> -->
         <div class="signup-area" id="signupArea">
           <div id="profileSection" style="display: none">
-            <div class="items">
+            <div class="items" style="display: flex;">
               <img id="verificationSign" style="display: none;" class="mobile-hide" src="assets/img/quality.png"
-                alt="User Avatar" width="35" height="35" style="border-radius: 50%; margin-right: 10px" />
+                alt="User Avatar" width="35" height="35" style="border-radius: 50%; margin-right:10px;" />
               <a href="profile.html">
-                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="30"
-                  height="30" style="border-radius: 50%" /></a>
+                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="35"
+                  height="35" style="border-radius: 50%; margin-left: 10px;" /></a>
               <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
               <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                 <span>Log Out</span>
@@ -3017,10 +3017,8 @@
                     <div class="detail-progress-items">
                       <div class="bar1">
                         <div class="changchun">
-                          <img
-                            src="assets/img/table/details/changchun.png"
-                            alt="img"
-                          />
+                          <img src="assets/img/teams/${Home.team}.png" alt="icon" width="20px" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';" />
+
                         </div>
                       </div>
                       <p>${Home.team}</p>
@@ -3072,10 +3070,8 @@
                     <div class="detail-progress-items detail-last-items">
                       <div class="bar1">
                         <div class="changchun">
-                          <img
-                            src="assets/img/table/details/zall.png"
-                            alt="img"
-                          />
+                          <img src="assets/img/teams/${Away.team}.png" alt="icon" width="20px" onerror="this.onerror=null; this.src='assets/img/clubs/football.png';" />
+
                         </div>
                       </div>
                       <p>${Away.team}</p>
@@ -4129,6 +4125,24 @@
       placeBetButton.innerHTML = `<span> Place Bet $${formattedPossibleWin}</span>`;
     }
   </script>
+  <script>
+
+    const token = localStorage.getItem("authToken");
+    
+    
+    async function fetchSettlement() {
+      try {
+        const response = await UserAPI.getSettlement(token);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error as needed
+      }
+    }
+    
+    fetchSettlement();
+        
+    </script>
 </body>
 
 <!-- Mirrored from pixner.net/Blackpoolbet/Blackpoolbet/details.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:05:18 GMT -->

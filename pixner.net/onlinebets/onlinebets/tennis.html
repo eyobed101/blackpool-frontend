@@ -154,12 +154,12 @@
           </div> -->
         <div class="signup-area" id="signupArea">
           <div id="profileSection" style="display: none">
-            <div class="items">
+            <div class="items" style="display: flex;">
               <img id="verificationSign" style="display: none;" class="mobile-hide" src="assets/img/quality.png"
                 alt="User Avatar" width="35" height="35" style="border-radius: 50%; margin-right:10px;" />
               <a href="profile.html">
-                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="30"
-                  height="30" style="border-radius: 50%" /></a>
+                <img href="profile.html" id="userAvatar" src="assets/img/avater.png" alt="User Avatar" width="35"
+                  height="35" style="border-radius: 50%; margin-left: 10px;" /></a>
               <span class="mobile-hide" id="username" style="margin-right: 20px"></span>
               <button class="mobile-hide cmn--btn" id="logoutButton" class="cmn--btn">
                 <span>Log Out</span>
@@ -2249,6 +2249,24 @@
       });
     };
   </script>
+  <script>
+
+    const token = localStorage.getItem("authToken");
+    
+    
+    async function fetchSettlement() {
+      try {
+        const response = await UserAPI.getSettlement(token);
+        
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle the error as needed
+      }
+    }
+    
+    fetchSettlement();
+        
+    </script>
 </body>
 
 <!-- Mirrored from pixner.net/Blackpoolbet/Blackpoolbet/tennis.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 28 Sep 2023 08:03:32 GMT -->
